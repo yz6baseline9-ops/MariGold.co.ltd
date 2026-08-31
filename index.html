@@ -3,221 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marigold Life-Portal</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        marigold: {
-                            50: '#fffbeb',
-                            100: '#fef3c7',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                        }
-                    }
-                }
-            }
+    <title>MariGold Life-Platform / Portal</title>
+    <style>
+        :root {
+            --primary: #d97706;
+            --primary-dark: #b45309;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border: #e2e8f0;
         }
-    </script>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--card-bg);
+            min-height: 100vh;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+        .user-info {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        /* タブナビゲーション */
+        .nav-tabs {
+            display: flex;
+            background: #f1f5f9;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--text-sub);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: white;
+        }
+        .content-section {
+            display: none;
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 4px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-submit {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: auto;
+            text-align: center;
+        }
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+    </style>
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans antialiased">
+<body>
 
-    <div id="app" class="max-w-md mx-auto min-h-screen bg-white shadow-xl flex flex-col justify-between relative overflow-hidden">
-        
-        <!-- ヘッダー -->
-        <header class="bg-marigold-600 text-white p-4 sticky top-0 z-20 shadow-md flex justify-between items-center">
-            <div>
-                <span class="text-xs bg-marigold-700 px-2 py-0.5 rounded-full font-semibold uppercase tracking-wider">Marigold Portal</span>
-                <h1 class="text-base font-bold mt-1">現場記録・統合インターフェース</h1>
-            </div>
-            <div class="text-right">
-                <span class="text-xs block text-marigold-100">対象利用者</span>
-                <span class="text-sm font-bold">三宅 静子 様</span>
-            </div>
-        </header>
+<div class="container">
+    <!-- ヘッダー -->
+    <header>
+        <div>
+            <span class="badge">MARIGOLD PORTAL</span>
+        </div>
+        <div class="user-info">
+            対象利用者: 三宅 静子 様
+        </div>
+    </header>
 
-        <!-- メイン入力エリア -->
-        <main class="p-4 space-y-5 flex-1 overflow-y-auto pb-28">
-            
-            <!-- 1. バイタルデータセクション -->
-            <section class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="text-marigold-600 text-sm">🩺</span> バイタル・基本測定
-                    </h2>
-                    <span class="text-[10px] text-slate-400">手動入力モード</span>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="text-xs text-slate-500 block mb-1">体温 (°C)</label>
-                        <input type="number" id="v-temp" step="0.1" value="36.5" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-base font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-marigold-500">
-                    </div>
-                    <div>
-                        <label class="text-xs text-slate-500 block mb-1">脈拍 (bpm)</label>
-                        <input type="number" id="v-pulse" value="72" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-base font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-marigold-500">
-                    </div>
-                </div>
+    <!-- タブ切り替え -->
+    <div class="nav-tabs">
+        <div class="nav-tab active" onclick="switchTab('record')">現場・バイタル記録</div>
+        <div class="nav-tab" onclick="switchTab('denkar')">電子カルテ (Option)</div>
+    </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="text-xs text-slate-500 block mb-1">血圧 (収縮期 / 拡張期)</label>
-                        <div class="flex items-center gap-1">
-                            <input type="number" id="v-bp-high" value="128" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-base font-semibold text-slate-700 text-center focus:outline-none focus:ring-2 focus:ring-marigold-500">
-                            <span class="text-slate-400 font-bold">/</span>
-                            <input type="number" id="v-bp-low" value="78" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-base font-semibold text-slate-700 text-center focus:outline-none focus:ring-2 focus:ring-marigold-500">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="text-xs text-slate-500 block mb-1">SpO2 (%)</label>
-                        <input type="number" id="v-spo2" value="98" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl text-base font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-marigold-500">
-                    </div>
-                </div>
-            </section>
+    <!-- タブ1: 現場・バイタル記録 -->
+    <div id="record" class="content-section active">
+        <div class="section-title">
+            <span>バイタル・基本測定</span>
+            <span style="font-size: 11px; color: var(--primary);">手動入力モード</span>
+        </div>
 
-            <!-- 2. 医療的処置・看護チェックセクション -->
-            <section class="bg-amber-50/40 p-4 rounded-2xl border border-amber-200/60 shadow-sm space-y-3">
-                <h2 class="text-xs font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1.5">
-                    <span class="text-marigold-600 text-sm">💉</span> 医療的処置・看護記録
-                </h2>
-                
-                <div class="space-y-2">
-                    <label class="flex items-center gap-3 p-3 bg-white rounded-xl border border-amber-100 shadow-2xs cursor-pointer hover:bg-amber-50/50 transition">
-                        <input type="checkbox" id="m-care1" class="w-5 h-5 text-marigold-600 rounded border-slate-300 focus:ring-marigold-500">
-                        <span class="text-sm font-medium text-slate-700">経管栄養の実施・確認</span>
-                    </label>
-                    <label class="flex items-center gap-3 p-3 bg-white rounded-xl border border-amber-100 shadow-2xs cursor-pointer hover:bg-amber-50/50 transition">
-                        <input type="checkbox" id="m-care2" class="w-5 h-5 text-marigold-600 rounded border-slate-300 focus:ring-marigold-500">
-                        <span class="text-sm font-medium text-slate-700">ストーマ（パウチ）交換・消毒</span>
-                    </label>
-                    <label class="flex items-center gap-3 p-3 bg-white rounded-xl border border-amber-100 shadow-2xs cursor-pointer hover:bg-amber-50/50 transition">
-                        <input type="checkbox" id="m-care3" class="w-5 h-5 text-marigold-600 rounded border-slate-300 focus:ring-marigold-500">
-                        <span class="text-sm font-medium text-slate-700">褥瘡（床ずれ）の処置・状態確認</span>
-                    </label>
-                </div>
-            </section>
-
-            <!-- 3. メンタル・コンディション評価セクション -->
-            <section class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
-                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                    <span class="text-marigold-600 text-sm">😊</span> 本日のコンディション（3段階）
-                </h2>
-                
-                <div class="grid grid-cols-3 gap-2.5">
-                    <button type="button" onclick="setMental('happy')" id="btn-happy" class="mental-btn p-3 border-2 border-slate-200 rounded-xl text-center bg-white hover:border-emerald-400 transition flex flex-col items-center justify-center">
-                        <span class="text-2xl mb-1">😄</span>
-                        <span class="text-xs font-bold text-slate-600">ハッピー</span>
-                    </button>
-                    <button type="button" onclick="setMental('neutral')" id="btn-neutral" class="mental-btn p-3 border-2 border-marigold-500 rounded-xl text-center bg-marigold-50/60 transition flex flex-col items-center justify-center shadow-xs">
-                        <span class="text-2xl mb-1">😐</span>
-                        <span class="text-xs font-bold text-marigold-700">ニュートラル</span>
-                    </button>
-                    <button type="button" onclick="setMental('gloomy')" id="btn-gloomy" class="mental-btn p-3 border-2 border-slate-200 rounded-xl text-center bg-white hover:border-rose-400 transition flex flex-col items-center justify-center">
-                        <span class="text-2xl mb-1">😔</span>
-                        <span class="text-xs font-bold text-slate-600">ふさぎ込み</span>
-                    </button>
-                </div>
-            </section>
-
-            <!-- 4. 特記事項セクション -->
-            <section class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-sm space-y-3">
-                <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                    <span class="text-marigold-600 text-sm">✍️</span> 特記事項・現場の気づき
-                </h2>
-                <textarea id="note-text" rows="3" placeholder="いつもと違う様子、会話の内容、皮膚の異常や気になる兆候など..." class="w-full p-3 bg-white border border-slate-300 rounded-xl text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-marigold-500"></textarea>
-            </section>
-
-        </main>
-
-        <!-- フッター固定：アクションボタン -->
-        <footer class="p-4 bg-white/90 backdrop-blur-md border-t border-slate-200 fixed bottom-0 left-0 right-0 max-w-md mx-auto z-20 shadow-lg">
-            <button type="button" onclick="submitData()" class="w-full bg-marigold-600 hover:bg-marigold-700 active:scale-[0.99] text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-base">
-                <span>データを同期・マスターへ反映する</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </button>
-        </footer>
-
-        <!-- 送信完了モーダル（初期非表示） -->
-        <div id="success-modal" class="absolute inset-0 bg-slate-900/60 backdrop-blur-xs z-30 flex items-center justify-center p-6 hidden">
-            <div class="bg-white rounded-3xl p-6 w-full max-w-xs text-center space-y-4 shadow-2xl animate-in fade-in zoom-in duration-200">
-                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl font-bold">
-                    ✓
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-slate-800">同期が完了しました</h3>
-                    <p class="text-xs text-slate-500 mt-1">マスターデータへ記録され、ケアマネ・後見人向けのレポートデータが自動更新されました。</p>
-                </div>
-                <button onclick="closeModal()" class="w-full bg-slate-800 text-white font-bold py-2.5 rounded-xl text-sm">
-                    閉じる
-                </button>
+        <!-- 手動入力時の日時指定欄 -->
+        <div class="card" style="background: #fffbeb; border-color: #fde68a;">
+            <div class="form-group" style="margin-bottom: 0;">
+                <label for="measure-time" style="font-weight: bold; color: #b45309;">測定日時（タイムスタンプ）</label>
+                <input type="datetime-local" id="measure-time" class="form-control" style="background: white;">
             </div>
         </div>
 
+        <div class="card">
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>体温 (°C)</label>
+                    <input type="number" step="0.1" class="form-control" value="36.5">
+                </div>
+                <div class="form-group">
+                    <label>脈拍 (bpm)</label>
+                    <input type="number" class="form-control" value="72">
+                </div>
+            </div>
+            <div class="grid-2" style="margin-top: 12px;">
+                <div class="form-group">
+                    <label>血圧 (収縮期 / 拡張期)</label>
+                    <div style="display: flex; gap: 4px; align-items: center;">
+                        <input type="number" class="form-control" value="128">
+                        <span>/</span>
+                        <input type="number" class="form-control" value="78">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>SpO2 (%)</label>
+                    <input type="number" class="form-control" value="98">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">医療的処置・看護記録</div>
+        <div class="card">
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox"> 経管栄養の実施・確認
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> ストーマ (パウチ) 交換・消毒
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> 褥瘡 (床ずれ) の処置・状態確認
+                </label>
+            </div>
+        </div>
+
+        <button class="btn-submit" onclick="alert('データを同期・マスターへ反映しました。')">データを同期・マスターへ反映する →</button>
     </div>
 
-    <!-- インタラクション制御スクリプト -->
-    <script>
-        let currentMental = 'neutral';
+    <!-- タブ2: 電子カルテ (Option) -->
+    <div id="denkar" class="content-section">
+        <div class="section-title">
+            <span>簡易電子カルテ (Denkar Module)</span>
+            <span style="font-size: 11px; color: var(--primary);">医師・管理者用</span>
+        </div>
 
-        function setMental(status) {
-            currentMental = status;
-            document.querySelectorAll('.mental-btn').forEach(btn => {
-                btn.className = "mental-btn p-3 border-2 border-slate-200 rounded-xl text-center bg-white hover:border-slate-400 transition flex flex-col items-center justify-center";
-                const textSpan = btn.querySelector('span:last-child');
-                textSpan.className = "text-xs font-bold text-slate-600";
-            });
+        <div class="card">
+            <div class="form-group">
+                <label>疾患別標準コードセット選択</label>
+                <select class="form-control">
+                    <option>【一般・総合】基本生活・バイタル管理</option>
+                    <option>【循環器】高血圧・心疾患モニタリング</option>
+                    <option>【代謝内分泌】糖尿病管理セット (HbA1c等)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>本日の診察・問診所見</label>
+                <textarea class="form-control" rows="3" placeholder="主訴、ドクター所見、特記事項を入力..."></textarea>
+            </div>
+        </div>
 
-            const activeBtn = document.getElementById('btn-' + status);
-            if (status === 'happy') {
-                activeBtn.className = "mental-btn p-3 border-2 border-emerald-500 rounded-xl text-center bg-emerald-50/60 transition flex flex-col items-center justify-center shadow-xs";
-                activeBtn.querySelector('span:last-child').className = "text-xs font-bold text-emerald-700";
-            } else if (status === 'neutral') {
-                activeBtn.className = "mental-btn p-3 border-2 border-marigold-500 rounded-xl text-center bg-marigold-50/60 transition flex flex-col items-center justify-center shadow-xs";
-                activeBtn.querySelector('span:last-child').className = "text-xs font-bold text-marigold-700";
-            } else if (status === 'gloomy') {
-                activeBtn.className = "mental-btn p-3 border-2 border-rose-500 rounded-xl text-center bg-rose-50/60 transition flex flex-col items-center justify-center shadow-xs";
-                activeBtn.querySelector('span:last-child').className = "text-xs font-bold text-rose-700";
-            }
-        }
+        <div class="section-title">処方・薬剤管理</div>
+        <div class="card">
+            <div class="form-group">
+                <label>処方薬名・用量</label>
+                <input type="text" class="form-control" placeholder="例: メトホルミン塩酸塩錠 250mg">
+            </div>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>投与日数</label>
+                    <input type="number" class="form-control" value="30">
+                </div>
+                <div class="form-group">
+                    <label>薬局連携ステータス</label>
+                    <select class="form-control">
+                        <option>処方箋発行・未調剤</option>
+                        <option>調剤中 (薬局側)</option>
+                        <option>受取済み</option>
+                    </select>
+                </div>
+            </div>
+        </div>
 
-        function submitData() {
-            // ここで入力値の取得やバックエンドへの送信処理が行われます
-            const payload = {
-                targetId: "10823",
-                name: "三宅 静子",
-                timestamp: new Date().toISOString(),
-                vitals: {
-                    temp: document.getElementById('v-temp').value,
-                    pulse: document.getElementById('v-pulse').value,
-                    bpHigh: document.getElementById('v-bp-high').value,
-                    bpLow: document.getElementById('v-bp-low').value,
-                    spo2: document.getElementById('v-spo2').value
-                },
-                medicalCare: {
-                    tubeFeeding: document.getElementById('m-care1').checked,
-                    stoma: document.getElementById('m-care2').checked,
-                    pressureUlcer: document.getElementById('m-care3').checked
-                },
-                mental: currentMental,
-                note: document.getElementById('note-text').value
-            };
+        <button class="btn-submit" style="background-color: #334155;" onclick="alert('カルテ・処方データを保存しました。')">カルテを確定・保存する →</button>
+    </div>
 
-            console.log("マリーゴールドプラットフォーム送信データ:", payload);
+</div>
 
-            // 完了モーダルを表示
-            document.getElementById('success-modal').classList.remove('hidden');
-        }
+<script>
+    // タブ切り替えのスクリプト
+    function switchTab(tabId) {
+        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
 
-        function closeModal() {
-            document.getElementById('success-modal').classList.add('hidden');
-        }
-    </script>
+    // 自動で本日の日時を手動入力欄の初期値にセット
+    window.onload = function() {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        document.getElementById('measure-time').value = now.toISOString().slice(0,16);
+    };
+</script>
 
 </body>
 </html>
+
