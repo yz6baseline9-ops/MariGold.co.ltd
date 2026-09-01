@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マリーゴールド株式会社 - 統合業務・医療介護ポータル</title>
+  <style>
+    :root {
+      --primary-color: #1b5e20;
+      --secondary-color: #2e7d32;
+      --accent-color: #f57c00;
+      --bg-color: #f4f6f8;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --border-color: #e0e0e0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* ヘッダー */
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .btn-logout {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* メインレイアウト */
+    .container {
+      max-width: 1280px;
+      margin: 20px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid var(--bg-color);
+      padding-bottom: 8px;
+    }
+
+    /* 1. モジュール Grid */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .module-btn {
+      background: #fafafa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .module-btn:hover {
+      background: #e8f5e9;
+      border-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .module-icon { font-size: 1.8rem; }
+    .module-label { font-weight: bold; font-size: 0.9rem; }
+
+    /* アラートバッジ */
+    .news-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: white;
+    }
+    .badge-ai { background-color: #6a1b9a; }
+    .badge-important { background-color: #d32f2f; }
+    .badge-notice { background-color: var(--secondary-color); }
+
+    /* 勤怠時計 */
+    .clock-display {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 12px 0;
+      color: var(--primary-color);
+      font-family: monospace;
+    }
+    .clock-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .btn-clock { padding: 12px; border: none; border-radius: 6px; font-weight: bold; font-size: 1rem; cursor: pointer; color: white; }
+    .btn-in { background-color: #2e7d32; }
+    .btn-out { background-color: #c62828; }
+
+    /* 快活CLUBスタイル AI直通チャットウィジェット（常駐） */
+    .ai-chat-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 360px;
+      background: white;
+      border: 2px solid var(--secondary-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      z-index: 1000;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ai-chat-header {
+      background: var(--secondary-color);
+      color: white;
+      padding: 10px 16px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ai-context-tag {
+      background: rgba(255,255,255,0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+    }
+
+    .ai-chat-body {
+      height: 220px;
+      overflow-y: auto;
+      padding: 12px;
+      background: #fafafa;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-msg {
+      padding: 8px 12px;
+      border-radius: 8px;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+
+    .msg-system { background: #e8f5e9; align-self: flex-start; border: 1px solid #c8e6c9; }
+    .msg-user { background: #0288d1; color: white; align-self: flex-end; }
+
+    .ai-chat-input {
+      display: flex;
+      border-top: 1px solid var(--border-color);
+      padding: 8px;
+      background: white;
+    }
+
+    .ai-chat-input input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .ai-chat-input button {
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-logo">
+      🌼 マリーゴールド株式会社 統合プラットフォーム
+    </div>
+    <div class="header-user">
+      <span>👤 <strong>三宅 由三</strong>（代表取締役 / 防災士）</span>
+      <button class="btn-logout" onclick="alert('ログアウトしました')">ログアウト</button>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <div>
+      
+      <div class="card">
+        <h2 class="card-title">📢 全社アナウンス ＆ AIマスター自動巡回アラート</h2>
+        <div style="font-size: 0.9rem; line-height: 1.6;">
+          <div style="margin-bottom: 8px;">
+            <span class="news-badge badge-ai">AI自動検知</span> 
+            <strong>2026/09/02</strong> - 厚労省・MEDISマスター改定（JLAC10検査コード追加2件）を検知しました。
+            <button style="font-size: 0.75rem; padding: 2px 6px; cursor: pointer;" onclick="alert('JLAC10検査コードの改定を1タップ承認し、WORMデータベースへ反映しました。')">1タップ承認・反映</button>
+          </div>
+          <div>
+            <span class="news-badge badge-important">設立準備</span> 
+            <strong>2026/09/01</strong> - 創立費・開業費WORM立替精算モジュールおよび『人生の栞』マスターを公開しました。
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">🚀 業務・高度専門モジュール</h2>
+        <div class="module-grid">
+          
+          <div class="module-btn" onclick="alert('顧客基本マスター『人生の栞ノート』検索・閲覧画面を開きます')">
+            <span class="module-icon">🌸</span>
+            <span class="module-label">顧客マスター『人生の栞』</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('ドクター用 診察・シェーマ入力 ＆ 薬局リアルタイム在庫連動 処方画面を開きます')">
+            <span class="module-icon">🏥</span>
+            <span class="module-label">ドクター診療 ✕ 在庫連動処方</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('JLAC10対応 検査発注 ＆ 採血ラベルバーコード機器連携画面を開きます')">
+            <span class="module-icon">🧪</span>
+            <span class="module-label">JLAC10検査 ✕ ラベル機器連携</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('ケアマネジャー/MSW用 モニタリング自動生成 ＆ 給付管理照合画面を開きます')">
+            <span class="module-icon">📋</span>
+            <span class="module-label">ケアマネ モニタリング自動生成</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('買い物代行 金銭カメラ照合 ＆ 1分ログ確認画面を開きます')">
+            <span class="module-icon">📸</span>
+            <span class="module-label">買い物代行 金銭照合</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('創業費・開業費 立替精算（WORM保管）モジュールを開きます')">
+            <span class="module-icon">💳</span>
+            <span class="module-label">創立・開業費 立替精算</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      
+      <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);">
+        <h2 class="card-title">⏱️ 1分単位 勤怠リアル打刻</h2>
+        <div class="clock-display" id="realtime-clock">--:--:--</div>
+        <div class="clock-buttons">
+          <button class="btn-clock btn-in" onclick="recordClock('出勤')">出 勤</button>
+          <button class="btn-clock btn-out" onclick="recordClock('退勤')">退 勤</button>
+        </div>
+        <p style="font-size: 0.75rem; color: #555; text-align: center; margin-top: 8px;">
+          ※ 1分単位でWORMストレージへ不倒記録されます。
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">📋 本日の稼働・コンプライアンス</h2>
+        <div style="font-size: 0.85rem; line-height: 1.8;">
+          <div>・本日の訪問予定件数: <strong>12 件</strong></div>
+          <div>・連携薬局 アムロジピン在庫: <span style="color: green; font-weight: bold;">🟢 十分 (1,200錠)</span></div>
+          <div>・採血ラベル発行機 接続: <span style="color: green; font-weight: bold;">🟢 正常 (GLORY連動)</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="ai-chat-widget">
+    <div class="ai-chat-header">
+      <span>🤖 AIコンシェルジュ（直通）</span>
+      <span class="ai-context-tag">Context: 代表者ポータル</span>
+    </div>
+    <div class="ai-chat-body" id="chat-body">
+      <div class="chat-msg msg-system">
+        おはようございます、三宅様。FAQ検索は不要です。ご質問やご指示を直接入力してください。
+      </div>
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" id="chat-input" placeholder="例: 今月の創立費立替の合計は？" onkeypress="if(event.key==='Enter') sendChat()">
+      <button onclick="sendChat()">送信</button>
+    </div>
+  </div>
+
+  <script>
+    // 時計
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('realtime-clock').textContent = 
+        `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // 打刻
+    function recordClock(type) {
+      const now = new Date();
+      alert(`[1分単位 WORM打刻完了]\n種別: ${type}\n時刻: ${now.toLocaleString()}`);
+    }
+
+    // 快活CLUBスタイル AIチャット送信処理
+    function sendChat() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const body = document.getElementById('chat-body');
+      
+      // ユーザー発言
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-msg msg-user';
+      userMsg.textContent = text;
+      body.appendChild(userMsg);
+
+      input.value = '';
+
+      // AI即時応答（ダミー応答）
+      setTimeout(() => {
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'chat-msg msg-system';
+        aiMsg.textContent = `[AI回答] ご質問「${text}」を受信しました。「人生の栞」マスターおよびWORMデータベースから該当データを即座に引き出しました。`;
+        body.appendChild(aiMsg);
+        body.scrollTop = body.scrollHeight;
+      }, 500);
+
+      body.scrollTop = body.scrollHeight;
+    }
+  </script>
+</body>
+</html>
