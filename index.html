@@ -1,301 +1,388 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MariGold Life-Platform / Portal</title>
-    <style>
-        :root {
-            --primary: #d97706;
-            --primary-dark: #b45309;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-            --border: #e2e8f0;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 480px;
-            background-color: var(--card-bg);
-            min-height: 100vh;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-        }
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .badge {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-        }
-        .user-info {
-            font-size: 14px;
-            font-weight: 500;
-        }
-        /* タブナビゲーション */
-        .nav-tabs {
-            display: flex;
-            background: #f1f5f9;
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-tab {
-            flex: 1;
-            padding: 12px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: bold;
-            color: var(--text-sub);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-tab.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
-            background: white;
-        }
-        .content-section {
-            display: none;
-            padding: 20px;
-            flex: 1;
-            overflow-y: auto;
-        }
-        .content-section.active {
-            display: block;
-        }
-        .section-title {
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--text-sub);
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .form-group {
-            margin-bottom: 12px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            color: var(--text-sub);
-            margin-bottom: 4px;
-        }
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .btn-submit {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: auto;
-            text-align: center;
-        }
-        .btn-submit:hover {
-            background-color: var(--primary-dark);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マリーゴールド株式会社 - 統合業務ポータル</title>
+  <style>
+    :root {
+      --primary-color: #1b5e20; /* 深い緑：信頼とケア */
+      --secondary-color: #2e7d32;
+      --accent-color: #f57c00;  /* 重要アラート用オレンジ */
+      --bg-color: #f4f6f8;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --border-color: #e0e0e0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* ヘッダー */
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .btn-logout {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* メインレイアウト */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid var(--bg-color);
+      padding-bottom: 8px;
+    }
+
+    /* 1. 重要アナウンス */
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .news-item {
+      padding: 12px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: white;
+      width: fit-content;
+    }
+
+    .badge-important { background-color: #d32f2f; }
+    .badge-notice { background-color: var(--secondary-color); }
+    .badge-compliance { background-color: #0288d1; }
+
+    /* 2. モジュールショートカット Grid */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .module-btn {
+      background: #fafafa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .module-btn:hover {
+      background: #e8f5e9;
+      border-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .module-icon {
+      font-size: 2rem;
+    }
+
+    .module-label {
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    /* 3. 勤怠打刻カード */
+    .clock-card {
+      background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+      border: 1px solid #a5d6a7;
+    }
+
+    .clock-display {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: 12px 0;
+      color: var(--primary-color);
+      font-family: monospace;
+    }
+
+    .clock-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .btn-clock {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn-in { background-color: #2e7d32; }
+    .btn-out { background-color: #c62828; }
+
+    /* ステータスリスト */
+    .status-list {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    /* テロップフッター */
+    footer {
+      background: #333;
+      color: white;
+      padding: 10px 24px;
+      font-size: 0.85rem;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- ヘッダー -->
-    <header>
-        <div>
-            <span class="badge">MARIGOLD PORTAL</span>
-        </div>
-        <div class="user-info">
-            対象利用者: 三宅 静子 様
-        </div>
-    </header>
+  <!-- ヘッダーバー -->
+  <header>
+    <div class="header-logo">
+      🌼 マリーゴールド株式会社 統合ポータル
+    </div>
+    <div class="header-user">
+      <span>👤 <strong>三宅 由三</strong>（代表取締役）</span>
+      <button class="btn-logout" onclick="alert('ログアウトしました')">ログアウト</button>
+    </div>
+  </header>
 
-    <!-- タブ切り替え -->
-    <div class="nav-tabs">
-        <div class="nav-tab active" onclick="switchTab('record')">現場・バイタル記録</div>
-        <div class="nav-tab" onclick="switchTab('denkar')">電子カルテ (Option)</div>
+  <!-- メインコンテンツ -->
+  <div class="container">
+    
+    <!-- 左カラム：ニュース ＆ メイン機能 -->
+    <div>
+      
+      <!-- 1. 重要アナウンス・役職員ニュース -->
+      <div class="card">
+        <h2 class="card-title">📢 全社重要アナウンス・業務連絡</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <div><span class="news-badge badge-important">設立準備</span> <strong>2026/09/01</strong> - 設立登記・公証役場定款認証に向けた改訂スケジュールの共有</div>
+            <div style="font-size: 0.85rem; color: #666;">出資比率（三宅由三 1,000万 / 三宅静子 500万）の確定に伴い、山本司法書士への最終共有を完了しました。</div>
+          </li>
+          <li class="news-item">
+            <div><span class="news-badge badge-compliance">コンプライアンス</span> <strong>2026/09/01</strong> - 買い物代行時における現金の写真撮影・1分単位ログの運用開始について</div>
+            <div style="font-size: 0.85rem; color: #666;">金銭トラブル防止のため、FeliCaカードおよびトレー上の現金・レシート撮影を全スタッフ義務化します。</div>
+          </li>
+          <li class="news-item">
+            <div><span class="news-badge badge-notice">新機能</span> <strong>2026/09/01</strong> - 創業準備期「立替金・開業費精算モジュール」を公開しました</div>
+            <div style="font-size: 0.85rem; color: #666;">スマホから領収書を撮影し、WORMストレージへ即座に保管・精算処理が可能です。</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 2. 主要業務モジュール（ワンタップ起動） -->
+      <div class="card">
+        <h2 class="card-title">🚀 業務モジュール・ツール</h2>
+        <div class="module-grid">
+          
+          <div class="module-btn" onclick="alert('創業立替金・経費精算モジュールを開きます')">
+            <span class="module-icon">💳</span>
+            <span class="module-label">創立・開業費 立替精算</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('ドクター用 診察・処方・シェーマ入力画面を開きます')">
+            <span class="module-icon">🏥</span>
+            <span class="module-label">ドクター用 診療・処方</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('訪問看護・介護データ記録画面を開きます')">
+            <span class="module-icon">🩺</span>
+            <span class="module-label">訪問看護・介護記録</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('買い物代行 金銭カメラ照合画面を開きます')">
+            <span class="module-icon">📸</span>
+            <span class="module-label">買い物代行 金銭照合</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('国保連・医療介護報酬バッチ出力画面を開きます')">
+            <span class="module-icon">🧾</span>
+            <span class="module-label">国保連 レセプト出力</span>
+          </div>
+
+          <div class="module-btn" onclick="alert('J-SOX 内部監査ダッシュボードを開きます')">
+            <span class="module-icon">📊</span>
+            <span class="module-label">内部監査ダッシュボード</span>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
-    <!-- タブ1: 現場・バイタル記録 -->
-    <div id="record" class="content-section active">
-        <div class="section-title">
-            <span>バイタル・基本測定</span>
-            <span style="font-size: 11px; color: var(--primary);">手動入力モード</span>
+    <!-- 右カラム：1分単位勤怠打刻 ＆ リアルタイムステータス -->
+    <div>
+      
+      <!-- 3. 1分単位 タイムカード打刻（労基法24条 100%遵守） -->
+      <div class="card clock-card">
+        <h2 class="card-title">⏱️ 1分単位 勤怠リアル打刻</h2>
+        <div class="clock-display" id="realtime-clock">--:--:--</div>
+        <div class="clock-buttons">
+          <button class="btn-clock btn-in" onclick="recordClock('出勤')">出 勤</button>
+          <button class="btn-clock btn-out" onclick="recordClock('退勤')">退 勤</button>
         </div>
+        <p style="font-size: 0.75rem; color: #555; text-align: center; margin-top: 8px;">
+          ※ 15分丸め処理等の不当切り捨てを行わず、1分単位でWORMストレージへW記録されます。
+        </p>
+      </div>
 
-        <!-- 手動入力時の日時指定欄 -->
-        <div class="card" style="background: #fffbeb; border-color: #fde68a;">
-            <div class="form-group" style="margin-bottom: 0;">
-                <label for="measure-time" style="font-weight: bold; color: #b45309;">測定日時（タイムスタンプ）</label>
-                <input type="datetime-local" id="measure-time" class="form-control" style="background: white;">
-            </div>
+      <!-- 4. 当日の運行・安全ステータス -->
+      <div class="card">
+        <h2 class="card-title">📋 本日の運行・コンプライアンス</h2>
+        <div class="status-list">
+          <div class="status-item">
+            <span>本日の訪問予定件数:</span>
+            <strong>12 件</strong>
+          </div>
+          <div class="status-item">
+            <span>乗車前 アルコール点検:</span>
+            <span style="color: green; font-weight: bold;">済 (0.00mg)</span>
+          </div>
+          <div class="status-item">
+            <span>金銭授受 撮影完了率:</span>
+            <span style="color: green; font-weight: bold;">100 %</span>
+          </div>
+          <div class="status-item">
+            <span>未承認 タイムカード:</span>
+            <strong style="color: green;">0 件</strong>
+          </div>
         </div>
+      </div>
 
-        <div class="card">
-            <div class="grid-2">
-                <div class="form-group">
-                    <label>体温 (°C)</label>
-                    <input type="number" step="0.1" class="form-control" value="36.5">
-                </div>
-                <div class="form-group">
-                    <label>脈拍 (bpm)</label>
-                    <input type="number" class="form-control" value="72">
-                </div>
-            </div>
-            <div class="grid-2" style="margin-top: 12px;">
-                <div class="form-group">
-                    <label>血圧 (収縮期 / 拡張期)</label>
-                    <div style="display: flex; gap: 4px; align-items: center;">
-                        <input type="number" class="form-control" value="128">
-                        <span>/</span>
-                        <input type="number" class="form-control" value="78">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>SpO2 (%)</label>
-                    <input type="number" class="form-control" value="98">
-                </div>
-            </div>
-        </div>
+      <!-- 5. 防災・地域連携 -->
+      <div class="card" style="background-color: #fffde7; border-color: #fff59d;">
+        <h2 class="card-title" style="color: #f57f17;">🛡️ 防災・地域包括モニタリング</h2>
+        <p style="font-size: 0.85rem; margin: 0;">
+          <strong>岡山市・倉敷市エリア警報:</strong> 現在、気象警報は発表されていません。<br>
+          訪問時は熱中症対策・水分補給を徹底してください。
+        </p>
+      </div>
 
-        <div class="section-title">医療的処置・看護記録</div>
-        <div class="card">
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="checkbox"> 経管栄養の実施・確認
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> ストーマ (パウチ) 交換・消毒
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox"> 褥瘡 (床ずれ) の処置・状態確認
-                </label>
-            </div>
-        </div>
-
-        <button class="btn-submit" onclick="alert('データを同期・マスターへ反映しました。')">データを同期・マスターへ反映する →</button>
     </div>
 
-    <!-- タブ2: 電子カルテ (Option) -->
-    <div id="denkar" class="content-section">
-        <div class="section-title">
-            <span>簡易電子カルテ (Denkar Module)</span>
-            <span style="font-size: 11px; color: var(--primary);">医師・管理者用</span>
-        </div>
+  </div>
 
-        <div class="card">
-            <div class="form-group">
-                <label>疾患別標準コードセット選択</label>
-                <select class="form-control">
-                    <option>【一般・総合】基本生活・バイタル管理</option>
-                    <option>【循環器】高血圧・心疾患モニタリング</option>
-                    <option>【代謝内分泌】糖尿病管理セット (HbA1c等)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>本日の診察・問診所見</label>
-                <textarea class="form-control" rows="3" placeholder="主訴、ドクター所見、特記事項を入力..."></textarea>
-            </div>
-        </div>
+  <!-- フッター：リアルタイムテロップ -->
+  <footer>
+    <div>ℹ️ 【地域包括連携】民生委員・包括支援センター安否確認ステータス：正常</div>
+    <div>システム稼働状況: 🟢 AWS/GCP クラウド正常（WORM同期中）</div>
+  </footer>
 
-        <div class="section-title">処方・薬剤管理</div>
-        <div class="card">
-            <div class="form-group">
-                <label>処方薬名・用量</label>
-                <input type="text" class="form-control" placeholder="例: メトホルミン塩酸塩錠 250mg">
-            </div>
-            <div class="grid-2">
-                <div class="form-group">
-                    <label>投与日数</label>
-                    <input type="number" class="form-control" value="30">
-                </div>
-                <div class="form-group">
-                    <label>薬局連携ステータス</label>
-                    <select class="form-control">
-                        <option>処方箋発行・未調剤</option>
-                        <option>調剤中 (薬局側)</option>
-                        <option>受取済み</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <button class="btn-submit" style="background-color: #334155;" onclick="alert('カルテ・処方データを保存しました。')">カルテを確定・保存する →</button>
-    </div>
-
-</div>
-
-<script>
-    // タブ切り替えのスクリプト
-    function switchTab(tabId) {
-        document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-        document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-        
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+  <script>
+    // リアルタイム時計（1秒更新・1分単位厳格表示）
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('realtime-clock').textContent = `${hours}:${minutes}:${seconds}`;
     }
+    setInterval(updateClock, 1000);
+    updateClock();
 
-    // 自動で本日の日時を手動入力欄の初期値にセット
-    window.onload = function() {
-        const now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-        document.getElementById('measure-time').value = now.toISOString().slice(0,16);
-    };
-</script>
-
+    // 打刻処理
+    function recordClock(type) {
+      const now = new Date();
+      const timeStr = `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      alert(`[1分単位 WORM打刻完了]\n種別: ${type}\n時刻: ${timeStr}\n\n労働基準法第24条に基づき1分単位で改ざん不可ログが保持されました。`);
+    }
+  </script>
 </body>
 </html>
 
