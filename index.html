@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マリーゴールド株式会社 | 在宅医療・訪問看護・生活伴走コンシェルジュ</title>
+  <style>
+    :root {
+      --primary-green: #1b5e20;
+      --secondary-green: #2e7d32;
+      --marigold-gold: #f57c00;
+      --bg-light: #f9fbe7;
+      --text-color: #333333;
+      --white: #ffffff;
+    }
 
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-color);
+      line-height: 1.8;
+      background-color: #fafafa;
+    }
+
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--primary-green);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-nav-portal {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-shiori {
+      background-color: var(--secondary-green);
+      color: var(--white);
+    }
+
+    .btn-staff {
+      background-color: #424242;
+      color: var(--white);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #e8f5e9 0%, #fffde7 100%);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid #c8e6c9;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: var(--primary-green);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      color: #555;
+    }
+
+    .portal-route-container {
+      max-width: 900px;
+      margin: -30px auto 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      .portal-route-container {
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+      }
+    }
+
+    .route-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 30px 24px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 2px solid transparent;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .route-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .route-card.user {
+      border-color: var(--secondary-green);
+    }
+
+    .route-card.staff {
+      border-color: #616161;
+    }
+
+    .route-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .route-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .route-desc {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 20px;
+      min-height: 48px;
+    }
+
+    .btn-action {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 0;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      color: var(--white);
+      box-sizing: border-box;
+    }
+
+    .btn-user-action {
+      background-color: var(--secondary-green);
+    }
+
+    .btn-staff-action {
+      background-color: #424242;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      color: var(--primary-green);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--marigold-gold);
+      margin: 8px auto 0 auto;
+      border-radius: 2px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-item {
+      background: var(--white);
+      padding: 24px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .service-item h3 {
+      color: var(--primary-green);
+      margin-top: 0;
+    }
+
+    footer {
+      background: var(--primary-green);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #a5d6a7;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="nav-container">
+      <a href="./index.html" class="logo">
+        🌼 マリーゴールド株式会社
+      </a>
+      <div class="nav-links">
+        <a href="./jinsei_shiori.html" class="btn-nav-portal btn-shiori">🌸 ご利用・人生の栞</a>
+        <a href="./portal_index.html" class="btn-nav-portal btn-staff">🔒 役職員ログイン</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <h1>一途な尊厳と、安心の暮らしを。</h1>
+    <p>
+      医療・介護・地域連携をひとつに結び、1分単位の誠実なケアと「人生の栞」で、お一人おひとりの大切な日々に伴走します。
+    </p>
+  </section>
+
+  <!-- 2系統ポータル動線 -->
+  <div class="portal-route-container">
+    <div class="route-card user">
+      <div class="route-icon">🌸</div>
+      <div class="route-title">ご利用者様・ご家族の方</div>
+      <div class="route-desc">
+        会員ご登録および『人生の栞（顧客基本マスター）』のご入力・確認はこちらから行っていただけます。
+      </div>
+      <a href="./jinsei_shiori.html" class="btn-action btn-user-action">
+        会員登録 ＆『人生の栞』へ進む
+      </a>
+    </div>
+
+    <div class="route-card staff">
+      <div class="route-icon">🔒</div>
+      <div class="route-title">役職員・医療介護関係者</div>
+      <div class="route-desc">
+        ドクター・ナース・介護スタッフ・ケアマネジャー専用の統合業務ポータルログイン画面です。
+      </div>
+      <a href="./portal_index.html" class="btn-action btn-staff-action">
+        統合ポータル ログイン
+      </a>
+    </div>
+  </div>
+
+  <!-- 代表挨拶・創業理念セクション -->
+  <section class="section" style="background: #ffffff; padding: 40px 24px; border-radius: 12px; border: 1px solid #e0e0e0;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span style="color: var(--marigold-gold); font-weight: bold; font-size: 0.95rem; letter-spacing: 2px;">MISSION & VISION</span>
+      <h2 style="color: var(--primary-green); font-size: 1.8rem; margin-top: 6px;">人生の終盤を、妥協で満たしていませんか？</h2>
+      <p style="font-size: 1.05rem; color: #555; max-width: 800px; margin: 12px auto 0 auto;">
+        現役時代に築き上げた誇りと価値観にふさわしい、あなたとご家族のためのプレミアムな選択。
+      </p>
+    </div>
+
+    <div style="max-width: 850px; margin: 0 auto; line-height: 2.0; color: #333; font-size: 0.98rem;">
+      
+      <p>
+        地域の役に立ちたいと、この倉敷・岡山の地に開業いたしました。<br>
+        誰もが安心して笑顔で暮らしていただけるよう、人と人のつながり、笑顔のつながりを大切にしたいと考えています。お一人おひとりに合ったサービスを目標とし、自分らしく心豊かな余生・ライフを楽しんでいただけるよう、真心を込めた心温まる幅広いサービスを提供します。
+      </p>
+
+      <div style="background: #f9fbe7; border-left: 4px solid var(--secondary-green); padding: 20px; margin: 28px 0; border-radius: 0 8px 8px 0;">
+        <h3 style="margin: 0 0 10px 0; color: var(--primary-green); font-size: 1.15rem;">画一的な介護保険サービスへの疑問と、私たちが誓う妥協なき尊厳</h3>
+        <p style="margin: 0;">
+          いま、親御様が利用されている介護保険サービスに、心から満足されていますか？そして、ご自身の将来を迎えるとき、本当にその体制で納得できるでしょうか？<br>
+          「この人、何を言っているのか分からない」「何かを訴えているけれど、伝わらないからお手上げ状態だ」――介護の現場で耳にするこうした言葉の裏側には、ご本人の尊厳や、細やかなニュアンスさえも汲み取ってもらえないもどかしさが隠されています。片麻痺となった方の悔しそうな表情、そしてそれさえも十分に察しきれない現場の現実。私たちは、そこに決して妥協したくありません。
+        </p>
+      </div>
+
+      <p>
+        現役時代に人並み外れた努力で幸運や実績を勝ち得てこられたエグゼクティブな方、結婚を諦め仕事にその人生を捧げた方、人知れず血の滲むような努力を重ねて今の地位を築いた方。<br>
+        理想論を熟知する皆様だからこそ、平均以下の生活水準を前提とした一律の枠組みで処遇されることに、言いようのない疑問を感じていらっしゃるはずです。
+      </p>
+
+      <p>
+        脳梗塞や心疾患などのリスクは突然訪れます。後遺症を残さず、一刻も早い適切な医療的・リハビリ的処置を受けるための備えは万全でしょうか。<br>
+        私たちは、画一的な介護の枠を超え、あなたのステータスやこれまでの歩みにふさわしい「上質な自立型介護コンシェルジュ」として、最適な環境とサービスの設計をご提案します。
+      </p>
+
+      <p style="background: #fafafa; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-top: 24px;">
+        <strong>【若い世代・すべての挑戦者へ届ける一縷の望み】</strong><br>
+        社会への不安を抱え、「生きていくために仕方なく働いている」と感じている若い世代にとっても、「マリーゴールドという存在があるから、自分たちの将来もどうやら何とかなりそうだ」と一縷の望みを託せる、社会の確かな光となる存在を目指します。
+      </p>
+
+      <div style="margin-top: 36px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: right;">
+        <p style="font-size: 1.05rem; font-weight: bold; color: var(--primary-green); margin: 0;">
+          マリーゴールド株式会社
+        </p>
+        <p style="font-size: 1.1rem; font-weight: bold; margin: 6px 0 0 0; letter-spacing: 2px;">
+          三宅 静子 &nbsp;&nbsp;&nbsp; 三宅 由三
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 主な事業内容 -->
+  <section class="section">
+    <h2 class="section-title">マリーゴールドの主な取り組み</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <h3>🩺 訪問看護・医療連携</h3>
+        <p>ドクターや地域の医療機関とリアルタイムで連携し、安心・確実な訪問看護と処方・指示の迅速な共有を行います。</p>
+      </div>
+      <div class="service-item">
+        <h3>🤝 生活伴走・コンシェルジュ</h3>
+        <p>毎日の買い物代行から金銭の管理・見守りまで、1分単位の確実な記録とカメラ照合で不正や事故を防ぎます。</p>
+      </div>
+      <div class="service-item">
+        <h3>📖 顧客マスター『人生の栞』</h3>
+        <p>お一人おひとりの生活史、医療へのご希望、日常のこだわりを大切に保管し、全スタッフで真心を込めたケアを提供します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2026 Marigold Co., Ltd. All Rights Reserved.</p>
+    <p style="font-size: 0.8rem; opacity: 0.8;">
+      マリーゴールド株式会社 | 岡山県倉敷市<br>
+      <a href="./jinsei_shiori.html">会員登録・人生の栞</a> | <a href="./portal_index.html">役職員統合ポータル</a>
+    </p>
+  </footer>
+
+</body>
+</html>
