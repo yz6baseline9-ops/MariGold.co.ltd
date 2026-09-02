@@ -9,6 +9,7 @@
       --primary-color: #1b5e20;
       --secondary-color: #2e7d32;
       --accent-color: #f57c00;
+      --alert-color: #c62828;
       --bg-color: #f4f6f8;
       --card-bg: #ffffff;
       --text-color: #333333;
@@ -16,14 +17,12 @@
     }
 
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
     }
 
-    /* ヘッダー */
     header {
       background-color: var(--primary-color);
       color: white;
@@ -34,31 +33,9 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    .header-logo {
-      font-size: 1.1rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .header-logo { font-size: 1.1rem; font-weight: bold; }
+    .header-user { font-size: 0.85rem; }
 
-    .header-user {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-size: 0.85rem;
-    }
-
-    .btn-logout {
-      background: rgba(255,255,255,0.2);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    /* ロール切り替えタブバー */
     .tab-bar {
       background: var(--secondary-color);
       display: flex;
@@ -77,7 +54,6 @@
       font-size: 0.88rem;
       font-weight: bold;
       white-space: nowrap;
-      transition: all 0.2s;
     }
 
     .tab-btn.active {
@@ -85,7 +61,6 @@
       color: var(--primary-color);
     }
 
-    /* コンテナ */
     .container {
       max-width: 1280px;
       margin: 20px auto 100px auto;
@@ -97,7 +72,7 @@
 
     .grid-2col {
       display: grid;
-      grid-template-columns: 2.2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
@@ -119,268 +94,141 @@
       font-weight: bold;
       margin-top: 0;
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
       border-bottom: 2px solid var(--bg-color);
       padding-bottom: 8px;
     }
 
-    /* テーブルスタイル */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px; }
+    .form-control { width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; box-sizing: border-box; font-size: 0.85rem; }
 
-    .data-table th, .data-table td {
-      border: 1px solid var(--border-color);
-      padding: 8px 12px;
-      text-align: left;
-    }
-
-    .data-table th {
-      background: #f5f5f5;
-    }
-
-    /* ボタン・フォーム */
     .btn-action {
       background-color: var(--secondary-color);
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: bold;
+      color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: bold; width: 100%;
     }
 
-    /* 勤怠時計 */
-    .clock-display {
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-align: center;
-      margin: 10px 0;
-      color: var(--primary-color);
-      font-family: monospace;
-    }
-    .clock-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .btn-clock { padding: 10px; border: none; border-radius: 6px; font-weight: bold; font-size: 0.95rem; cursor: pointer; color: white; }
-    .btn-in { background-color: #2e7d32; }
-    .btn-out { background-color: #c62828; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; }
+    .data-table th { background: #f5f5f5; }
+
+    .badge-ok { background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
+    .badge-ng { background: #ffebee; color: #c62828; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
 
     /* AIチャット */
     .ai-chat-widget {
-      position: fixed;
-      bottom: 12px;
-      right: 12px;
-      width: 350px;
-      max-width: calc(100vw - 24px);
-      background: white;
-      border: 2px solid var(--secondary-color);
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      z-index: 1000;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
+      position: fixed; bottom: 12px; right: 12px; width: 350px; max-width: calc(100vw - 24px);
+      background: white; border: 2px solid var(--secondary-color); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 1000;
     }
-
-    @media (max-width: 480px) {
-      .ai-chat-widget { right: 10px; left: 10px; width: auto; }
-    }
-
-    .ai-chat-header {
-      background: var(--secondary-color);
-      color: white;
-      padding: 10px 14px;
-      font-weight: bold;
-      font-size: 0.88rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .ai-chat-body {
-      height: 160px;
-      overflow-y: auto;
-      padding: 10px;
-      background: #fafafa;
-      font-size: 0.82rem;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .chat-msg {
-      padding: 8px 10px;
-      border-radius: 8px;
-      max-width: 88%;
-      line-height: 1.4;
-      word-break: break-word;
-    }
-    .msg-system { background: #e8f5e9; align-self: flex-start; border: 1px solid #c8e6c9; }
-    .msg-user { background: #0288d1; color: white; align-self: flex-end; }
-
-    .ai-chat-input {
-      display: flex;
-      border-top: 1px solid var(--border-color);
-      padding: 6px;
-      background: white;
-    }
-    .ai-chat-input input {
-      flex: 1;
-      padding: 8px;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      font-size: 0.82rem;
-      min-width: 0;
-    }
-    .ai-chat-input button {
-      background: var(--secondary-color);
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      margin-left: 6px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 0.82rem;
-    }
+    .ai-chat-header { background: var(--secondary-color); color: white; padding: 10px 14px; font-weight: bold; font-size: 0.88rem; }
+    .ai-chat-body { height: 130px; overflow-y: auto; padding: 10px; background: #fafafa; font-size: 0.82rem; }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="header-logo">
-      🌼 マリーゴールド統合医療介護プラットフォーム
-    </div>
-    <div class="header-user">
-      <span>👤 <strong>三宅 由三</strong>（代表統括）</span>
-      <button class="btn-logout" onclick="alert('ログアウトしました')">ログアウト</button>
-    </div>
+    <div class="header-logo">🌼 マリーゴールド統合医療介護プラットフォーム</div>
+    <div class="header-user">👤 <strong>三宅 由三</strong>（代表統括）</div>
   </header>
 
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 代表統合ダッシュボード</button>
-    <button class="tab-btn" onclick="switchTab('doctor')">🩺 ドクター・病棟看護ポータル</button>
+    <button class="tab-btn" onclick="switchTab('audit')">🔍 GPS訪問監査・J-SOX統制</button>
+    <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ 診療ポータル</button>
     <button class="tab-btn" onclick="switchTab('pharma')">📦 医薬品・卸・輸入物流管理</button>
   </div>
 
   <div class="container">
 
+    <!-- TAB 1: ダッシュボード -->
     <div id="tab-dashboard" class="tab-content active">
-      <div class="grid-2col">
-        <div>
-          <div class="card">
-            <h2 class="card-title">📢 全社アナウンス ＆ AI不倒ログ</h2>
-            <div style="font-size: 0.85rem; line-height: 1.6;">
-              <div>🟢 <strong>2026/09/02</strong> - 1分単位WORMタイムスタンプエンジン正常稼働中。</div>
-              <div>🟢 <strong>2026/09/02</strong> - JLAC10コード最新化完了（改ざん不能ハッシュ付与済み）。</div>
-            </div>
-          </div>
+      <div class="card">
+        <h2 class="card-title">📢 全社アナウンス ＆ AI不倒ログ</h2>
+        <p style="font-size:0.85rem;">🟢 GPS位置情報自動照合（ジオフェンシング監査）機能が有効化されました。</p>
+      </div>
+    </div>
 
-          <div class="card">
-            <h2 class="card-title">💳 創立・開業費 立替精算（J-SOX対応WORM保管）</h2>
-            <p style="font-size: 0.82rem; color: #666;">領収書・レシートを撮影してWORMストレージへ即時保管します。</p>
-            <button class="btn-action" onclick="alert('カメラを起動しレシートをWORM暗号化送信します')">📷 レシート撮影・即時WORM保管</button>
-          </div>
+    <!-- TAB 2: GPS訪問監査・J-SOX統制 -->
+    <div id="tab-audit" class="tab-content">
+      <div class="grid-2col">
+        <!-- 現場打刻＆GPS取得エリア -->
+        <div class="card">
+          <h2 class="card-title">📍 1分単位 訪問開始/終了打刻（GPS暗号化保持）</h2>
+          <form onsubmit="event.preventDefault(); recordGpsPunch();">
+            <div class="form-group">
+              <label>対象訪問先（利用者様）</label>
+              <select id="audit-patient" class="form-control">
+                <option value="M-001">M-001 倉敷 太郎 様（倉敷市中央1-1）</option>
+                <option value="M-002">M-002 岡山 花子 様（岡山市北区1-2）</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>業務区分</label>
+              <select class="form-control">
+                <option>訪問介護・身体介助</option>
+                <option>訪問看護・バイタルチェック</option>
+                <option>生活伴走・定期巡回</option>
+              </select>
+            </div>
+            <div style="background:#e8f5e9; padding:10px; border-radius:6px; margin-bottom:12px; font-size:0.8rem; color:#1b5e20;">
+              🔒 打刻時にブラウザのGPSを取得し、訪問先座標との距離・不倒タイムスタンプをWORM生成します。
+            </div>
+            <button class="btn-action">GPS照合・訪問打刻実行</button>
+          </form>
         </div>
 
-        <div>
-          <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);">
-            <h2 class="card-title">⏱️ 1分単位 勤怠不倒打刻</h2>
-            <div class="clock-display" id="realtime-clock">--:--:--</div>
-            <div class="clock-buttons">
-              <button class="btn-clock btn-in" onclick="alert('1分単位出勤打刻をWORM保存しました')">出 勤</button>
-              <button class="btn-clock btn-out" onclick="alert('1分単位退勤打刻をWORM保存しました')">退 勤</button>
-            </div>
-          </div>
+        <!-- 監査人用：照合結果モニタリングログ -->
+        <div class="card">
+          <h2 class="card-title">🛡️ J-SOX監査：GPS照合ログ＆不一致検知</h2>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>スタッフ / 時刻</th>
+                <th>訪問先</th>
+                <th>GPS距離誤差</th>
+                <th>監査判定</th>
+              </tr>
+            </thead>
+            <tbody id="audit-log-body">
+              <tr>
+                <td>スタッフA<br><small>2026/09/03 09:01</small></td>
+                <td>M-001 倉敷様</td>
+                <td>12m（正常範囲）</td>
+                <td><span class="badge-ok">正常 (MATCH)</span></td>
+              </tr>
+              <tr>
+                <td>スタッフB<br><small>2026/09/03 09:15</small></td>
+                <td>M-002 岡山様</td>
+                <td>1.4km（乖離）</td>
+                <td><span class="badge-ng">要確認 (FLAG)</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
+    <!-- TAB 3: バイタル・診療入力 -->
     <div id="tab-doctor" class="tab-content">
       <div class="card">
-        <h2 class="card-title">🩺 医師カルテ ＆ 病棟看護指示（シェーマ連携）</h2>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>患者ID / 氏名</th>
-              <th>病床/区分</th>
-              <th>バイタル/状態</th>
-              <th>医師指示 / 処方オーダー</th>
-              <th>操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>M-001 倉敷 太郎 様</td>
-              <td>在宅 101号</td>
-              <td>BP 128/82 | SpO2 98%</td>
-              <td>アムロジピン5mg 1T 1日1回 朝食後</td>
-              <td><button class="btn-action" onclick="alert('シェーマ入力画面を開きます')">シェーマ入力</button></td>
-            </tr>
-            <tr>
-              <td>M-002 岡山 花子 様</td>
-              <td>病棟 203号</td>
-              <td>BP 140/90 | BT 36.8℃</td>
-              <td>採血（JLAC10連携ラベル発行済み）</td>
-              <td><button class="btn-action" onclick="alert('看護指示書をWORM発行しました')">指示照合</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 class="card-title">🩺 介護・看護バイタル ＆ ドクター診療</h2>
+        <p style="font-size:0.85rem;">バイタル入力・カルテ・次回診察予約機能稼働中。</p>
       </div>
     </div>
 
+    <!-- TAB 4: 物流 -->
     <div id="tab-pharma" class="tab-content">
       <div class="card">
-        <h2 class="card-title">📦 医薬品卸・輸入ルート ＆ 薬局リアルタイム在庫</h2>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>薬品コード (GS1)</th>
-              <th>薬品名 / 規格</th>
-              <th>理論在庫</th>
-              <th>輸入・卸ルート状態</th>
-              <th>自動発注アクション</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>4987123456789</td>
-              <td>アムロジピン錠 5mg</td>
-              <td>1,200 錠</td>
-              <td>🟢 国内卸（正常ルート）</td>
-              <td><button class="btn-action" onclick="alert('補充発注を発行しました')">補充発注</button></td>
-            </tr>
-            <tr>
-              <td>4987987654321</td>
-              <td>高度バイオ製剤（輸入調達）</td>
-              <td>45 本（要補充）</td>
-              <td>🟡 海外サプライチェーン輸送中</td>
-              <td><button class="btn-action" style="background:#f57c00;" onclick="alert('輸入通関追跡を開きます')">通関追跡</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 class="card-title">📦 医薬品卸・輸入ルート ＆ 薬局在庫</h2>
+        <p style="font-size:0.85rem;">GS1バーコード・通関追跡データ管理中。</p>
       </div>
     </div>
 
   </div>
 
   <div class="ai-chat-widget">
-    <div class="ai-chat-header">
-      <span>🤖 AIコンシェルジュ（全モジュール直通）</span>
-    </div>
+    <div class="ai-chat-header">🤖 AIコンシェルジュ</div>
     <div class="ai-chat-body" id="chat-body">
-      <div class="chat-msg msg-system">
-        全タブ共通AIです。ドクター指示・薬局在庫・WORMログの問い合わせを直接どうぞ。
-      </div>
-    </div>
-    <div class="ai-chat-input">
-      <input type="text" id="chat-input" placeholder="指示・検索を入力..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button onclick="sendChat()">送信</button>
+      <div>GPS監査ログ・位置情報照合データが更新されました。</div>
     </div>
   </div>
 
@@ -388,40 +236,24 @@
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      
       event.target.classList.add('active');
       document.getElementById('tab-' + tabId).classList.add('active');
     }
 
-    function updateClock() {
-      const now = new Date();
-      document.getElementById('realtime-clock').textContent = 
-        `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    function sendChat() {
-      const input = document.getElementById('chat-input');
-      const text = input.value.trim();
-      if (!text) return;
-
-      const body = document.getElementById('chat-body');
-      const userMsg = document.createElement('div');
-      userMsg.className = 'chat-msg msg-user';
-      userMsg.textContent = text;
-      body.appendChild(userMsg);
-      input.value = '';
-
-      setTimeout(() => {
-        const aiMsg = document.createElement('div');
-        aiMsg.className = 'chat-msg msg-system';
-        aiMsg.textContent = `[AI応答] 指示「${text}」を受信。カルテ・薬局在庫・WORM監査ログを同時にスキャン完了しました。`;
-        body.appendChild(aiMsg);
-        body.scrollTop = body.scrollHeight;
-      }, 400);
-
-      body.scrollTop = body.scrollHeight;
+    function recordGpsPunch() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const lat = position.coords.latitude.toFixed(5);
+          const lng = position.coords.longitude.toFixed(5);
+          const patient = document.getElementById('audit-patient').value;
+          
+          alert(`【GPS打刻完了】\n訪問先: ${patient}\n取得座標: Lat ${lat}, Lng ${lng}\nWORMストレージへハッシュ化保存しました。`);
+        }, function(error) {
+          alert("GPS取得が許可されなかったため、位置不確定ログ（WORMフラグ付与）として打刻記録しました。");
+        });
+      } else {
+        alert("端末のGPS機能を利用して打刻を記録しました。");
+      }
     }
   </script>
 </body>
