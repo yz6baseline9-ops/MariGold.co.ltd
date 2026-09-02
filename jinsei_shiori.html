@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マリーゴールド株式会社 - ご利用・『人生の栞ノート』会員登録</title>
+  <style>
+    :root {
+      --primary-color: #2e7d32;
+      --accent-color: #f57c00;
+      --bg-color: #f9fbe7;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --border-color: #c8e6c9;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1b5e20;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      margin-top: 0;
+      border-bottom: 2px solid var(--bg-color);
+      padding-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    .btn-submit {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" class="header-logo">
+      🌸 マリーゴールド株式会社 | 会員・人生の栞ポータル
+    </a>
+    <a href="./index.html" style="color: white; text-decoration: none; font-size: 0.9rem;">← トップページへ戻る</a>
+  </header>
+
+  <div class="container">
+    
+    <div class="card">
+      <h1>🌸 会員ご登録 ＆ 『人生の栞』エントリー</h1>
+      <p>
+        マリーゴールドへのお申込み・ご相談ありがとうございます。<br>
+        お一人おひとりの尊厳と大切な思いを一生涯お守りするため、基本情報および『人生の栞（顧客基本マスター）』のご登録をお受けいたします。
+      </p>
+
+      <form onsubmit="event.preventDefault(); alert('ご登録・お問い合わせありがとうございます。担当者より迅速にご連絡いたします。');">
+        
+        <div class="form-group">
+          <label>お名前（ご本人様）</label>
+          <input type="text" placeholder="例：倉敷 太郎" required>
+        </div>
+
+        <div class="form-group">
+          <label>ご連絡先（お電話番号）</label>
+          <input type="tel" placeholder="例：086-xxx-xxxx" required>
+        </div>
+
+        <div class="form-group">
+          <label>ご希望の登録・伴走スタイル</label>
+          <div class="radio-group">
+            <label><input type="radio" name="style" checked> WEBからの直接入力</label>
+            <label><input type="radio" name="style"> 紙の冊子送付 ＋ スタッフ伴走代筆</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>ご相談内容・メッセージ（任意）</label>
+          <textarea rows="4" placeholder="現在の状況や、気になることなどご自由にご記入ください。"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">上記内容で登録・相談を進める</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>
