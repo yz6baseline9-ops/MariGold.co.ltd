@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>マリーゴールド株式会社 - 統合業務・医療介護ポータル</title>
+  <title>マリーゴールド株式会社 - 医療・介護・物流統合ポータル</title>
   <style>
     :root {
       --primary-color: #1b5e20;
@@ -35,7 +35,7 @@
     }
 
     .header-logo {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -46,7 +46,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .btn-logout {
@@ -58,18 +58,51 @@
       cursor: pointer;
     }
 
-    /* メインレイアウト */
+    /* ロール切り替えタブバー */
+    .tab-bar {
+      background: var(--secondary-color);
+      display: flex;
+      gap: 4px;
+      padding: 6px 16px 0 16px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: rgba(255,255,255,0.15);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--bg-color);
+      color: var(--primary-color);
+    }
+
+    /* コンテナ */
     .container {
       max-width: 1280px;
-      margin: 20px auto;
+      margin: 20px auto 100px auto;
       padding: 0 16px;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .grid-2col {
       display: grid;
       grid-template-columns: 2.2fr 1fr;
       gap: 20px;
     }
 
     @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
+      .grid-2col { grid-template-columns: 1fr; }
     }
 
     .card {
@@ -82,7 +115,7 @@
     }
 
     .card-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: bold;
       margin-top: 0;
       margin-bottom: 16px;
@@ -93,135 +126,117 @@
       padding-bottom: 8px;
     }
 
-    /* 1. モジュール Grid */
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
+    /* テーブルスタイル */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
     }
 
-    .module-btn {
-      background: #fafafa;
+    .data-table th, .data-table td {
       border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 16px 12px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      color: var(--text-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+      padding: 8px 12px;
+      text-align: left;
     }
 
-    .module-btn:hover {
-      background: #e8f5e9;
-      border-color: var(--secondary-color);
-      transform: translateY(-2px);
+    .data-table th {
+      background: #f5f5f5;
     }
 
-    .module-icon { font-size: 1.8rem; }
-    .module-label { font-weight: bold; font-size: 0.9rem; }
-
-    /* アラートバッジ */
-    .news-badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: bold;
+    /* ボタン・フォーム */
+    .btn-action {
+      background-color: var(--secondary-color);
       color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: bold;
     }
-    .badge-ai { background-color: #6a1b9a; }
-    .badge-important { background-color: #d32f2f; }
-    .badge-notice { background-color: var(--secondary-color); }
 
     /* 勤怠時計 */
     .clock-display {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: bold;
       text-align: center;
-      margin: 12px 0;
+      margin: 10px 0;
       color: var(--primary-color);
       font-family: monospace;
     }
-    .clock-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .btn-clock { padding: 12px; border: none; border-radius: 6px; font-weight: bold; font-size: 1rem; cursor: pointer; color: white; }
+    .clock-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-clock { padding: 10px; border: none; border-radius: 6px; font-weight: bold; font-size: 0.95rem; cursor: pointer; color: white; }
     .btn-in { background-color: #2e7d32; }
     .btn-out { background-color: #c62828; }
 
-    /* 快活CLUBスタイル AI直通チャットウィジェット（常駐） */
+    /* AIチャット */
     .ai-chat-widget {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 360px;
+      bottom: 12px;
+      right: 12px;
+      width: 350px;
+      max-width: calc(100vw - 24px);
       background: white;
       border: 2px solid var(--secondary-color);
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       z-index: 1000;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 480px) {
+      .ai-chat-widget { right: 10px; left: 10px; width: auto; }
     }
 
     .ai-chat-header {
       background: var(--secondary-color);
       color: white;
-      padding: 10px 16px;
+      padding: 10px 14px;
       font-weight: bold;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .ai-context-tag {
-      background: rgba(255,255,255,0.2);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-    }
-
     .ai-chat-body {
-      height: 220px;
+      height: 160px;
       overflow-y: auto;
-      padding: 12px;
+      padding: 10px;
       background: #fafafa;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .chat-msg {
-      padding: 8px 12px;
+      padding: 8px 10px;
       border-radius: 8px;
-      max-width: 85%;
+      max-width: 88%;
       line-height: 1.4;
+      word-break: break-word;
     }
-
     .msg-system { background: #e8f5e9; align-self: flex-start; border: 1px solid #c8e6c9; }
     .msg-user { background: #0288d1; color: white; align-self: flex-end; }
 
     .ai-chat-input {
       display: flex;
       border-top: 1px solid var(--border-color);
-      padding: 8px;
+      padding: 6px;
       background: white;
     }
-
     .ai-chat-input input {
       flex: 1;
       padding: 8px;
       border: 1px solid var(--border-color);
       border-radius: 4px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
+      min-width: 0;
     }
-
     .ai-chat-input button {
       background: var(--secondary-color);
       color: white;
@@ -231,6 +246,7 @@
       border-radius: 4px;
       cursor: pointer;
       font-weight: bold;
+      font-size: 0.82rem;
     }
   </style>
 </head>
@@ -238,117 +254,145 @@
 
   <header>
     <div class="header-logo">
-      🌼 マリーゴールド株式会社 統合プラットフォーム
+      🌼 マリーゴールド統合医療介護プラットフォーム
     </div>
     <div class="header-user">
-      <span>👤 <strong>三宅 由三</strong>（代表取締役 / 防災士）</span>
+      <span>👤 <strong>三宅 由三</strong>（代表統括）</span>
       <button class="btn-logout" onclick="alert('ログアウトしました')">ログアウト</button>
     </div>
   </header>
 
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 代表統合ダッシュボード</button>
+    <button class="tab-btn" onclick="switchTab('doctor')">🩺 ドクター・病棟看護ポータル</button>
+    <button class="tab-btn" onclick="switchTab('pharma')">📦 医薬品・卸・輸入物流管理</button>
+  </div>
+
   <div class="container">
-    
-    <div>
-      
-      <div class="card">
-        <h2 class="card-title">📢 全社アナウンス ＆ AIマスター自動巡回アラート</h2>
-        <div style="font-size: 0.9rem; line-height: 1.6;">
-          <div style="margin-bottom: 8px;">
-            <span class="news-badge badge-ai">AI自動検知</span> 
-            <strong>2026/09/02</strong> - 厚労省・MEDISマスター改定（JLAC10検査コード追加2件）を検知しました。
-            <button style="font-size: 0.75rem; padding: 2px 6px; cursor: pointer;" onclick="alert('JLAC10検査コードの改定を1タップ承認し、WORMデータベースへ反映しました。')">1タップ承認・反映</button>
+
+    <div id="tab-dashboard" class="tab-content active">
+      <div class="grid-2col">
+        <div>
+          <div class="card">
+            <h2 class="card-title">📢 全社アナウンス ＆ AI不倒ログ</h2>
+            <div style="font-size: 0.85rem; line-height: 1.6;">
+              <div>🟢 <strong>2026/09/02</strong> - 1分単位WORMタイムスタンプエンジン正常稼働中。</div>
+              <div>🟢 <strong>2026/09/02</strong> - JLAC10コード最新化完了（改ざん不能ハッシュ付与済み）。</div>
+            </div>
           </div>
-          <div>
-            <span class="news-badge badge-important">設立準備</span> 
-            <strong>2026/09/01</strong> - 創立費・開業費WORM立替精算モジュールおよび『人生の栞』マスターを公開しました。
+
+          <div class="card">
+            <h2 class="card-title">💳 創立・開業費 立替精算（J-SOX対応WORM保管）</h2>
+            <p style="font-size: 0.82rem; color: #666;">領収書・レシートを撮影してWORMストレージへ即時保管します。</p>
+            <button class="btn-action" onclick="alert('カメラを起動しレシートをWORM暗号化送信します')">📷 レシート撮影・即時WORM保管</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);">
+            <h2 class="card-title">⏱️ 1分単位 勤怠不倒打刻</h2>
+            <div class="clock-display" id="realtime-clock">--:--:--</div>
+            <div class="clock-buttons">
+              <button class="btn-clock btn-in" onclick="alert('1分単位出勤打刻をWORM保存しました')">出 勤</button>
+              <button class="btn-clock btn-out" onclick="alert('1分単位退勤打刻をWORM保存しました')">退 勤</button>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="card">
-        <h2 class="card-title">🚀 業務・高度専門モジュール</h2>
-        <div class="module-grid">
-          
-          <div class="module-btn" onclick="alert('顧客基本マスター『人生の栞ノート』検索・閲覧画面を開きます')">
-            <span class="module-icon">🌸</span>
-            <span class="module-label">顧客マスター『人生の栞』</span>
-          </div>
-
-          <div class="module-btn" onclick="alert('ドクター用 診察・シェーマ入力 ＆ 薬局リアルタイム在庫連動 処方画面を開きます')">
-            <span class="module-icon">🏥</span>
-            <span class="module-label">ドクター診療 ✕ 在庫連動処方</span>
-          </div>
-
-          <div class="module-btn" onclick="alert('JLAC10対応 検査発注 ＆ 採血ラベルバーコード機器連携画面を開きます')">
-            <span class="module-icon">🧪</span>
-            <span class="module-label">JLAC10検査 ✕ ラベル機器連携</span>
-          </div>
-
-          <div class="module-btn" onclick="alert('ケアマネジャー/MSW用 モニタリング自動生成 ＆ 給付管理照合画面を開きます')">
-            <span class="module-icon">📋</span>
-            <span class="module-label">ケアマネ モニタリング自動生成</span>
-          </div>
-
-          <div class="module-btn" onclick="alert('買い物代行 金銭カメラ照合 ＆ 1分ログ確認画面を開きます')">
-            <span class="module-icon">📸</span>
-            <span class="module-label">買い物代行 金銭照合</span>
-          </div>
-
-          <div class="module-btn" onclick="alert('創業費・開業費 立替精算（WORM保管）モジュールを開きます')">
-            <span class="module-icon">💳</span>
-            <span class="module-label">創立・開業費 立替精算</span>
-          </div>
-
-        </div>
-      </div>
-
     </div>
 
-    <div>
-      
-      <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);">
-        <h2 class="card-title">⏱️ 1分単位 勤怠リアル打刻</h2>
-        <div class="clock-display" id="realtime-clock">--:--:--</div>
-        <div class="clock-buttons">
-          <button class="btn-clock btn-in" onclick="recordClock('出勤')">出 勤</button>
-          <button class="btn-clock btn-out" onclick="recordClock('退勤')">退 勤</button>
-        </div>
-        <p style="font-size: 0.75rem; color: #555; text-align: center; margin-top: 8px;">
-          ※ 1分単位でWORMストレージへ不倒記録されます。
-        </p>
-      </div>
-
+    <div id="tab-doctor" class="tab-content">
       <div class="card">
-        <h2 class="card-title">📋 本日の稼働・コンプライアンス</h2>
-        <div style="font-size: 0.85rem; line-height: 1.8;">
-          <div>・本日の訪問予定件数: <strong>12 件</strong></div>
-          <div>・連携薬局 アムロジピン在庫: <span style="color: green; font-weight: bold;">🟢 十分 (1,200錠)</span></div>
-          <div>・採血ラベル発行機 接続: <span style="color: green; font-weight: bold;">🟢 正常 (GLORY連動)</span></div>
-        </div>
+        <h2 class="card-title">🩺 医師カルテ ＆ 病棟看護指示（シェーマ連携）</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>患者ID / 氏名</th>
+              <th>病床/区分</th>
+              <th>バイタル/状態</th>
+              <th>医師指示 / 処方オーダー</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>M-001 倉敷 太郎 様</td>
+              <td>在宅 101号</td>
+              <td>BP 128/82 | SpO2 98%</td>
+              <td>アムロジピン5mg 1T 1日1回 朝食後</td>
+              <td><button class="btn-action" onclick="alert('シェーマ入力画面を開きます')">シェーマ入力</button></td>
+            </tr>
+            <tr>
+              <td>M-002 岡山 花子 様</td>
+              <td>病棟 203号</td>
+              <td>BP 140/90 | BT 36.8℃</td>
+              <td>採血（JLAC10連携ラベル発行済み）</td>
+              <td><button class="btn-action" onclick="alert('看護指示書をWORM発行しました')">指示照合</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
+    <div id="tab-pharma" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">📦 医薬品卸・輸入ルート ＆ 薬局リアルタイム在庫</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>薬品コード (GS1)</th>
+              <th>薬品名 / 規格</th>
+              <th>理論在庫</th>
+              <th>輸入・卸ルート状態</th>
+              <th>自動発注アクション</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>4987123456789</td>
+              <td>アムロジピン錠 5mg</td>
+              <td>1,200 錠</td>
+              <td>🟢 国内卸（正常ルート）</td>
+              <td><button class="btn-action" onclick="alert('補充発注を発行しました')">補充発注</button></td>
+            </tr>
+            <tr>
+              <td>4987987654321</td>
+              <td>高度バイオ製剤（輸入調達）</td>
+              <td>45 本（要補充）</td>
+              <td>🟡 海外サプライチェーン輸送中</td>
+              <td><button class="btn-action" style="background:#f57c00;" onclick="alert('輸入通関追跡を開きます')">通関追跡</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
 
   <div class="ai-chat-widget">
     <div class="ai-chat-header">
-      <span>🤖 AIコンシェルジュ（直通）</span>
-      <span class="ai-context-tag">Context: 代表者ポータル</span>
+      <span>🤖 AIコンシェルジュ（全モジュール直通）</span>
     </div>
     <div class="ai-chat-body" id="chat-body">
       <div class="chat-msg msg-system">
-        おはようございます、三宅様。FAQ検索は不要です。ご質問やご指示を直接入力してください。
+        全タブ共通AIです。ドクター指示・薬局在庫・WORMログの問い合わせを直接どうぞ。
       </div>
     </div>
     <div class="ai-chat-input">
-      <input type="text" id="chat-input" placeholder="例: 今月の創立費立替の合計は？" onkeypress="if(event.key==='Enter') sendChat()">
+      <input type="text" id="chat-input" placeholder="指示・検索を入力..." onkeypress="if(event.key==='Enter') sendChat()">
       <button onclick="sendChat()">送信</button>
     </div>
   </div>
 
   <script>
-    // 時計
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
     function updateClock() {
       const now = new Date();
       document.getElementById('realtime-clock').textContent = 
@@ -357,36 +401,25 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // 打刻
-    function recordClock(type) {
-      const now = new Date();
-      alert(`[1分単位 WORM打刻完了]\n種別: ${type}\n時刻: ${now.toLocaleString()}`);
-    }
-
-    // 快活CLUBスタイル AIチャット送信処理
     function sendChat() {
       const input = document.getElementById('chat-input');
       const text = input.value.trim();
       if (!text) return;
 
       const body = document.getElementById('chat-body');
-      
-      // ユーザー発言
       const userMsg = document.createElement('div');
       userMsg.className = 'chat-msg msg-user';
       userMsg.textContent = text;
       body.appendChild(userMsg);
-
       input.value = '';
 
-      // AI即時応答（ダミー応答）
       setTimeout(() => {
         const aiMsg = document.createElement('div');
         aiMsg.className = 'chat-msg msg-system';
-        aiMsg.textContent = `[AI回答] ご質問「${text}」を受信しました。「人生の栞」マスターおよびWORMデータベースから該当データを即座に引き出しました。`;
+        aiMsg.textContent = `[AI応答] 指示「${text}」を受信。カルテ・薬局在庫・WORM監査ログを同時にスキャン完了しました。`;
         body.appendChild(aiMsg);
         body.scrollTop = body.scrollHeight;
-      }, 500);
+      }, 400);
 
       body.scrollTop = body.scrollHeight;
     }
