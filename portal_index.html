@@ -9,7 +9,6 @@
       --primary-color: #1b5e20;
       --secondary-color: #2e7d32;
       --accent-color: #f57c00;
-      --alert-color: #c62828;
       --bg-color: #f4f6f8;
       --card-bg: #ffffff;
       --text-color: #333333;
@@ -17,7 +16,8 @@
     }
 
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -98,29 +98,103 @@
       padding-bottom: 8px;
     }
 
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px; }
-    .form-control { width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; box-sizing: border-box; font-size: 0.85rem; }
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 0.85rem;
+    }
 
     .btn-action {
       background-color: var(--secondary-color);
-      color: white; border: none; padding: 10px 16px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: bold; width: 100%;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: bold;
+      width: 100%;
     }
 
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; }
-    .data-table th { background: #f5f5f5; }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
 
-    .badge-ok { background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
-    .badge-ng { background: #ffebee; color: #c62828; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    .data-table th { background: #f5f5f5; }
 
     /* AIチャット */
     .ai-chat-widget {
-      position: fixed; bottom: 12px; right: 12px; width: 350px; max-width: calc(100vw - 24px);
-      background: white; border: 2px solid var(--secondary-color); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 1000;
+      position: fixed;
+      bottom: 12px;
+      right: 12px;
+      width: 350px;
+      max-width: calc(100vw - 24px);
+      background: white;
+      border: 2px solid var(--secondary-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
     }
-    .ai-chat-header { background: var(--secondary-color); color: white; padding: 10px 14px; font-weight: bold; font-size: 0.88rem; }
-    .ai-chat-body { height: 130px; overflow-y: auto; padding: 10px; background: #fafafa; font-size: 0.82rem; }
+
+    .ai-chat-header {
+      background: var(--secondary-color);
+      color: white;
+      padding: 10px 14px;
+      font-weight: bold;
+      font-size: 0.88rem;
+    }
+
+    .ai-chat-body {
+      height: 140px;
+      overflow-y: auto;
+      padding: 10px;
+      background: #fafafa;
+      font-size: 0.82rem;
+    }
+
+    .ai-chat-input {
+      display: flex;
+      border-top: 1px solid var(--border-color);
+      padding: 6px;
+    }
+
+    .ai-chat-input input {
+      flex: 1;
+      padding: 6px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+
+    .ai-chat-input button {
+      background: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      margin-left: 6px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -132,8 +206,7 @@
 
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 代表統合ダッシュボード</button>
-    <button class="tab-btn" onclick="switchTab('audit')">🔍 GPS訪問監査・J-SOX統制</button>
-    <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ 診療ポータル</button>
+    <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ ドクター診療ポータル</button>
     <button class="tab-btn" onclick="switchTab('pharma')">📦 医薬品・卸・輸入物流管理</button>
   </div>
 
@@ -143,79 +216,97 @@
     <div id="tab-dashboard" class="tab-content active">
       <div class="card">
         <h2 class="card-title">📢 全社アナウンス ＆ AI不倒ログ</h2>
-        <p style="font-size:0.85rem;">🟢 GPS位置情報自動照合（ジオフェンシング監査）機能が有効化されました。</p>
+        <p style="font-size:0.85rem;">🟢 1分単位WORMタイムスタンプエンジン、バイタル・診療予約入力モジュール正常稼働中。</p>
       </div>
     </div>
 
-    <!-- TAB 2: GPS訪問監査・J-SOX統制 -->
-    <div id="tab-audit" class="tab-content">
+    <!-- TAB 2: バイタル・診療入力 -->
+    <div id="tab-doctor" class="tab-content">
       <div class="grid-2col">
-        <!-- 現場打刻＆GPS取得エリア -->
+        
+        <!-- 介護・看護職員：バイタルチェック入力画面 -->
         <div class="card">
-          <h2 class="card-title">📍 1分単位 訪問開始/終了打刻（GPS暗号化保持）</h2>
-          <form onsubmit="event.preventDefault(); recordGpsPunch();">
+          <h2 class="card-title">🩺 介護・看護職員：バイタルチェック結果入力</h2>
+          <form onsubmit="event.preventDefault(); alert('バイタルデータをWORM不倒記録しました');">
             <div class="form-group">
-              <label>対象訪問先（利用者様）</label>
-              <select id="audit-patient" class="form-control">
-                <option value="M-001">M-001 倉敷 太郎 様（倉敷市中央1-1）</option>
-                <option value="M-002">M-002 岡山 花子 様（岡山市北区1-2）</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>業務区分</label>
+              <label>対象利用者 / 患者</label>
               <select class="form-control">
-                <option>訪問介護・身体介助</option>
-                <option>訪問看護・バイタルチェック</option>
-                <option>生活伴走・定期巡回</option>
+                <option>M-001 倉敷 太郎 様</option>
+                <option>M-002 岡山 花子 様</option>
               </select>
             </div>
-            <div style="background:#e8f5e9; padding:10px; border-radius:6px; margin-bottom:12px; font-size:0.8rem; color:#1b5e20;">
-              🔒 打刻時にブラウザのGPSを取得し、訪問先座標との距離・不倒タイムスタンプをWORM生成します。
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div class="form-group">
+                <label>体温 (℃)</label>
+                <input type="number" step="0.1" class="form-control" placeholder="36.5">
+              </div>
+              <div class="form-group">
+                <label>血圧 (mmHg)</label>
+                <input type="text" class="form-control" placeholder="120/80">
+              </div>
             </div>
-            <button class="btn-action">GPS照合・訪問打刻実行</button>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div class="form-group">
+                <label>脈拍 (bpm)</label>
+                <input type="number" class="form-control" placeholder="72">
+              </div>
+              <div class="form-group">
+                <label>SpO2 (%)</label>
+                <input type="number" class="form-control" placeholder="98">
+              </div>
+            </div>
+            <button class="btn-action">送信・1分単位WORM記録</button>
           </form>
         </div>
 
-        <!-- 監査人用：照合結果モニタリングログ -->
-        <div class="card">
-          <h2 class="card-title">🛡️ J-SOX監査：GPS照合ログ＆不一致検知</h2>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>スタッフ / 時刻</th>
-                <th>訪問先</th>
-                <th>GPS距離誤差</th>
-                <th>監査判定</th>
-              </tr>
-            </thead>
-            <tbody id="audit-log-body">
-              <tr>
-                <td>スタッフA<br><small>2026/09/03 09:01</small></td>
-                <td>M-001 倉敷様</td>
-                <td>12m（正常範囲）</td>
-                <td><span class="badge-ok">正常 (MATCH)</span></td>
-              </tr>
-              <tr>
-                <td>スタッフB<br><small>2026/09/03 09:15</small></td>
-                <td>M-002 岡山様</td>
-                <td>1.4km（乖離）</td>
-                <td><span class="badge-ng">要確認 (FLAG)</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- ドクター：問診・診断・処方箋入力 ＆ 次回診察予約 -->
+        <div>
+          <div class="card">
+            <h2 class="card-title">👨‍⚕️ ドクター：診察問診・診断・処方箋入力</h2>
+            <form onsubmit="event.preventDefault(); alert('診察カルテ・処方箋を不倒発行しました');">
+              <div class="form-group">
+                <label>問診内容・主訴</label>
+                <textarea class="form-control" rows="2" placeholder="主訴、随伴症状を入力..."></textarea>
+              </div>
+              <div class="form-group">
+                <label>確定診断結果</label>
+                <input type="text" class="form-control" placeholder="病名・診断結果を入力">
+              </div>
+              <div class="form-group">
+                <label>処方箋データ入力（JLAC10/薬品コード対応）</label>
+                <input type="text" class="form-control" placeholder="薬品名・用量・分服指示（例：アムロジピン5mg 1T 1日1回朝食後）">
+              </div>
+              <button class="btn-action" style="background-color:#1b5e20;">処方箋発行・データWORM保存</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2 class="card-title">📅 次回診察予約登録</h2>
+            <form onsubmit="event.preventDefault(); alert('次回診察予約を確定しました');">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div class="form-group">
+                  <label>次回診察日</label>
+                  <input type="date" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>予約時間帯</label>
+                  <select class="form-control">
+                    <option>10:00 - 10:30</option>
+                    <option>11:00 - 11:30</option>
+                    <option>14:00 - 14:30</option>
+                    <option>15:00 - 15:30</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn-action" style="background-color:#f57c00;">次回予約を確定する</button>
+            </form>
+          </div>
         </div>
+
       </div>
     </div>
 
-    <!-- TAB 3: バイタル・診療入力 -->
-    <div id="tab-doctor" class="tab-content">
-      <div class="card">
-        <h2 class="card-title">🩺 介護・看護バイタル ＆ ドクター診療</h2>
-        <p style="font-size:0.85rem;">バイタル入力・カルテ・次回診察予約機能稼働中。</p>
-      </div>
-    </div>
-
-    <!-- TAB 4: 物流 -->
+    <!-- TAB 3: 物流 -->
     <div id="tab-pharma" class="tab-content">
       <div class="card">
         <h2 class="card-title">📦 医薬品卸・輸入ルート ＆ 薬局在庫</h2>
@@ -228,7 +319,11 @@
   <div class="ai-chat-widget">
     <div class="ai-chat-header">🤖 AIコンシェルジュ</div>
     <div class="ai-chat-body" id="chat-body">
-      <div>GPS監査ログ・位置情報照合データが更新されました。</div>
+      <div>バイタル入力・診察カルテ・予約画面が利用可能です。</div>
+    </div>
+    <div class="ai-chat-input">
+      <input type="text" placeholder="指示を入力...">
+      <button>送信</button>
     </div>
   </div>
 
@@ -238,22 +333,6 @@
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
       event.target.classList.add('active');
       document.getElementById('tab-' + tabId).classList.add('active');
-    }
-
-    function recordGpsPunch() {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          const lat = position.coords.latitude.toFixed(5);
-          const lng = position.coords.longitude.toFixed(5);
-          const patient = document.getElementById('audit-patient').value;
-          
-          alert(`【GPS打刻完了】\n訪問先: ${patient}\n取得座標: Lat ${lat}, Lng ${lng}\nWORMストレージへハッシュ化保存しました。`);
-        }, function(error) {
-          alert("GPS取得が許可されなかったため、位置不確定ログ（WORMフラグ付与）として打刻記録しました。");
-        });
-      } else {
-        alert("端末のGPS機能を利用して打刻を記録しました。");
-      }
     }
   </script>
 </body>
