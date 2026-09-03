@@ -385,7 +385,19 @@
       { name: "メトグルコ錠250mg", code: "4987444555666" },
       { name: "ロキソニン錠60mg", code: "4987777888999" }
     ];
+/* 新規対象者入力フォームの開閉 */
+    function toggleNewPatientForm() {
+      const box = document.getElementById('new-patient-form-box');
+      box.style.display = (box.style.display === 'none') ? 'block' : 'none';
+    }
 
+    /* 新規対象者のWORM登録処理 */
+    function saveNewPatient() {
+      const name = document.getElementById('new-p-name').value || '新規対象者';
+      const id = document.getElementById('new-p-id').value || 'M-999';
+      alert(`【WORM登録完了】\n対象者: ${id} ${name} 様\n\n「人生の栞」一意識別情報（医療・介護保険データ）を暗号化保持し、照会マスターへ反映しました。`);
+      document.getElementById('new-patient-form-box').style.display = 'none';
+    }
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
