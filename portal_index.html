@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>マリーゴールド株式会社 - 医療・介護・物流統合ポータル</title>
-  <style>
+  <style>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
     :root {
       --primary-color: #1b5e20;
       --secondary-color: #2e7d32;
@@ -183,7 +183,16 @@
               </div>
             </div>
             <button type="button" onclick="addRxRow()" style="background:#e8f5e9; color:var(--primary-color); border:1px dashed var(--secondary-color); padding:8px; width:100%; border-radius:4px; cursor:pointer; font-weight:bold; font-size:0.8rem; margin-bottom:12px;">＋ カクテル療法：薬剤を追加する</button>
-            <button class="btn-action">処方箋確定・WORM不倒保存</button>
+<!-- 国内未承認薬・自由診療用入力枠 -->
+            <div style="margin-top: 10px; padding: 10px; background: #fff8e1; border: 1px solid #ffe082; border-radius: 4px;">
+              <label style="font-size:0.8rem; font-weight:bold; color:#b71c1c; display:flex; align-items:center; gap:6px;">
+                <input type="checkbox" id="unapproved-rx-check" onchange="toggleUnapprovedRx(this)"> ⚠️ 国内未承認薬・適応外使用の処方を追加する
+              </label>
+              <div id="unapproved-rx-box" style="display:none; margin-top:8px;">
+                <input type="text" class="form-control" placeholder="未承認医薬品名 / 成分名 (英語表記可)・入手ルートメモ">
+                <small style="color:#666; font-size:0.75rem;">※WORMログに「未承認薬処方タグ」が付与され、監査追跡対象として特別保持されます。</small>
+              </div>
+            </div>            <button class="btn-action">処方箋確定・WORM不倒保存</button>
           </form>
         </div>
 
@@ -216,7 +225,15 @@
       { name: "メトグルコ錠250mg", code: "4987444555666" },
       { name: "ロキソニン錠60mg", code: "4987777888999" }
     ];
-
+/* 未承認薬入力枠の表示切替 */
+    function toggleUnapprovedRx(checkboxElem) {
+      const box = document.getElementById('unapproved-rx-box');
+      if (checkboxElem.checked) {
+        box.style.display = 'block';
+      } else {
+        box.style.display = 'none';
+      }
+    }
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
