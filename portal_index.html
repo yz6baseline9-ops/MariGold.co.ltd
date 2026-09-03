@@ -95,7 +95,42 @@
 
       <div class="card">
         <h2 class="card-title">🔖 人生の栞：統合プロファイル一意識別情報</h2>
-<!-- 対象患者/利用者識別ヘッダー -->
+<!-- 対象患者/利用者識別ヘッダー ＆ 新規登録入力エリア -->
+        <div style="background:#e8f5e9; border:1px solid #c8e6c9; padding:10px 14px; border-radius:6px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <span style="font-size:0.78rem; font-weight:bold; color:#2e7d32;">照会中の対象者：</span>
+            <strong style="font-size:1.05rem; color:#1b5e20;">M-001 倉敷 太郎 様</strong>
+            <span style="font-size:0.8rem; color:#555; margin-left:8px;">（78歳・男性 / 1948年11月25日生）</span>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <select class="form-control" style="width:180px; padding:4px 8px;" onchange="alert('対象者を切り替えました：' + this.value)">
+              <option>M-001 倉敷 太郎 様</option>
+              <option>M-002 岡山 花子 様</option>
+            </select>
+            <button type="button" onclick="toggleNewPatientForm()" style="background:var(--accent-color); color:white; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer; white-space:nowrap;">
+              ➕ 新規登録
+            </button>
+          </div>
+        </div>
+
+        <!-- 新規対象者・保険情報入力フォーム（初期非表示） -->
+        <div id="new-patient-form-box" style="display:none; background:#fff3e0; border:1px solid #ffe0b2; padding:14px; border-radius:6px; margin-bottom:16px;">
+          <div style="font-weight:bold; font-size:0.88rem; color:#e65100; margin-bottom:8px;">📝 新規対象者・「人生の栞」一意識別情報の登録</div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-bottom:10px;">
+            <div><label style="font-size:0.75rem; font-weight:bold;">氏名</label><input type="text" id="new-p-name" class="form-control" placeholder="例：新倉敷 太郎"></div>
+            <div><label style="font-size:0.75rem; font-weight:bold;">ID / カルテ番号</label><input type="text" id="new-p-id" class="form-control" placeholder="例：M-003"></div>
+            <div><label style="font-size:0.75rem; font-weight:bold;">生年月日</label><input type="date" id="new-p-dob" class="form-control"></div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px;">
+            <div><label style="font-size:0.75rem; font-weight:bold;">10桁 医療機関コード＋カルテ番号</label><input type="text" class="form-control" placeholder="例：3312345678 - C-10030"></div>
+            <div><label style="font-size:0.75rem; font-weight:bold;">健康保険（保険者番号 / 記号・番号）</label><input type="text" class="form-control" placeholder="例：06330015 / 56-7890"></div>
+          </div>
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px;">
+            <div><label style="font-size:0.75rem; font-weight:bold;">介護保険者番号 / 10桁 被保険者番号</label><input type="text" class="form-control" placeholder="例：332021 / 0098765432"></div>
+            <div><label style="font-size:0.75rem; font-weight:bold;">要介護区分 / 有効期間</label><input type="text" class="form-control" placeholder="例：要介護 1 (2026/09/01〜)"></div>
+          </div>
+          <button type="button" onclick="saveNewPatient()" class="btn-action" style="background-color:#e65100;">この対象者をWORM登録・照会一覧へ反映</button>
+        </div><!-- 対象患者/利用者識別ヘッダー -->
         <div style="background:#e8f5e9; border:1px solid #c8e6c9; padding:10px 14px; border-radius:6px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center;">
           <div>
             <span style="font-size:0.78rem; font-weight:bold; color:#2e7d32;">照会中の対象者：</span>
