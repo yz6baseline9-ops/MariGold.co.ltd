@@ -70,6 +70,7 @@
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 代表統合ダッシュボード</button>
     <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ 診療ポータル</button>
+    <button class="tab-btn" onclick="switchTab('rehab')">🧑‍⚕️ PT/OT/ST・検査連携</button>
     <button class="tab-btn" onclick="switchTab('audit')">🔍 GPS訪問監査・J-SOX統制</button>
     <button class="tab-btn" onclick="switchTab('pharma')">📦 医薬品・卸・輸入物流管理</button>
   </div>
@@ -177,7 +178,71 @@
         <p style="font-size:0.85rem;">訪問打刻時のGPS位置情報をリアルタイム取得し、ジオフェンシング照合を実行します。</p>
       </div>
     </div>
+<!-- モジュール⑦：臨床検査・放射線機器 連携・閲覧パネル -->
+<div class="module-card" style="border: 1px solid #dadce0; border-radius: 12px; padding: 20px; background-color: #ffffff; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+  
+  <!-- ヘッダーエリア -->
+  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; margin-bottom: 16px;">
+    <h3 style="margin: 0; color: #1a73e8; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+      🧪 臨床検査・放射線機器 連携データ閲覧
+    </h3>
+    <span style="background-color: #e8f0fe; color: #1a73e8; font-size: 0.8rem; font-weight: bold; padding: 4px 10px; border-radius: 12px;">
+      HL7 / MML / DICOM インターフェース同期済
+    </span>
+  </div>
 
+  <!-- 機器接続ステータス -->
+  <div style="display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #5f6368; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+    <div>🟢 <b>検体検査システム (LIS):</b> オンライン</div>
+    <div>🟢 <b>生理検査機器 (心電図/超音波):</b> オンライン</div>
+    <div>🟢 <b>放射線機器 (X線/CT/MRA):</b> オンライン</div>
+  </div>
+
+  <!-- 最新検査結果テーブル（閲覧画面） -->
+  <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
+    <thead>
+      <tr style="background-color: #f1f3f4; color: #3c4043;">
+        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">検査日時</th>
+        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">検査区分 / 機器</th>
+        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">項目名</th>
+        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">結果値</th>
+        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">基準値</th>
+        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">判定</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">2026/09/05 09:30</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">生化学（Sysmex）</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">Alb (アルブミン)</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4; font-weight: bold; color: #d93025;">3.2 g/dL</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">4.1 - 5.1</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;"><span style="background: #fce8e6; color: #c5221f; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">L (栄養指導対象)</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">2026/09/05 09:30</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">生化学（Sysmex）</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">HbA1c</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4; font-weight: bold;">6.1 %</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">4.6 - 6.2</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;"><span style="background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">正常</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">2026/09/04 14:15</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">生理検査（Fukuda）</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">12誘導心電図</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">波形データ参照可</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">-</td>
+        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;"><button style="background: #1a73e8; color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">波形Viewer開く</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 連携ログメッセージ -->
+  <div style="margin-top: 12px; font-size: 0.8rem; color: #70757a; text-align: right;">
+    最終機器同期タイムスタンプ: 2026-09-05 09:31:02 [WORMログ記録済]
+  </div>
+</div>
     <!-- TAB 4: 物流 -->
     <div id="tab-pharma" class="tab-content">
       <div class="card">
