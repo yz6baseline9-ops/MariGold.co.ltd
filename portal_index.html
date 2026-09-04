@@ -3,329 +3,258 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>マリーゴールド株式会社 - 医療・介護・物流統合ポータル</title>
+  <title>マリーゴールド統合医療介護プラットフォーム</title>
   <style>
-    :root {
-      --primary-color: #1b5e20;
-      --secondary-color: #2e7d32;
-      --accent-color: #f57c00;
-      --alert-color: #c62828;
-      --bg-color: #f4f6f8;
-      --card-bg: #ffffff;
-      --text-color: #333333;
-      --border-color: #e0e0e0;
-    }
-
-    body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: var(--bg-color); color: var(--text-color); }
-    header { background-color: var(--primary-color); color: white; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .header-logo { font-size: 1.1rem; font-weight: bold; }
-    .header-user { font-size: 0.85rem; }
-
-    .tab-bar { background: var(--secondary-color); display: flex; gap: 4px; padding: 6px 16px 0 16px; overflow-x: auto; }
-    .tab-btn { background: rgba(255,255,255,0.15); color: white; border: none; padding: 10px 18px; border-radius: 6px 6px 0 0; cursor: pointer; font-size: 0.88rem; font-weight: bold; white-space: nowrap; }
-    .tab-btn.active { background: var(--bg-color); color: var(--primary-color); }
-
-    .container { max-width: 1280px; margin: 20px auto 100px auto; padding: 0 16px; }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    @media (max-width: 900px) { .grid-2col { grid-template-columns: 1fr; } }
-
-    .card { background: var(--card-bg); border-radius: 8px; padding: 20px; border: 1px solid var(--border-color); box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 20px; }
-    .card-title { font-size: 1.05rem; font-weight: bold; margin-top: 0; margin-bottom: 16px; border-bottom: 2px solid var(--bg-color); padding-bottom: 8px; }
-
-    .form-group { margin-bottom: 12px; position: relative; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px; }
-    .form-control { width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px; box-sizing: border-box; font-size: 0.85rem; }
-
-    .monthly-section { background: #fafafa; border: 1px dashed var(--border-color); border-radius: 6px; padding: 12px; margin-top: 14px; margin-bottom: 14px; }
-    .monthly-title { font-size: 0.78rem; font-weight: bold; color: #666666; margin-bottom: 8px; }
-
-    .rx-row { display: flex; gap: 8px; margin-bottom: 8px; position: relative; }
-    .suggest-list { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid var(--border-color); border-radius: 4px; max-height: 150px; overflow-y: auto; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: none; }
-    .suggest-item { padding: 8px 12px; font-size: 0.82rem; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
-    .suggest-item:hover { background: #f5f5f5; color: var(--primary-color); font-weight: bold; }
-
-    .btn-action { background-color: var(--secondary-color); color: white; border: none; padding: 12px 16px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; font-weight: bold; width: 100%; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; }
-    .data-table th { background: #f5f5f5; }
-
-    .badge-ok { background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
-    .badge-ng { background: #ffebee; color: #c62828; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
-
-    .ai-chat-widget { position: fixed; bottom: 12px; right: 12px; width: 350px; max-width: calc(100vw - 24px); background: white; border: 2px solid var(--secondary-color); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 1000; }
-    .ai-chat-header { background: var(--secondary-color); color: white; padding: 10px 14px; font-weight: bold; font-size: 0.88rem; }
-    .ai-chat-body { height: 120px; overflow-y: auto; padding: 10px; background: #fafafa; font-size: 0.82rem; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .card { border: 1px solid #dadce0; border-radius: 12px; padding: 20px; background-color: #ffffff; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .btn-action { background-color: #1a73e8; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .btn-action:hover { background-color: #1557b0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 10px; border-bottom: 1px solid #f1f3f4; text-align: left; font-size: 0.88rem; }
+    th { background-color: #f8f9fa; color: #3c4043; }
   </style>
 </head>
 <body>
+<div class="container">
 
-  <header>
-    <div class="header-logo">🌼 マリーゴールド統合医療介護プラットフォーム</div>
-    <div class="header-user">👤 <strong>三宅 由三</strong>（代表統括）</div>
-  </header>
-
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 代表統合ダッシュボード</button>
-    <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ 診療ポータル</button>
-    <button class="tab-btn" onclick="switchTab('rehab')">🧑‍⚕️ PT/OT/ST・検査連携</button>
-    <button class="tab-btn" onclick="switchTab('audit')">🔍 GPS訪問監査・J-SOX統制</button>
-    <button class="tab-btn" onclick="switchTab('pharma')">📦 医薬品・卸・輸入物流管理</button>
+  <!-- 心温まる3世代・見守りポータルヘッダー -->
+  <div style="position: relative; background: linear-gradient(135deg, #fffaf0 0%, #fff0f5 100%); border-radius: 16px; padding: 28px 24px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; align-items: center; gap: 24px;">
+    <div style="flex: 1 1 300px;">
+      <span style="background-color: #e6f4ea; color: #137333; font-size: 0.85rem; font-weight: bold; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px;">
+        🌸 医療・介護・防災がひとつにつながる安心
+      </span>
+      <h1 style="color: #202124; font-size: 1.8rem; margin: 0 0 12px 0; line-height: 1.4; font-weight: 700;">
+        三世代の笑顔をまもる、<br><span style="color: #e37400;">人生の栞</span> プラットフォーム
+      </h1>
+      <p style="color: #5f6368; font-size: 0.95rem; line-height: 1.6; margin: 0 0 16px 0;">
+        ご本人の意思（意思決定支援）を大切に。最新の医療・ケア記録とスマート見守りで、ご家族皆さまに安心とおだやかな日々をお届けします。
+      </p>
+    </div>
+    <div style="flex: 1 1 280px; text-align: center;">
+      <img src="https://images.unsplash.com/photo-1581579438747-1dc8d173736f?auto=format&fit=crop&w=600&q=80" alt="温かい家族・3世代" style="width: 100%; max-width: 360px; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.1);" />
+    </div>
+  </div>
+<!-- モジュール①：クランケ基本プロファイル ＆ 統合ダッシュボード -->
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; margin-bottom: 12px;">
+      <h3 style="margin: 0; color: #1a73e8;">🆔 クランケ基本情報・人生の栞プロファイル</h3>
+      <span style="background: #e8f0fe; color: #1a73e8; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">M-001 (自動発番済)</span>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem;">
+      <div><b>氏名:</b> 三宅 静子 様</div>
+      <div><b>要介護度:</b> 要介護3</div>
+      <div><b>主訴・既往:</b> 変形性膝関節症、高血圧症</div>
+      <div><b>キーパーソン:</b> 三宅 由三 (長男 / 090-XXXX-XXXX)</div>
+    </div>
   </div>
 
-  <div class="container">
-
-    <!-- TAB 1: ダッシュボード -->
-    <div id="tab-dashboard" class="tab-content active">
-      <div class="card">
-        <h2 class="card-title">📢 全社アナウンス ＆ AI不倒ログ</h2>
-        <p style="font-size:0.85rem;">🟢 全要件統合済み。1分単位WORM不倒打刻およびGPSジオフェンシングエンジン稼働中。</p>
+  <!-- モジュール④：ドクター診療 ＆ 処方（WORM不倒追記型） -->
+  <div class="card">
+    <h3 style="margin-top: 0; color: #1a73e8;">🩺 ドクター確定診断 ＆ カクテル処方メモ (WORM不倒追記)</h3>
+    <form onsubmit="event.preventDefault(); alert('WORMタイムスタンプ打刻完了：第1版として追記保存されました');">
+      <div style="margin-bottom: 10px;">
+        <label style="font-size: 0.85rem; font-weight: bold;">確定診断名 / 主訴メモ (追記入力):</label>
+        <textarea style="width: 100%; height: 60px; margin-top: 4px; border: 1px solid #dadce0; border-radius: 6px; padding: 8px; box-sizing: border-box;" placeholder="診断名や主訴、指示事項を入力してください..."></textarea>
       </div>
+      <button class="btn-action" type="submit">確定保存 ＆ タイムスタンプ打刻</button>
+    </form>
+  </div>
+<!-- モジュール⑤：整形外科医 ＆ リハビリ専門職（PT/OT/ST）手書きペン入力 ＆ 乱筆AI標準化 -->
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 8px; margin-bottom: 12px;">
+      <h3 style="margin: 0; color: #1a73e8;">🦴 整形・PT/OT/ST部位指示 ＆ 手書きシェーマキャンバス</h3>
+      <span style="background: #e8f0fe; color: #1a73e8; padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 0.8rem;">スタイラス / ワコムペン対応</span>
     </div>
-
-    <!-- TAB 2: バイタル・診療入力 -->
-    <div id="tab-doctor" class="tab-content">
-      <div class="grid-2col">
-        
-        <!-- 介護・看護職員バイタル入力 -->
-        <div class="card">
-          <h2 class="card-title">🩺 介護・看護職員：バイタルチェック入力</h2>
-          <form onsubmit="event.preventDefault(); submitVitalWithAutoTimestamp();">
-            <div class="form-group">
-              <label>対象利用者 / 患者</label>
-              <select id="vital-patient" class="form-control">
-                <option>M-001 倉敷 太郎 様</option>
-                <option>M-002 岡山 花子 様</option>
-              </select>
-            </div>
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-              <div class="form-group">
-                <label>体温 (℃)</label>
-                <input type="number" step="0.1" class="form-control" placeholder="36.5">
-              </div>
-              <div class="form-group">
-                <label>血圧 (mmHg)</label>
-                <input type="text" class="form-control" placeholder="120/80">
-              </div>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-              <div class="form-group">
-                <label>脈拍 (bpm)</label>
-                <input type="number" class="form-control" placeholder="72">
-              </div>
-              <div class="form-group">
-                <label>SpO2 (%)</label>
-                <input type="number" class="form-control" placeholder="98">
-              </div>
-            </div>
-
-            <!-- 劣後項目：月次身体計測 -->
-            <div class="monthly-section">
-              <div class="monthly-title">📏 定期身体計測（月1回程度・任意入力）</div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <div class="form-group" style="margin-bottom:0;">
-                  <label style="font-weight:normal; color:#555;">身長 (cm)</label>
-                  <input type="number" step="0.1" class="form-control" placeholder="160.0">
-                </div>
-                <div class="form-group" style="margin-bottom:0;">
-                  <label style="font-weight:normal; color:#555;">体重 (kg)</label>
-                  <input type="number" step="0.1" class="form-control" placeholder="55.0">
-                </div>
-              </div>
-            </div>
-
-            <button class="btn-action">送信・不倒タイムスタンプ自動付与</button>
-          </form>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
+      <!-- 手書きキャンバス模擬枠 -->
+      <div style="flex: 1 1 300px; border: 2px dashed #dadce0; border-radius: 8px; background: #fafafa; padding: 12px; text-align: center;">
+        <p style="margin: 0 0 8px 0; font-size: 0.85rem; color: #5f6368; font-weight: bold;">【人体シェーマ画像上への手書きスケッチエリア】</p>
+        <div style="height: 120px; background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #9aa0a6; font-size: 0.85rem;">
+          🖊️ 痛みの部位（VAS）・関節可動域（ROM）・歩行軸を直接ペンで書き込み
         </div>
-
-        <!-- ドクター処方 ＆ 診療入力 -->
-        <div class="card">
-          <h2 class="card-title">👨‍⚕️ ドクター：承認医薬品ドロップダウン検索・処方</h2>
-          <form onsubmit="event.preventDefault(); alert('承認医薬品処方データをWORM保存しました');">
-            <div class="form-group">
-              <label>確定診断名 / 主訴メモ</label>
-              <input type="text" class="form-control" placeholder="例：高血圧症、1型糖尿病管理">
-            </div>
-
-            <label style="font-size:0.82rem; font-weight:bold; margin-bottom:4px; display:block;">処方薬剤検索（入力で承認医薬品を自動候補表示）</label>
-            
-            <div id="rx-rows-wrapper">
-              <div class="rx-row" style="flex-direction:column;">
-                <div style="display:flex; gap:8px;">
-                  <input type="text" class="form-control rx-search-input" placeholder="薬品名を入力（例: アムロ、インスリン）" oninput="searchPharma(this)">
-                  <input type="text" class="form-control" style="width:130px;" placeholder="用法・用量">
-                </div>
-                <div class="suggest-list"></div>
-              </div>
-            </div>
-
-            <button type="button" onclick="addRxRow()" style="background:#e8f5e9; color:var(--primary-color); border:1px dashed var(--secondary-color); padding:8px; width:100%; border-radius:4px; cursor:pointer; font-weight:bold; font-size:0.8rem; margin-bottom:12px;">＋ カクテル療法：薬剤を追加する</button>
-
-            <button class="btn-action">処方箋確定・WORM不倒保存</button>
-          </form>
-        </div>
-
+      </div>
+      
+      <!-- 乱筆AIテキスト変換機能 -->
+      <div style="flex: 1 1 300px;">
+        <label style="font-size: 0.85rem; font-weight: bold;">乱筆メモ・臨床気づき（AIテキスト標準化）:</label>
+        <textarea style="width: 100%; height: 80px; margin-top: 4px; border: 1px solid #dadce0; border-radius: 6px; padding: 8px; box-sizing: border-box;" placeholder="「右膝立脚相で軽度動的外反あり、立ち上がり時痛強」など..."></textarea>
+        <button class="btn-action" style="margin-top: 6px; background-color: #34a853;" onclick="alert('乱筆AI変換完了：個別機能訓練加算対応の正規表現へ標準化されました');">乱筆AIで正規記録に標準化</button>
       </div>
     </div>
+  </div>
 
-    <!-- TAB 3: GPS監査 -->
-    <div id="tab-audit" class="tab-content">
-      <div class="card">
-        <h2 class="card-title">🔍 GPS訪問監査・J-SOX統制</h2>
-        <p style="font-size:0.85rem;">訪問打刻時のGPS位置情報をリアルタイム取得し、ジオフェンシング照合を実行します。</p>
+  <!-- モジュール⑥：管理栄養士（栄養スクリーニング・食形態・NST）フォーム -->
+  <div class="card">
+    <h3 style="margin-top: 0; color: #1a73e8;">🥗 管理栄養士 栄養管理 ＆ 学会分類2021食形態指示</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; font-size: 0.88rem;">
+      <div>
+        <label style="font-weight: bold;">MNA-SFスコア:</label>
+        <input type="text" value="11点 (低栄養リスクあり)" style="width: 100%; padding: 6px; border: 1px solid #dadce0; border-radius: 4px; margin-top: 4px;">
+      </div>
+      <div>
+        <label style="font-weight: bold;">提供食形態 (学会分類2021):</label>
+        <select style="width: 100%; padding: 6px; border: 1px solid #dadce0; border-radius: 4px; margin-top: 4px;">
+          <option>コード2-2 (ミキサー食・とろみ中等度)</option>
+          <option>コード3 (形はあるが押しつぶせる程度)</option>
+          <option selected>コード4 (常食・軟菜)</option>
+        </select>
       </div>
     </div>
-<!-- モジュール⑦：臨床検査・放射線機器 連携・閲覧パネル -->
-<div class="module-card" style="border: 1px solid #dadce0; border-radius: 12px; padding: 20px; background-color: #ffffff; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-  
-  <!-- ヘッダーエリア -->
-  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; margin-bottom: 16px;">
-    <h3 style="margin: 0; color: #1a73e8; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
-      🧪 臨床検査・放射線機器 連携データ閲覧
-    </h3>
-    <span style="background-color: #e8f0fe; color: #1a73e8; font-size: 0.8rem; font-weight: bold; padding: 4px 10px; border-radius: 12px;">
-      HL7 / MML / DICOM インターフェース同期済
-    </span>
   </div>
-
-  <!-- 機器接続ステータス -->
-  <div style="display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #5f6368; background: #f8f9fa; padding: 10px; border-radius: 8px;">
-    <div>🟢 <b>検体検査システム (LIS):</b> オンライン</div>
-    <div>🟢 <b>生理検査機器 (心電図/超音波):</b> オンライン</div>
-    <div>🟢 <b>放射線機器 (X線/CT/MRA):</b> オンライン</div>
-  </div>
-
-  <!-- 最新検査結果テーブル（閲覧画面） -->
-  <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left;">
-    <thead>
-      <tr style="background-color: #f1f3f4; color: #3c4043;">
-        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">検査日時</th>
-        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">検査区分 / 機器</th>
-        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">項目名</th>
-        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">結果値</th>
-        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">基準値</th>
-        <th style="padding: 10px; border-bottom: 1px solid #dadce0;">判定</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">2026/09/05 09:30</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">生化学（Sysmex）</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">Alb (アルブミン)</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4; font-weight: bold; color: #d93025;">3.2 g/dL</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">4.1 - 5.1</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;"><span style="background: #fce8e6; color: #c5221f; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">L (栄養指導対象)</span></td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">2026/09/05 09:30</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">生化学（Sysmex）</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">HbA1c</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4; font-weight: bold;">6.1 %</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">4.6 - 6.2</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;"><span style="background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">正常</span></td>
-      </tr>
-      <tr>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">2026/09/04 14:15</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">生理検査（Fukuda）</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">12誘導心電図</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">波形データ参照可</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;">-</td>
-        <td style="padding: 10px; border-bottom: 1px solid #f1f3f4;"><button style="background: #1a73e8; color: white; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">波形Viewer開く</button></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- 連携ログメッセージ -->
-  <div style="margin-top: 12px; font-size: 0.8rem; color: #70757a; text-align: right;">
-    最終機器同期タイムスタンプ: 2026-09-05 09:31:02 [WORMログ記録済]
-  </div>
-</div>
-    <!-- TAB 4: 物流 -->
-    <div id="tab-pharma" class="tab-content">
-      <div class="card">
-        <h2 class="card-title">📦 医薬品卸・輸入物流</h2>
-        <p style="font-size:0.85rem;">GS1バーコード管理および海外・国内追跡物流データ管理中。</p>
+<!-- モジュール⑦：臨床検査・放射線機器 連携 ＆ トリアージ照合（クランケ識別） -->
+  <div class="card">
+    <div style="background-color: #f8f9fa; border-left: 6px solid #1a73e8; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <span style="font-size: 0.78rem; color: #5f6368; font-weight: bold;">対象クランケ照合 (誤認証防止)</span>
+        <div style="font-size: 1rem; font-weight: bold; color: #202124;">🆔 M-001 三宅 静子 様 (80歳 / 女性)</div>
       </div>
+      <span style="font-size: 0.78rem; background: #e6f4ea; color: #137333; padding: 2px 8px; border-radius: 4px; font-weight: bold;">三方よしバーコード確認済</span>
     </div>
 
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 6px; margin-bottom: 10px;">
+      <h3 style="margin: 0; color: #1a73e8; font-size: 1.05rem;">🧪 臨床検査・放射線トリアージ ＆ 機器データ連携</h3>
+      <span style="font-size: 0.78rem; color: #1a73e8; font-weight: bold;">HL7 / DICOM リアルタイム同期中</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>指示日時 / オーダー</th>
+          <th>トリアージ優先度</th>
+          <th>検査種別 / 機器</th>
+          <th>結果値 / 判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #fff8f6;">
+          <td>2026/09/05 09:45 (救急)</td>
+          <td><span style="background: #feefc3; color: #b06000; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">優先 (Urgent)</span></td>
+          <td>頭部MRI (3.0T)</td>
+          <td><button style="background: #d93025; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.78rem; cursor: pointer;">PACS画像参照 (割り込み可)</button></td>
+        </tr>
+        <tr>
+          <td>2026/09/05 09:30 (生化学)</td>
+          <td><span style="background: #e8eaed; color: #3c4043; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">通常 (Routine)</span></td>
+          <td>Alb (アルブミン) / LIS</td>
+          <td><b>3.2 g/dL</b> <span style="background: #fce8e6; color: #c5221f; padding: 1px 4px; border-radius: 4px; font-size: 0.72rem;">L</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="ai-chat-widget">
-    <div class="ai-chat-header">🤖 AIコンシェルジュ</div>
-    <div class="ai-chat-body" id="chat-body">
-      <div>要件定義に基づいた全機能が正常に適用されています。</div>
+  <!-- モジュール⑧：画像診断（X線/CT/MRA）PACS外部参照連携 -->
+  <div class="card">
+    <h3 style="margin-top: 0; color: #1a73e8;">📷 外部PACS / DICOM ディープリンク連携 (容量軽量化設計)</h3>
+    <p style="font-size: 0.85rem; color: #5f6368; margin-bottom: 10px;">画像本体はPACSサーバーに保持し、ポータル側はURL参照および読影所見メタデータのみをWORM結合。</p>
+    <div style="background: #f1f3f4; padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+      <b>最新読影所見 (2026/09/04 X線):</b> 「右膝関節腔の狭小化を認める。骨棘形成あり (KL分類 Grade3)。」
+    </div>
+  </div>
+<!-- モジュール⑨：ホテル型リアルタイム病床管理（BMS）＆ 救急空床予測 -->
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 6px; margin-bottom: 12px;">
+      <h3 style="margin: 0; color: #1a73e8; font-size: 1.05rem;">🏥 救急・病床リアルタイム管理 (ホテル型BMS) ＆ 退院予測</h3>
+      <span style="background-color: #ceebe0; color: #0d652d; font-size: 0.78rem; font-weight: bold; padding: 4px 10px; border-radius: 12px;">全病床稼働率: 88.5% (即入床可能: 4床)</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>病棟 / 室番</th>
+          <th>専門科 / 属性</th>
+          <th>現在のステータス</th>
+          <th>退院計画 / 空床見込み</th>
+          <th>救急確保アクション</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #fef7e0;">
+          <td><b>3階 302号室 (A)</b></td>
+          <td>整形外科 / 個室 (酸素有)</td>
+          <td><span style="background: #fef7e0; color: #b06000; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">本日退院予定 (許可済)</span></td>
+          <td style="color: #b06000; font-weight: bold;">本日 14:00 退院完了予定</td>
+          <td><button style="background: #e37400; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: bold; cursor: pointer;">14:30〜 救急受入枠へ仮押さえ</button></td>
+        </tr>
+        <tr style="background-color: #f6fbf7;">
+          <td><b>3階 305号室 (B)</b></td>
+          <td>整形外科 / 4人部屋</td>
+          <td><span style="background: #e6f4ea; color: #137333; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">即時可 (清掃済)</span></td>
+          <td style="color: #137333; font-weight: bold;">即時 入床可能</td>
+          <td><button style="background: #137333; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: bold; cursor: pointer;">救急隊へ空床回答 (即確)</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- モジュール⑪：医療事務レセプト・介護報酬請求 ＆ 激変緩和点検オペレーション -->
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #1a73e8; padding-bottom: 6px; margin-bottom: 12px;">
+      <h3 style="margin: 0; color: #1a73e8; font-size: 1.05rem;">💳 医事会計・レセプト点検 ＆ 介護報酬請求 (激変緩和監査モード)</h3>
+      <span style="background-color: #fef7e0; color: #b06000; font-size: 0.78rem; font-weight: bold; padding: 4px 10px; border-radius: 12px;">⚠️ 人による最終点検・目視承認待ち: 3件</span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>区分 / クランケ</th>
+          <th>診療/介護行為・加算内容</th>
+          <th>自動点検チェック結果</th>
+          <th>請求額 / 点数</th>
+          <th>点検者操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #fff8f6;">
+          <td><b>🏥 医事外来</b><br><span style="font-size: 0.78rem; color: #5f6368;">M-001 三宅 静子</span></td>
+          <td>再診料 ＋ 整形リハビリ(Ⅰ) ＋ 頭部MRI(3.0T)</td>
+          <td><span style="background: #fce8e6; color: #c5221f; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">⚠️ 要確認: 傷病名とMRI適応照合</span></td>
+          <td><b>1,850 点</b> (窓口 5,550円)</td>
+          <td><button style="background: #d93025; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: bold; cursor: pointer;">内容目視確認 ＆ 修正</button></td>
+        </tr>
+        <tr style="background-color: #f6fbf7;">
+          <td><b>🏡 介護給付</b><br><span style="font-size: 0.78rem; color: #5f6368;">M-001 三宅 静子</span></td>
+          <td>要介護3 通所 ＋ 機能訓練(Ⅱ) ＋ 栄養維持</td>
+          <td><span style="background: #e6f4ea; color: #137333; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 0.75rem;">🟢 突合正常 (WORM記録全存在)</span></td>
+          <td><b>8,420 単位</b></td>
+          <td><button style="background: #137333; color: white; border: none; padding: 4px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: bold; cursor: pointer;">国保連提出用 承認確定</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!-- モジュール⑩：スマート受付・駐車場優遇 ＆ 入院のご案内・持ち込みリスト -->
+  <div class="card">
+    <h3 style="margin-top: 0; color: #1a73e8; font-size: 1.05rem;">👜 緊急入院のご案内 ＆ ご家族準備チェックリスト (各院カスタム対応)</h3>
+    <div style="background-color: #fff8e1; border-left: 4px solid #ffa000; padding: 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85rem;">
+      <b>【〇〇総合病院 入院受入センターより】</b> 三宅 静子 様の緊急入院に伴う持ち込み品および駐車場案内です。当院では大人用おむつ・タオル類は定額アメニティ（CSセット）を推奨しております。
+    </div>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.85rem; margin-bottom: 12px;">
+      <label><input type="checkbox" checked> マイナ保険証/診察券</label>
+      <label><input type="checkbox" checked> 現在服用中のお薬/手帳</label>
+      <label><input type="checkbox"> かかと付きシューズ</label>
+      <label><input type="checkbox" checked> 立体B駐車場 (入院時割引適用)</label>
+    </div>
+    <button style="background: #5f6368; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 0.78rem; cursor: pointer;">🖨️ A4冊子用PDFプレビュー・印刷</button>
+  </div>
+
+  <!-- モジュール⑫：ケアプラン・法定帳票 承認 ＆ WORM確定モジュール -->
+  <div class="card" style="border-top: 4px solid #34a853;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h3 style="margin: 0; color: #202124;">📝 ケアプラン・法定帳票 最終AI下書き ＆ WORM不倒確定承認</h3>
+        <p style="margin: 4px 0 0 0; font-size: 0.82rem; color: #5f6368;">AI作成の第1表〜第3表案に対し、ケアマネジャー・医師の電子署名にて不可逆確定（J-SOX完全適合）</p>
+      </div>
+      <button class="btn-action" style="background-color: #34a853;" onclick="alert('ケアプラン承認確定：WORM不倒ログに暗号化保存されました');">承認確定 ＆ WORM打刻</button>
     </div>
   </div>
 
-  <script>
-    const masterPharma = [
-      { name: "アムロジピン錠5mg", code: "4987123456789" },
-      { name: "アムロジピン錠10mg", code: "4987123456790" },
-      { name: "インスリン ヒューマリン30/70注", code: "4987987654321" },
-      { name: "ラシックス錠20mg", code: "4987111222333" },
-      { name: "メトグルコ錠250mg", code: "4987444555666" },
-      { name: "ロキソニン錠60mg", code: "4987777888999" }
-    ];
+  <!-- フッターエリア -->
+  <div style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #70757a; border-top: 1px solid #dadce0; padding-top: 16px;">
+    &copy; 2026 マリーゴールド統合医療介護プラットフォーム | J-SOX・医療情報ガイドライン5.2版・WORM適合
+  </div>
 
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      event.target.classList.add('active');
-      document.getElementById('tab-' + tabId).classList.add('active');
-    }
+</div> <!-- .container の閉じタグ -->
 
-    function searchPharma(inputElem) {
-      const val = inputElem.value.trim();
-      const suggestBox = inputElem.parentElement.parentElement.querySelector('.suggest-list');
-      suggestBox.innerHTML = '';
-
-      if (!val) {
-        suggestBox.style.display = 'none';
-        return;
-      }
-
-      const matches = masterPharma.filter(p => p.name.includes(val));
-      if (matches.length > 0) {
-        matches.forEach(item => {
-          const div = document.createElement('div');
-          div.className = 'suggest-item';
-          div.textContent = `💊 ${item.name} (GS1: ${item.code})`;
-          div.onclick = function() {
-            inputElem.value = item.name;
-            suggestBox.style.display = 'none';
-          };
-          suggestBox.appendChild(div);
-        });
-        suggestBox.style.display = 'block';
-      } else {
-        suggestBox.style.display = 'none';
-      }
-    }
-
-    function addRxRow() {
-      const wrapper = document.getElementById('rx-rows-wrapper');
-      const newRow = document.createElement('div');
-      newRow.className = 'rx-row';
-      newRow.style.flexDirection = 'column';
-      newRow.innerHTML = `
-        <div style="display:flex; gap:8px;">
-          <input type="text" class="form-control rx-search-input" placeholder="薬品名を入力" oninput="searchPharma(this)">
-          <input type="text" class="form-control" style="width:130px;" placeholder="用法・用量">
-        </div>
-        <div class="suggest-list"></div>
-      `;
-      wrapper.appendChild(newRow);
-    }
-
-    function submitVitalWithAutoTimestamp() {
-      const now = new Date();
-      const timeStr = `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
-      const patient = document.getElementById('vital-patient').value;
-      alert(`【WORM送信完了】\n対象: ${patient}\nバックグラウンド記録時刻: ${timeStr}\n\n入力時刻を監査タイムスタンプとして暗号化保持しました。`);
-    }
-  </script>
 </body>
 </html>
