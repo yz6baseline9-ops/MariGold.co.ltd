@@ -42,28 +42,18 @@
     .monthly-section { background: #fafafa; border: 1px dashed var(--border-color); border-radius: 6px; padding: 12px; margin-top: 14px; margin-bottom: 14px; }
     .monthly-title { font-size: 0.78rem; font-weight: bold; color: #666666; margin-bottom: 8px; }
 
-    .mode-switcher { display: flex; gap: 8px; margin-bottom: 12px; background: #eee; padding: 4px; border-radius: 6px; }
-    .mode-btn { flex: 1; padding: 6px; border: none; background: transparent; font-size: 0.78rem; font-weight: bold; cursor: pointer; border-radius: 4px; }
-    .mode-btn.active { background: white; color: var(--primary-color); box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
-
     .rx-row { display: flex; gap: 8px; margin-bottom: 8px; position: relative; }
     .suggest-list { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid var(--border-color); border-radius: 4px; max-height: 150px; overflow-y: auto; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: none; }
     .suggest-item { padding: 8px 12px; font-size: 0.82rem; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
     .suggest-item:hover { background: #f5f5f5; color: var(--primary-color); font-weight: bold; }
 
     .btn-action { background-color: var(--secondary-color); color: white; border: none; padding: 12px 16px; border-radius: 4px; cursor: pointer; font-size: 0.88rem; font-weight: bold; width: 100%; }
-    .data-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
-    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 8px 10px; text-align: left; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .data-table th, .data-table td { border: 1px solid var(--border-color); padding: 8px 12px; text-align: left; }
     .data-table th { background: #f5f5f5; }
 
     .badge-ok { background: #e8f5e9; color: #2e7d32; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
     .badge-ng { background: #ffebee; color: #c62828; padding: 3px 8px; border-radius: 4px; font-weight: bold; font-size: 0.75rem; }
-
-    .audit-filter-box { background: #eef7ee; border: 1px solid #c8e6c9; border-radius: 6px; padding: 14px; margin-bottom: 16px; }
-
-    .body-parts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
-    .btn-part { background: #f0f4f8; border: 1px solid #bccbde; border-radius: 4px; padding: 8px 4px; font-size: 0.78rem; text-align: center; cursor: pointer; font-weight: bold; }
-    .btn-part.selected { background: var(--secondary-color); color: white; border-color: var(--primary-color); }
 
     .ai-chat-widget { position: fixed; bottom: 12px; right: 12px; width: 350px; max-width: calc(100vw - 24px); background: white; border: 2px solid var(--secondary-color); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 1000; }
     .ai-chat-header { background: var(--secondary-color); color: white; padding: 10px 14px; font-weight: bold; font-size: 0.88rem; }
@@ -79,293 +69,112 @@
 
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('dashboard')">🏠 代表統合ダッシュボード</button>
-    <button class="tab-btn" onclick="switchTab('audit')">🔍 GPS訪問監査・J-SOX統制（テスト監査）</button>
-    <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ 診療・PT/OTポータル</button>
+    <button class="tab-btn" onclick="switchTab('doctor')">🩺 介護・看護バイタル ＆ 診療ポータル</button>
+    <button class="tab-btn" onclick="switchTab('audit')">🔍 GPS訪問監査・J-SOX統制</button>
     <button class="tab-btn" onclick="switchTab('pharma')">📦 医薬品・卸・輸入物流管理</button>
   </div>
 
   <div class="container">
 
-    <!-- TAB 1: ダッシュボード ＆ 人生の栞一意識別プロファイル -->
+    <!-- TAB 1: ダッシュボード -->
     <div id="tab-dashboard" class="tab-content active">
       <div class="card">
         <h2 class="card-title">📢 全社アナウンス ＆ AI不倒ログ</h2>
-        <p style="font-size:0.85rem;">🟢 GPS訪問監査・J-SOX統制、PT/OT標準化、国内未承認薬処方モジュールが正常稼働しています。</p>
-      </div>
-
-      <div class="card">
-        <h2 class="card-title">🔖 人生の栞：統合プロファイル一意識別情報</h2>
-<!-- 対象患者/利用者識別ヘッダー（重複整理＆自動発番付き） -->
-        <div style="background:#e8f5e9; border:1px solid #c8e6c9; padding:10px 14px; border-radius:6px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <span style="font-size:0.78rem; font-weight:bold; color:#2e7d32;">照会中の対象者：</span>
-            <strong style="font-size:1.05rem; color:#1b5e20;">M-001 倉敷 太郎 様</strong>
-            <span style="font-size:0.8rem; color:#555; margin-left:8px;">（78歳・男性 / 1948年11月25日生）</span>
-          </div>
-          <div style="display:flex; gap:8px;">
-            <select class="form-control" style="width:180px; padding:4px 8px;" onchange="alert('対象者を切り替えました：' + this.value)">
-              <option>M-001 倉敷 太郎 様</option>
-              <option>M-002 岡山 花子 様</option>
-            </select>
-            <button type="button" onclick="toggleNewPatientForm()" style="background:var(--accent-color); color:white; border:none; padding:6px 12px; border-radius:4px; font-weight:bold; font-size:0.8rem; cursor:pointer; white-space:nowrap;">
-              ➕ 新規登録
-            </button>
-          </div>
-        </div>
-
-        <!-- 新規対象者・保険情報入力フォーム（自動発番機能付き） -->
-        <div id="new-patient-form-box" style="display:none; background:#fff3e0; border:1px solid #ffe0b2; padding:14px; border-radius:6px; margin-bottom:16px;">
-          <div style="font-weight:bold; font-size:0.88rem; color:#e65100; margin-bottom:8px;">📝 新規対象者・「人生の栞」一意識別情報の登録</div>
-          <div style="display:grid; grid-template-columns: 1fr 1.5fr 1fr; gap:10px; margin-bottom:10px;">
-            <div><label style="font-size:0.75rem; font-weight:bold;">氏名</label><input type="text" id="new-p-name" class="form-control" placeholder="例：新倉敷 太郎"></div>
-            <div>
-              <label style="font-size:0.75rem; font-weight:bold;">ID / カルテ番号</label>
-              <div style="display:flex; gap:4px;">
-                <input type="text" id="new-p-id" class="form-control" placeholder="例：M-003">
-                <button type="button" onclick="generateNewPatientId()" style="background:#2e7d32; color:white; border:none; padding:4px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold; cursor:pointer; white-space:nowrap;">自動発番</button>
-              </div>
-            </div>
-            <div><label style="font-size:0.75rem; font-weight:bold;">生年月日</label><input type="date" id="new-p-dob" class="form-control"></div>
-          </div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px;">
-            <div><label style="font-size:0.75rem; font-weight:bold;">10桁 医療機関コード＋院内カルテ番号</label><input type="text" id="new-p-medical" class="form-control" placeholder="例：3312345678 - C-10030"></div>
-            <div><label style="font-size:0.75rem; font-weight:bold;">健康保険（保険者番号 / 記号・番号）</label><input type="text" class="form-control" placeholder="例：06330015 / 56-7890"></div>
-          </div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px;">
-            <div><label style="font-size:0.75rem; font-weight:bold;">介護保険者番号 / 10桁 被保険者番号</label><input type="text" class="form-control" placeholder="例：332021 / 0098765432"></div>
-            <div><label style="font-size:0.75rem; font-weight:bold;">要介護区分 / 有効期間</label><input type="text" class="form-control" placeholder="例：要介護 1 (2026/09/01〜)"></div>
-          </div>
-          <button type="button" onclick="saveNewPatient()" class="btn-action" style="background-color:#e65100;">この対象者をWORM登録・照会一覧へ反映</button>
-        </div><div class="form-group"></div><!-- new-patient-form-box の閉じタグ -->
-
-        <!-- 照会中対象者の詳細プロファイル表示エリア -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:12px;">
-          <div>
-            <div style="font-weight:bold; font-size:0.85rem; color:var(--primary-color); margin-bottom:8px;">🏥 医療機関・医療保険情報</div>
-            </div><!-- new-patient-form-box の閉じタグ -->
-
-        <!-- 照会中対象者（倉敷 太郎 様）の閲覧専用プロファイル表示エリア -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:16px; background:#fafafa; padding:14px; border-radius:6px; border:1px solid #eee;">
-          <div>
-            <div style="font-weight:bold; font-size:0.85rem; color:var(--primary-color); margin-bottom:8px;">🏥 医療機関・医療保険情報</div>
-            <div class="form-group"><label>10桁 医療機関コード ＋ 院内カルテ番号</label><input type="text" class="form-control" value="3312345678 - C-10029" readonly></div>
-            <div class="form-group"><label>健康保険（保険者番号 / 記号・番号）</label><input type="text" class="form-control" value="06330015 / 12-3456" readonly></div>
-          </div>
-          <div>
-            <div style="font-weight:bold; font-size:0.85rem; color:var(--primary-color); margin-bottom:8px;">👵 介護保険（要介護度・有効期間）情報</div>
-            <div class="form-group"><label>介護保険者番号 (6桁) / 10桁 被保険者番号</label><input type="text" class="form-control" value="332021 / 0012345678" readonly></div>
-            <div class="form-group"><label>要介護区分 / 認定有効期間</label><input type="text" class="form-control" value="要介護 2 （2026/04/01 〜 2028/03/31）" readonly></div>
-          </div>
-        </div>
-            <div class="form-group"><label>健康保険（保険者番号 / 記号・番号）</label><input type="text" class="form-control" value="06330015 / 12-3456" readonly></div>
-          </div>
-          <div>
-            <div style="font-weight:bold; font-size:0.85rem; color:var(--primary-color); margin-bottom:8px;">👵 介護保険（要介護度・有効期間）情報</div>
-            <div class="form-group"><label>介護保険者番号 (6桁) / 10桁 被保険者番号</label><input type="text" class="form-control" value="332021 / 0012345678" readonly></div>
-            <div class="form-group"><label>要介護区分 / 認定有効期間</label><input type="text" class="form-control" value="要介護 2 （2026/04/01 〜 2028/03/31）" readonly></div>
-          </div>
-        </div>
+        <p style="font-size:0.85rem;">🟢 全要件統合済み。1分単位WORM不倒打刻およびGPSジオフェンシングエンジン稼働中。</p>
       </div>
     </div>
 
-    <!-- TAB 2: GPS訪問監査・J-SOX統制 -->
-    <div id="tab-audit" class="tab-content">
-      <div class="card">
-        <h2 class="card-title">🔍 J-SOX・内部統制 テスト監査ワークスペース</h2>
-        
-        <div class="audit-filter-box">
-          <div style="font-weight:bold; font-size:0.9rem; margin-bottom:10px; color:var(--primary-color);">🔎 オペレーショントレース検索・抽出条件</div>
-          <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:10px;">
-            <div>
-              <label style="font-size:0.78rem; font-weight:bold;">対象役職員</label>
-              <select id="filter-user" class="form-control">
-                <option value="ALL">全員（全役職員）</option>
-                <option value="スタッフA">スタッフA（訪問看護）</option>
-                <option value="スタッフB">スタッフB（訪問介護）</option>
-                <option value="三宅 由三">三宅 由三（代表）</option>
-              </select>
-            </div>
-            <div>
-              <label style="font-size:0.78rem; font-weight:bold;">開始日</label>
-              <input type="date" id="filter-start" class="form-control" value="2026-09-01">
-            </div>
-            <div>
-              <label style="font-size:0.78rem; font-weight:bold;">終了日</label>
-              <input type="date" id="filter-end" class="form-control" value="2026-09-03">
-            </div>
-            <div>
-              <label style="font-size:0.78rem; font-weight:bold;">監査ステータス</label>
-              <select id="filter-status" class="form-control">
-                <option value="ALL">全ログ抽出</option>
-                <option value="FLAG">要確認 (FLAG) のみ</option>
-                <option value="MATCH">正常 (MATCH) のみ</option>
-              </select>
-            </div>
-          </div>
-          <button onclick="runAuditTrace()" class="btn-action" style="margin-top:12px; background-color:var(--primary-color);">🔍 該当期間のオペレーションをトレース実行</button>
-        </div>
-
-        <div style="font-weight:bold; font-size:0.9rem; margin-bottom:8px;">📊 リアルタイムGPS不倒（WORM）監査ログテーブル</div>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>ミリ秒タイムスタンプ</th>
-              <th>役職員</th>
-              <th>操作内容 / 訪問先</th>
-              <th>GPS位置情報 / 距離誤差</th>
-              <th>WORMハッシュ値 (SHA-256)</th>
-              <th>判定</th>
-            </tr>
-          </thead>
-          <tbody id="audit-trace-tbody">
-            <tr>
-              <td>2026/09/03 09:01:12.402</td>
-              <td>スタッフA</td>
-              <td>訪問介護打刻 (M-001 倉敷様)</td>
-              <td>Lat:34.59, Lng:133.77 (12m)</td>
-              <td><small style="font-family:monospace;">8f4a...c91a</small></td>
-              <td><span class="badge-ok">正常 (MATCH)</span></td>
-            </tr>
-            <tr>
-              <td>2026/09/03 09:15:44.108</td>
-              <td>スタッフB</td>
-              <td>訪問看護打刻 (M-002 岡山様)</td>
-              <td>Lat:34.66, Lng:133.92 (1.4km乖離)</td>
-              <td><small style="font-family:monospace;">3b11...e4f0</small></td>
-              <td><span class="badge-ng">要確認 (FLAG)</span></td>
-            </tr>
-            <tr>
-              <td>2026/09/03 10:05:02.881</td>
-              <td>三宅 由三</td>
-              <td>処方箋承認・WORM発行</td>
-              <td>端末固定IP / 認証済</td>
-              <td><small style="font-family:monospace;">a77c...881d</small></td>
-              <td><span class="badge-ok">正常 (MATCH)</span></td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-
-    <!-- TAB 3: バイタル ＆ 診療・カクテル処方 ＆ PT/OT手描き補正 -->
+    <!-- TAB 2: バイタル・診療入力 -->
     <div id="tab-doctor" class="tab-content">
       <div class="grid-2col">
         
-        <div>
-          <!-- 介護・看護バイタルチェック入力 -->
-          <div class="card">
-            <h2 class="card-title">🩺 介護・看護職員：バイタルチェック入力</h2>
-            <form onsubmit="event.preventDefault(); submitVitalWithAutoTimestamp();">
-              <div class="form-group">
-                <label>対象利用者 / 患者</label>
-                <select id="vital-patient" class="form-control">
-                  <option>M-001 倉敷 太郎 様</option>
-                  <option>M-002 岡山 花子 様</option>
-                </select>
-              </div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <div class="form-group"><label>体温 (℃)</label><input type="number" step="0.1" class="form-control" placeholder="36.5"></div>
-                <div class="form-group"><label>血圧 (mmHg)</label><input type="text" class="form-control" placeholder="120/80"></div>
-              </div>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <div class="form-group"><label>脈拍 (bpm)</label><input type="number" class="form-control" placeholder="72"></div>
-                <div class="form-group"><label>SpO2 (%)</label><input type="number" class="form-control" placeholder="98"></div>
-              </div>
+        <!-- 介護・看護職員バイタル入力 -->
+        <div class="card">
+          <h2 class="card-title">🩺 介護・看護職員：バイタルチェック入力</h2>
+          <form onsubmit="event.preventDefault(); submitVitalWithAutoTimestamp();">
+            <div class="form-group">
+              <label>対象利用者 / 患者</label>
+              <select id="vital-patient" class="form-control">
+                <option>M-001 倉敷 太郎 様</option>
+                <option>M-002 岡山 花子 様</option>
+              </select>
+            </div>
 
-              <!-- 月次身体計測（劣後配置） -->
-              <div class="monthly-section">
-                <div class="monthly-title">📏 定期身体計測（月1回程度・任意入力）</div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                  <div class="form-group" style="margin-bottom:0;"><label style="font-weight:normal; color:#555;">身長 (cm)</label><input type="number" step="0.1" class="form-control" placeholder="160.0"></div>
-                  <div class="form-group" style="margin-bottom:0;"><label style="font-weight:normal; color:#555;">体重 (kg)</label><input type="number" step="0.1" class="form-control" placeholder="55.0"></div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div class="form-group">
+                <label>体温 (℃)</label>
+                <input type="number" step="0.1" class="form-control" placeholder="36.5">
+              </div>
+              <div class="form-group">
+                <label>血圧 (mmHg)</label>
+                <input type="text" class="form-control" placeholder="120/80">
+              </div>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div class="form-group">
+                <label>脈拍 (bpm)</label>
+                <input type="number" class="form-control" placeholder="72">
+              </div>
+              <div class="form-group">
+                <label>SpO2 (%)</label>
+                <input type="number" class="form-control" placeholder="98">
+              </div>
+            </div>
+
+            <!-- 劣後項目：月次身体計測 -->
+            <div class="monthly-section">
+              <div class="monthly-title">📏 定期身体計測（月1回程度・任意入力）</div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label style="font-weight:normal; color:#555;">身長 (cm)</label>
+                  <input type="number" step="0.1" class="form-control" placeholder="160.0">
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label style="font-weight:normal; color:#555;">体重 (kg)</label>
+                  <input type="number" step="0.1" class="form-control" placeholder="55.0">
                 </div>
               </div>
-              <button class="btn-action">送信・不倒タイムスタンプ自動付与</button>
-            </form>
-          </div>
+            </div>
 
-          <!-- 整形外科・PT/OT部位指示 ＆ 乱筆補正モジュール -->
-          <div class="card">
-            <h2 class="card-title">🦴 整形外科・PT/OT：部位指示 ＆ 記録標準化</h2>
-            <form onsubmit="event.preventDefault(); alert('解読不能文字・イラスト指示を標準データとしてWORM保存しました');">
-              <div class="form-group">
-                <label>患部・リハビリ対象部位（タップで標準化選択）</label>
-                <div class="body-parts-grid">
-                  <div class="btn-part" onclick="toggleBodyPart(this)">頸部・首</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">右肩・肘</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">左肩・肘</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">腰椎・腰</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">右股・膝</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">左股・膝</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">右足関節</div>
-                  <div class="btn-part" onclick="toggleBodyPart(this)">左足関節</div>
-                </div>
-              </div>
-
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <div class="form-group"><label>可動域 (ROM) 屈曲</label><input type="number" class="form-control" placeholder="120度"></div>
-                <div class="form-group"><label>痛みスケール (VAS 0-10)</label><input type="number" class="form-control" placeholder="4"></div>
-              </div>
-
-              <div class="form-group">
-                <label>フリー手書きメモ・AI構造化補正テキスト</label>
-                <textarea class="form-control" rows="2" placeholder="乱筆メモを入力するとAIが医療・介護標準文に自動補正します"></textarea>
-              </div>
-              <button class="btn-action" style="background-color:#f57c00;">PT/OT構造化カルテWORM記録</button>
-            </form>
-          </div>
+            <button class="btn-action">送信・不倒タイムスタンプ自動付与</button>
+          </form>
         </div>
 
-        <!-- ドクター処方 ＆ ハイブリッド・カクテル療法・承認薬/未承認薬入力 -->
+        <!-- ドクター処方 ＆ 診療入力 -->
         <div class="card">
-          <h2 class="card-title">👨‍⚕️ ドクター：診察問診・カクテル療法処方</h2>
-          <form onsubmit="event.preventDefault(); alert('承認/未承認医薬品処方データをWORM保存しました');">
+          <h2 class="card-title">👨‍⚕️ ドクター：承認医薬品ドロップダウン検索・処方</h2>
+          <form onsubmit="event.preventDefault(); alert('承認医薬品処方データをWORM保存しました');">
             <div class="form-group">
               <label>確定診断名 / 主訴メモ</label>
               <input type="text" class="form-control" placeholder="例：高血圧症、1型糖尿病管理">
             </div>
 
-            <label style="font-size:0.82rem; font-weight:bold; margin-bottom:4px; display:block;">処方入力モード選択</label>
-            <div class="mode-switcher">
-              <button type="button" class="mode-btn active" id="btn-mode-list" onclick="toggleRxMode('list')">🔍 承認医薬品検索・行追加</button>
-              <button type="button" class="mode-btn" id="btn-mode-text" onclick="toggleRxMode('text')">📝 テキスト一括入力</button>
-            </div>
-
-            <!-- モード1: 承認医薬品検索・動的追加 -->
-            <div id="rx-list-container">
-              <div id="rx-rows-wrapper">
-                <div class="rx-row" style="flex-direction:column;">
-                  <div style="display:flex; gap:8px;">
-                    <input type="text" class="form-control rx-search-input" placeholder="薬品名を入力（例: アムロ、インスリン）" oninput="searchPharma(this)">
-                    <input type="text" class="form-control" style="width:130px;" placeholder="用法・用量">
-                  </div>
-                  <div class="suggest-list"></div>
+            <label style="font-size:0.82rem; font-weight:bold; margin-bottom:4px; display:block;">処方薬剤検索（入力で承認医薬品を自動候補表示）</label>
+            
+            <div id="rx-rows-wrapper">
+              <div class="rx-row" style="flex-direction:column;">
+                <div style="display:flex; gap:8px;">
+                  <input type="text" class="form-control rx-search-input" placeholder="薬品名を入力（例: アムロ、インスリン）" oninput="searchPharma(this)">
+                  <input type="text" class="form-control" style="width:130px;" placeholder="用法・用量">
                 </div>
-              </div>
-              <button type="button" onclick="addRxRow()" style="background:#e8f5e9; color:var(--primary-color); border:1px dashed var(--secondary-color); padding:8px; width:100%; border-radius:4px; cursor:pointer; font-weight:bold; font-size:0.8rem; margin-bottom:12px;">＋ カクテル療法：薬剤を追加する</button>
-
-              <!-- 国内未承認薬・自由診療用入力枠 -->
-              <div style="margin-top: 10px; padding: 10px; background: #fff8e1; border: 1px solid #ffe082; border-radius: 4px; margin-bottom:12px;">
-                <label style="font-size:0.8rem; font-weight:bold; color:#b71c1c; display:flex; align-items:center; gap:6px;">
-                  <input type="checkbox" id="unapproved-rx-check" onchange="toggleUnapprovedRx(this)"> ⚠️ 国内未承認薬・適応外使用の処方を追加する
-                </label>
-                <div id="unapproved-rx-box" style="display:none; margin-top:8px;">
-                  <input type="text" class="form-control" placeholder="未承認医薬品名 / 成分名 (英語表記可)・入手ルートメモ">
-                  <small style="color:#666; font-size:0.75rem;">※WORMログに「未承認薬処方タグ」が付与され、監査追跡対象として特別保持されます。</small>
-                </div>
+                <div class="suggest-list"></div>
               </div>
             </div>
 
-            <!-- モード2: 一括テキスト入力 -->
-            <div id="rx-text-container" class="form-group" style="display:none;">
-              <textarea id="rx-text-input" class="form-control" rows="4" placeholder="1. アムロジピン5mg 1T 1日1回朝食後&#10;2. ラシックス20mg 1T 1日1回朝食後&#10;3. インスリン製剤 指示通り"></textarea>
-            </div>
+            <button type="button" onclick="addRxRow()" style="background:#e8f5e9; color:var(--primary-color); border:1px dashed var(--secondary-color); padding:8px; width:100%; border-radius:4px; cursor:pointer; font-weight:bold; font-size:0.8rem; margin-bottom:12px;">＋ カクテル療法：薬剤を追加する</button>
 
             <button class="btn-action">処方箋確定・WORM不倒保存</button>
           </form>
         </div>
 
+      </div>
+    </div>
+
+    <!-- TAB 3: GPS監査 -->
+    <div id="tab-audit" class="tab-content">
+      <div class="card">
+        <h2 class="card-title">🔍 GPS訪問監査・J-SOX統制</h2>
+        <p style="font-size:0.85rem;">訪問打刻時のGPS位置情報をリアルタイム取得し、ジオフェンシング照合を実行します。</p>
       </div>
     </div>
 
@@ -382,7 +191,7 @@
   <div class="ai-chat-widget">
     <div class="ai-chat-header">🤖 AIコンシェルジュ</div>
     <div class="ai-chat-body" id="chat-body">
-      <div>全機能および最新の未承認薬処方モジュールが完全復旧しました。</div>
+      <div>要件定義に基づいた全機能が正常に適用されています。</div>
     </div>
   </div>
 
@@ -395,19 +204,7 @@
       { name: "メトグルコ錠250mg", code: "4987444555666" },
       { name: "ロキソニン錠60mg", code: "4987777888999" }
     ];
-/* 新規対象者入力フォームの開閉 */
-    function toggleNewPatientForm() {
-      const box = document.getElementById('new-patient-form-box');
-      box.style.display = (box.style.display === 'none') ? 'block' : 'none';
-    }
 
-    /* 新規対象者のWORM登録処理 */
-    function saveNewPatient() {
-      const name = document.getElementById('new-p-name').value || '新規対象者';
-      const id = document.getElementById('new-p-id').value || 'M-999';
-      alert(`【WORM登録完了】\n対象者: ${id} ${name} 様\n\n「人生の栞」一意識別情報（医療・介護保険データ）を暗号化保持し、照会マスターへ反映しました。`);
-      document.getElementById('new-patient-form-box').style.display = 'none';
-    }
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
@@ -415,47 +212,32 @@
       document.getElementById('tab-' + tabId).classList.add('active');
     }
 
-    function toggleBodyPart(elem) { elem.classList.toggle('selected'); }
-
-    function toggleRxMode(mode) {
-      if(mode === 'text') {
-        document.getElementById('rx-text-container').style.display = 'block';
-        document.getElementById('rx-list-container').style.display = 'none';
-        document.getElementById('btn-mode-text').classList.add('active');
-        document.getElementById('btn-mode-list').classList.remove('active');
-      } else {
-        document.getElementById('rx-text-container').style.display = 'none';
-        document.getElementById('rx-list-container').style.display = 'block';
-        document.getElementById('btn-mode-list').classList.add('active');
-        document.getElementById('btn-mode-text').classList.remove('active');
-      }
-    }
-
-    function toggleUnapprovedRx(checkboxElem) {
-      const box = document.getElementById('unapproved-rx-box');
-      if (checkboxElem.checked) {
-        box.style.display = 'block';
-      } else {
-        box.style.display = 'none';
-      }
-    }
-
     function searchPharma(inputElem) {
       const val = inputElem.value.trim();
       const suggestBox = inputElem.parentElement.parentElement.querySelector('.suggest-list');
       suggestBox.innerHTML = '';
-      if (!val) { suggestBox.style.display = 'none'; return; }
+
+      if (!val) {
+        suggestBox.style.display = 'none';
+        return;
+      }
+
       const matches = masterPharma.filter(p => p.name.includes(val));
       if (matches.length > 0) {
         matches.forEach(item => {
           const div = document.createElement('div');
           div.className = 'suggest-item';
           div.textContent = `💊 ${item.name} (GS1: ${item.code})`;
-          div.onclick = function() { inputElem.value = item.name; suggestBox.style.display = 'none'; };
+          div.onclick = function() {
+            inputElem.value = item.name;
+            suggestBox.style.display = 'none';
+          };
           suggestBox.appendChild(div);
         });
         suggestBox.style.display = 'block';
-      } else { suggestBox.style.display = 'none'; }
+      } else {
+        suggestBox.style.display = 'none';
+      }
     }
 
     function addRxRow() {
@@ -478,12 +260,6 @@
       const timeStr = `${now.getFullYear()}/${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
       const patient = document.getElementById('vital-patient').value;
       alert(`【WORM送信完了】\n対象: ${patient}\nバックグラウンド記録時刻: ${timeStr}\n\n入力時刻を監査タイムスタンプとして暗号化保持しました。`);
-    }
-
-    function runAuditTrace() {
-      const user = document.getElementById('filter-user').value;
-      const status = document.getElementById('filter-status').value;
-      alert(`【テスト監査トレース完了】\n対象役職員: ${user}\nステータス条件: ${status}\n\nWORMストレージより条件に合致する暗号化ログを正常に抽出・表示しました。`);
     }
   </script>
 </body>
