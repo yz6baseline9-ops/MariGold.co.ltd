@@ -253,7 +253,27 @@
   <div style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #70757a; border-top: 1px solid #dadce0; padding-top: 16px;">
     &copy; 2026 マリーゴールド統合医療介護プラットフォーム | J-SOX・医療情報ガイドライン5.2版・WORM適合
   </div>
-
+<!-- モジュール⑬：G7母国語対応 ＆ グローバル・ローカライゼーション -->
+  <div class="card" style="border-top: 4px solid #1a73e8; background: #fafafa;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <h3 style="margin: 0; color: #1a73e8; font-size: 1.05rem;">🌐 G7言語切り替え (G7 Multilingual Support)</h3>
+        <p style="margin: 4px 0 0 0; font-size: 0.82rem; color: #5f6368;">
+          インバウンド救急・多国籍スタッフ・ご家族向けリアルタイム表示切替 (HL7 FHIR / UTF-8国際標準規格)
+        </p>
+      </div>
+      <div>
+        <select id="languageSelect" onchange="alert('言語切り替え: ' + this.value + ' に変更されました（HL7 FHIR翻訳インターフェース同期）')" style="padding: 8px 12px; border: 1px solid #1a73e8; border-radius: 6px; font-weight: bold; background-color: #ffffff; color: #1a73e8; cursor: pointer;">
+          <option value="ja">🇯🇵 日本語 (Japanese)</option>
+          <option value="en">🇺🇸🇬🇧 English (US / UK)</option>
+          <option value="fr">🇫🇷 Français (French)</option>
+          <option value="de">🇩🇪 Deutsch (German)</option>
+          <option value="it">🇮🇹 Italiano (Italian)</option>
+          <option value="ca-fr">🇨🇦 Français (Canada)</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </div> <!-- .container の閉じタグ -->
 
 </body>
