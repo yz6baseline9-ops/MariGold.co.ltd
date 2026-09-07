@@ -60,4 +60,4 @@ Marigold Co., Ltd.
 
 Shizuko Miyake
 
-Yoshimi Miyake 
+Yuzo Miyake 
