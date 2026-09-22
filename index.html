@@ -1,1033 +1,418 @@
-<!-- ==========================================
-  PART 1: 共通ヘッダー & ヒーローセクション
-  ファイル名: part1_header_hero.html
-========================================== -->
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="brand">
-      <h1 class="logo-text">Marigold Co., Ltd.</h1>
-      <span class="logo-sub">マリーゴールド株式会社</span>
+<!doctype html>
+<html lang="ja"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260922-03-6416566","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/83d6dfdadcd4750a.telemetry_sdk.js" integrity="sha512-XS4Dvzp6vbagZS9vFErihvr8aO3S0tH78KWUefn06fmL4WYqryBtZj/IOLITYj7dFA4gPVvPg1W/JB1DK3uLNQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marigold Co., Ltd.</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #102943;
+      --ink: #182533;
+      --orange: #ec7918;
+      --cream: #fff6e6;
+      --mist: #eef4f7;
+      --line: #dce5ea;
+      --muted: #586a78;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "DM Sans", "Noto Sans JP", sans-serif; color: var(--ink); }
+    .jp-heading { font-family: "Noto Sans JP", sans-serif; letter-spacing: -.04em; }
+    .site-shell { width: 100%; overflow: hidden; }
+    .site-width { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    .section-space { padding: 104px 0; }
+    .eyebrow { font-size: 11px; letter-spacing: .14em; font-weight: 700; color: var(--orange); text-transform: uppercase; }
+    .nav-link { color: #3c4a55; font-size: 13px; font-weight: 600; transition: color .2s ease; }
+    .nav-link:hover { color: var(--orange); }
+    .outline-button, .primary-button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 48px; padding: 0 20px; border-radius: 7px; font-size: 14px;
+      font-weight: 700; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .primary-button { background: var(--orange); color: white; box-shadow: 0 8px 18px rgba(236,121,24,.18); }
+    .primary-button:hover { background: #d8660b; transform: translateY(-2px); }
+    .outline-button { color: var(--navy); border: 1px solid #cdd9df; background: white; }
+    .outline-button:hover { border-color: var(--navy); transform: translateY(-2px); }
+    .abstract-grid {
+      background-image: linear-gradient(rgba(41, 91, 121, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(41, 91, 121, .08) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .hero-orb { position: absolute; border-radius: 999px; filter: blur(.2px); }
+    .data-node { position: absolute; width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; background: white; box-shadow: 0 12px 32px rgba(21,50,70,.12); border: 1px solid rgba(212,225,231,.9); color: var(--navy); }
+    .data-line { position: absolute; height: 1px; background: linear-gradient(90deg, rgba(28,83,115,.14), rgba(236,121,24,.85), rgba(28,83,115,.14)); transform-origin: left center; }
+    .soft-card { border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(18, 54, 75, .055); }
+    .value-card { position: relative; overflow: hidden; min-height: 320px; }
+    .value-card:after { content:""; position:absolute; width:240px; height:240px; border-radius:50%; right:-80px; bottom:-120px; background: radial-gradient(circle, rgba(240,179,85,.20), rgba(240,179,85,0)); }
+    .mini-diagram { height: 82px; position: relative; }
+    .mini-diagram span { position: absolute; width: 24px; height: 24px; border-radius: 8px; border: 1px solid #afc4d0; background: #fff; }
+    .mini-diagram i { position: absolute; height: 1px; background: #a8bfca; transform-origin:left; }
+    .step-line { height: 1px; flex: 1; margin: 42px 18px 0; background: linear-gradient(90deg, #c6d8e1, var(--orange), #c6d8e1); }
+    .timeline { position: relative; }
+    .timeline:before { content:""; position:absolute; top: 28px; bottom: 30px; left: 18px; width: 1px; background: #b9ceda; }
+    .timeline-item { position: relative; padding-left: 58px; }
+    .timeline-number { position:absolute; left:0; top:0; width:37px; height:37px; border-radius: 50%; background: var(--orange); color:white; display:grid; place-items:center; font-size:12px; font-weight:700; box-shadow:0 0 0 6px #fff6e6; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .menu-open { display: block !important; }
+    .form-control { width:100%; border:1px solid #d5e0e5; border-radius:6px; padding:12px 13px; color:var(--ink); font-size:14px; background:white; outline:none; transition:border .2s ease, box-shadow .2s ease; }
+    .form-control:focus { border-color:var(--orange); box-shadow:0 0 0 3px rgba(236,121,24,.13); }
+    .form-control[aria-invalid="true"] { border-color:#c74444; }
+    .error-message { color:#b42318; font-size:12px; min-height:18px; margin-top:5px; }
+    @media (max-width: 767px) {
+      .site-width { width: min(100% - 32px, 1120px); }
+      .section-space { padding: 72px 0; }
+      .hero-section { padding-top: 54px; }
+      .step-line { width: 1px; height: 32px; margin: 12px 0 12px 28px; flex: none; background: #c6d8e1; }
+      .step-flow { flex-direction: column; align-items: stretch; }
+      .step-card { display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:start; }
+      .step-card .step-copy { padding-top:5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior:auto; }
+      *, *:before, *:after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/8de366929c5f3b48.data_sdk.js" type="text/javascript" integrity="sha512-TyQ8k8cZj66xe/aENmn6RyZpdOFZXbAo5+KBG3PeFM+Q4qMTHU8xAqmq4ADClNfPrstgQYV6OzZHwLTnElzB2g=="></script>
+  <script src="/_sdk/d80647b37084f0c6.editing_sdk.js" type="text/javascript" integrity="sha512-jCz+DtquKRDjnSrSxfhBCzqv2CNRnUAa0936TKD2DSOtf6OZkZ6z2RJ9PZqOhkoYVUsdKS+mJI9DS8ttXywBzw=="></script>
+  <script src="/_sdk/765e1fea0cec97ce.resizing_sdk.js" type="text/javascript" integrity="sha512-IRTJnqww0+HQ5V/LlWEQrlD5SrYHaVvaeVoNe8HYQXoaguzUGheSd9+n9s6WOgaTcEH0g37DuINHZ9aqfzWjlw=="></script>
+ </head>
+ <body data-template-id="__page-root" class="bg-white" style="background: rgb(255, 255, 255);">
+  <div class="site-shell">
+   <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <div class="site-width flex h-[72px] items-center justify-between"><a href="#top" data-template-id="brand-name" class="canva-link text-[15px] font-bold tracking-[-.03em] text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">Marigold Co., Ltd.</a>
+     <nav class="hidden items-center gap-7 md:flex" aria-label="メインナビゲーション"><a href="#company" data-template-id="nav-company" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">会社情報</a> <a href="#business" data-template-id="nav-business" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">事業内容</a> <a href="#news" data-template-id="nav-news" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">お知らせ</a> <a href="#contact" data-template-id="nav-contact" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">お問い合わせ</a> <a href="#contact" data-template-id="nav-cta" class="canva-button rounded-md px-4 py-2 text-[12px] font-bold text-white" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">お問い合わせ</a>
+     </nav><button id="menu-toggle" type="button" class="rounded-md p-2 text-[#102943] md:hidden focus:outline-none focus:ring-2 focus:ring-orange-400" aria-label="メニューを開く" aria-expanded="false"> <i data-lucide="menu" class="h-5 w-5"></i> </button>
     </div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#about">会社概要</a></li>
-        <li><a href="#services">事業内容</a></li>
-        <li><a href="#tech">データ標準化(FHIR)</a></li>
-        <li><a href="#contact" class="nav-btn">お問い合わせ</a></li>
-      </ul>
+    <nav id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden" aria-label="モバイルナビゲーション">
+     <div class="mx-auto flex max-w-[1120px] flex-col gap-1"><a href="#company" data-template-id="mobile-company" class="canva-link rounded px-3 py-3 text-sm font-semibold text-slate-700" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">会社情報</a> <a href="#business" data-template-id="mobile-business" class="canva-link rounded px-3 py-3 text-sm font-semibold text-slate-700" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">事業内容</a> <a href="#news" data-template-id="mobile-news" class="canva-link rounded px-3 py-3 text-sm font-semibold text-slate-700" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">お知らせ</a> <a href="#contact" data-template-id="mobile-contact" class="canva-button mt-2 rounded-md px-3 py-3 text-center text-sm font-bold text-white" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">お問い合わせ</a>
+     </div>
     </nav>
+   </header>
+   <main id="top">
+    <section class="hero-section relative overflow-hidden bg-[#fff8e9] py-[88px] md:py-[112px]">
+     <div class="abstract-grid absolute inset-0 opacity-40"></div>
+     <div class="hero-orb left-[-70px] top-[35%] h-[210px] w-[210px] bg-[#f6c27a]/30"></div>
+     <div class="hero-orb right-[8%] top-[-80px] h-[240px] w-[240px] bg-[#b6d9e8]/30"></div>
+     <div class="site-width relative grid items-center gap-12 lg:grid-cols-[1.06fr_.94fr]">
+      <div class="reveal">
+       <p data-template-id="hero-eyebrow" class="canva-text eyebrow mb-5" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Healthcare × Life Support Innovation</p>
+       <h1 data-template-id="hero-title" class="canva-text jp-heading max-w-[680px] text-[36px] font-extrabold leading-[1.38] text-[#102943] md:text-[48px]" style="color: rgb(16, 41, 67); font-weight: 800; font-style: normal; font-size: 32px;">データ分析を解決し、誰もが誇り高く生きられる社会へ</h1>
+       <p data-template-id="hero-description" class="canva-text mt-6 max-w-[620px] text-[15px] leading-8 text-[#4e606d] md:text-[16px]" style="color: rgb(78, 96, 109); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.8;">医療・介護の現場にあるデータを、現場で使える知恵へ。構造化・可視化・実装まで伴走します。</p>
+       <div class="mt-8 flex flex-col gap-3 sm:flex-row"><a href="#business" data-template-id="hero-business-cta" class="canva-button primary-button" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">事業内容を見る</a> <a href="#contact" data-template-id="hero-contact-cta" class="canva-button outline-button" style="background: rgb(255, 255, 255); color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">ご相談・お問い合わせ</a>
+       </div>
+      </div>
+      <div class="reveal relative mx-auto h-[330px] w-full max-w-[470px] md:h-[390px]" style="transition-delay:.12s">
+       <div class="absolute inset-4 rounded-[28px] border border-white/90 bg-white/60 shadow-[0_20px_50px_rgba(26,65,89,.10)] backdrop-blur-sm"></div>
+       <div class="absolute left-[22%] top-[22%] h-[190px] w-[190px] rounded-full border border-[#9fc0d0]/70 bg-[radial-gradient(circle_at_40%_35%,#ffffff_0%,#e8f3f7_45%,#cde1e8_100%)]"></div>
+       <div class="hero-orb left-[29%] top-[29%] h-[110px] w-[110px] bg-[#fff0cf]"></div>
+       <div class="data-line left-[22%] top-[35%] w-[140px] rotate-[21deg]"></div>
+       <div class="data-line left-[33%] top-[49%] w-[150px] -rotate-[28deg]"></div>
+       <div class="data-line left-[43%] top-[42%] w-[116px] rotate-[74deg]"></div>
+       <div class="data-node left-[11%] top-[27%]">
+        <i data-lucide="heart-pulse" class="h-5 w-5"></i>
+       </div>
+       <div class="data-node right-[10%] top-[20%]">
+        <i data-lucide="users" class="h-5 w-5"></i>
+       </div>
+       <div class="data-node bottom-[13%] left-[17%]">
+        <i data-lucide="database" class="h-5 w-5"></i>
+       </div>
+       <div class="data-node bottom-[12%] right-[16%]">
+        <i data-lucide="network" class="h-5 w-5"></i>
+       </div>
+       <div class="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl bg-[#102943] text-white shadow-xl">
+        <i data-lucide="sparkles" class="h-6 w-6"></i>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="border-y border-[#dfe9ec] bg-white">
+     <div class="site-width grid divide-y divide-[#dfe9ec] md:grid-cols-3 md:divide-x md:divide-y-0">
+      <div class="flex items-center gap-4 py-5 md:justify-center">
+       <span class="grid h-8 w-8 place-items-center rounded-full bg-[#fff1dc] text-xs font-bold text-[#ec7918]">01</span><span data-template-id="trust-one" class="canva-text text-sm font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">現場起点</span>
+      </div>
+      <div class="flex items-center gap-4 py-5 md:justify-center">
+       <span class="grid h-8 w-8 place-items-center rounded-full bg-[#fff1dc] text-xs font-bold text-[#ec7918]">02</span><span data-template-id="trust-two" class="canva-text text-sm font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">データを構造化</span>
+      </div>
+      <div class="flex items-center gap-4 py-5 md:justify-center">
+       <span class="grid h-8 w-8 place-items-center rounded-full bg-[#fff1dc] text-xs font-bold text-[#ec7918]">03</span><span data-template-id="trust-three" class="canva-text text-sm font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">実装まで伴走</span>
+      </div>
+     </div>
+    </section>
+    <section id="company" class="section-space bg-[#f6f9fa]">
+     <div class="site-width">
+      <div class="reveal max-w-[760px]">
+       <p data-template-id="intro-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Introduction</p>
+       <h2 data-template-id="intro-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-[#102943] md:text-[35px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">時代遅れの組織不全を乗り越え、実効性あるイノベーションを</h2>
+      </div>
+      <div class="mt-10 grid gap-4 md:grid-cols-3">
+       <article data-template-id="intro-card-one" class="canva-card soft-card reveal rounded-lg bg-white p-6" style="background: rgb(255, 255, 255);"><span class="mb-5 grid h-10 w-10 place-items-center rounded-md bg-[#fff1dc] text-[#ec7918]"><i data-lucide="users-round" class="h-5 w-5"></i></span>
+        <h3 data-template-id="intro-card-one-title" class="canva-text jp-heading text-[18px] font-bold leading-7 text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">現場主導のイノベーションと人材不足</h3>
+        <p data-template-id="intro-card-one-text" class="canva-text mt-3 text-[13px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">担い手の経験や判断を尊重しながら、負担の偏りを見える化。現場から改善を続けられる仕組みをつくります。</p>
+       </article>
+       <article data-template-id="intro-card-two" class="canva-card soft-card reveal rounded-lg bg-white p-6" style="transition-delay: 0.1s; background: rgb(255, 255, 255);"><span class="mb-5 grid h-10 w-10 place-items-center rounded-md bg-[#e9f4f8] text-[#28617f]"><i data-lucide="brain-circuit" class="h-5 w-5"></i></span>
+        <h3 data-template-id="intro-card-two-title" class="canva-text jp-heading text-[18px] font-bold leading-7 text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">データで拓く「人」に向き合う介護・AI</h3>
+        <p data-template-id="intro-card-two-text" class="canva-text mt-3 text-[13px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">記録のための記録ではなく、一人ひとりの生活と変化を捉えるデータへ。AI活用の土台を丁寧に整えます。</p>
+       </article>
+       <article data-template-id="intro-card-three" class="canva-card soft-card reveal rounded-lg bg-white p-6" style="transition-delay: 0.2s; background: rgb(255, 255, 255);"><span class="mb-5 grid h-10 w-10 place-items-center rounded-md bg-[#eef1fb] text-[#40598d]"><i data-lucide="globe-2" class="h-5 w-5"></i></span>
+        <h3 data-template-id="intro-card-three-title" class="canva-text jp-heading text-[18px] font-bold leading-7 text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">グローバルなデータ知の蓄積を活用</h3>
+        <p data-template-id="intro-card-three-text" class="canva-text mt-3 text-[13px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">地域に根ざした実践と、国内外に蓄積される知見を接続。次の現場に活かせる学びの循環を支えます。</p>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section id="business" class="section-space bg-white">
+     <div class="site-width">
+      <div class="reveal max-w-[760px]">
+       <p data-template-id="value-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Value</p>
+       <h2 data-template-id="value-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-[#102943] md:text-[35px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">医療・介護のデータ基盤を、地域に寄り添う生活支援へ</h2>
+      </div>
+      <div class="mt-10 grid gap-5 lg:grid-cols-2">
+       <article data-template-id="value-card-one" class="canva-card value-card soft-card reveal rounded-xl bg-[#fffaf0] p-7 md:p-8" style="background: rgb(255, 250, 240);">
+        <div class="mini-diagram"><span style="left:3%;top:24%;background:#fff4df"></span><span style="left:40%;top:5%;background:#ffffff"></span><span style="right:5%;bottom:12%;background:#eaf5f8"></span> <i style="left:8%;top:42%;width:128px;transform:rotate(-13deg)"></i><i style="left:45%;top:27%;width:132px;transform:rotate(23deg)"></i>
+        </div>
+        <p data-template-id="value-card-one-tag" class="canva-tag text-[11px] font-bold tracking-[.12em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PERSONALIZED SUPPORT</p>
+        <h3 data-template-id="value-card-one-title" class="canva-text jp-heading mt-2 text-[23px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">パーソナライズ型ヘルスケア・モビール</h3>
+        <p data-template-id="value-card-one-text" class="canva-text mt-4 max-w-[460px] text-[14px] leading-7 text-[#50616d]" style="color: rgb(80, 97, 109); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">本人・家族・支援者の情報をつなぎ、日々の生活に寄り添う支援へ。必要な気づきを、必要な人へ無理なく届けます。</p>
+       </article>
+       <article data-template-id="value-card-two" class="canva-card value-card soft-card reveal rounded-xl bg-[#f4f9fb] p-7 md:p-8" style="transition-delay: 0.12s; background: rgb(244, 249, 251);">
+        <div class="mini-diagram"><span style="left:7%;bottom:13%;background:#ffffff"></span><span style="left:44%;top:10%;background:#fff4df"></span><span style="right:7%;bottom:17%;background:#ffffff"></span> <i style="left:12%;top:62%;width:141px;transform:rotate(-27deg)"></i><i style="left:50%;top:32%;width:128px;transform:rotate(28deg)"></i>
+        </div>
+        <p data-template-id="value-card-two-tag" class="canva-tag text-[11px] font-bold tracking-[.12em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">OPEN INFRASTRUCTURE</p>
+        <h3 data-template-id="value-card-two-title" class="canva-text jp-heading mt-2 text-[23px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">医療・介護データ連携インフラ</h3>
+        <p data-template-id="value-card-two-text" class="canva-text mt-4 max-w-[460px] text-[14px] leading-7 text-[#50616d]" style="color: rgb(80, 97, 109); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">現場ごとに散在する情報を構造化し、組織や地域を越えて活用可能に。二重入力や確認作業を減らし、連携の質を高めます。</p>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section class="section-space bg-[#102943]">
+     <div class="site-width">
+      <div class="reveal max-w-[800px]">
+       <p data-template-id="tech-eyebrow" class="canva-text eyebrow text-[#f3a453]" style="color: rgb(243, 164, 83); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Core Technology</p>
+       <h2 data-template-id="tech-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-white md:text-[35px]" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">現場の構造化データとFHR基盤を結ぶオープンアーキテクチャ</h2>
+      </div>
+      <div class="step-flow mt-10 flex">
+       <article class="step-card flex-1 reveal">
+        <div class="grid h-14 w-14 place-items-center rounded-lg border border-[#5d7790] bg-[#173853] text-[13px] font-bold text-[#f3a453]">
+         01
+        </div>
+        <div class="step-copy mt-4">
+         <h3 data-template-id="step-one-title" class="canva-text text-[17px] font-bold text-white" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">インテム・課題入力</h3>
+         <p data-template-id="step-one-text" class="canva-text mt-2 text-[13px] leading-6 text-[#c6d5df]" style="color: rgb(198, 213, 223); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.7;">日々の記録や相談、業務上の困りごとを、現場の言葉のまま受け止めます。</p>
+        </div>
+       </article>
+       <div class="step-line"></div>
+       <article class="step-card flex-1 reveal" style="transition-delay:.1s">
+        <div class="grid h-14 w-14 place-items-center rounded-lg border border-[#5d7790] bg-[#173853] text-[13px] font-bold text-[#f3a453]">
+         02
+        </div>
+        <div class="step-copy mt-4">
+         <h3 data-template-id="step-two-title" class="canva-text text-[17px] font-bold text-white" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">AI分析・構造化</h3>
+         <p data-template-id="step-two-text" class="canva-text mt-2 text-[13px] leading-6 text-[#c6d5df]" style="color: rgb(198, 213, 223); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.7;">情報の粒度をそろえ、傾向と課題を可視化。判断につながる形へ整理します。</p>
+        </div>
+       </article>
+       <div class="step-line"></div>
+       <article class="step-card flex-1 reveal" style="transition-delay:.2s">
+        <div class="grid h-14 w-14 place-items-center rounded-lg border border-[#5d7790] bg-[#173853] text-[13px] font-bold text-[#f3a453]">
+         03
+        </div>
+        <div class="step-copy mt-4">
+         <h3 data-template-id="step-three-title" class="canva-text text-[17px] font-bold text-white" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">FHRへ接続</h3>
+         <p data-template-id="step-three-text" class="canva-text mt-2 text-[13px] leading-6 text-[#c6d5df]" style="color: rgb(198, 213, 223); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.7;">本人を中心とした記録基盤へ接続し、地域で継続的に活かせるデータ循環を実現します。</p>
+        </div>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section id="news" class="section-space bg-[#fff8e9]">
+     <div class="site-width grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
+      <div class="reveal">
+       <p data-template-id="roadmap-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Roadmap</p>
+       <h2 data-template-id="roadmap-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-[#102943] md:text-[35px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">実証・事業展開ロードマップ</h2>
+       <p data-template-id="roadmap-text" class="canva-text mt-5 text-[14px] leading-7 text-[#586a78]" style="color: rgb(88, 106, 120); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">現場との対話を起点に、検証・地域連携・展開を段階的に進めます。実証をご一緒いただけるパートナーを募集しています。</p>
+      </div>
+      <div class="timeline space-y-7 reveal" style="transition-delay:.12s">
+       <article class="timeline-item"><span class="timeline-number">01</span>
+        <p data-template-id="roadmap-phase-one-tag" class="canva-tag text-[11px] font-bold tracking-[.1em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PHASE 1</p>
+        <h3 data-template-id="roadmap-phase-one-title" class="canva-text jp-heading mt-1 text-[18px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">パイロット導入＆データ一式</h3>
+        <p data-template-id="roadmap-phase-one-text" class="canva-text mt-2 text-[13px] leading-7 text-[#53636e]" style="color: rgb(83, 99, 110); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">現場課題の整理から記録の構造化、基本的なデータ連携までを小さく検証。導入後の運用像を共に描きます。</p>
+       </article>
+       <article class="timeline-item"><span class="timeline-number">02</span>
+        <p data-template-id="roadmap-phase-two-tag" class="canva-tag text-[11px] font-bold tracking-[.1em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PHASE 2</p>
+        <h3 data-template-id="roadmap-phase-two-title" class="canva-text jp-heading mt-1 text-[18px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">地域連携モデル実証（自治体・患者会・介護事業所）</h3>
+        <p data-template-id="roadmap-phase-two-text" class="canva-text mt-2 text-[13px] leading-7 text-[#53636e]" style="color: rgb(83, 99, 110); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">地域の多様な関係者と連携し、生活支援につながる情報の流れと運営モデルを検証します。</p>
+       </article>
+       <article class="timeline-item"><span class="timeline-number">03</span>
+        <p data-template-id="roadmap-phase-three-tag" class="canva-tag text-[11px] font-bold tracking-[.1em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PHASE 3</p>
+        <h3 data-template-id="roadmap-phase-three-title" class="canva-text jp-heading mt-1 text-[18px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">全国展開・多言語化・医療人材活用</h3>
+        <p data-template-id="roadmap-phase-three-text" class="canva-text mt-2 text-[13px] leading-7 text-[#53636e]" style="color: rgb(83, 99, 110); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">各地域で得られた学びを標準化し、多言語対応や人材活用も見据えた持続可能な仕組みへ発展させます。</p>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section id="contact" class="section-space bg-[#f6f9fa]">
+     <div class="site-width">
+      <div class="reveal mx-auto max-w-[720px] text-center">
+       <p data-template-id="contact-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Contact</p>
+       <h2 data-template-id="contact-title" class="canva-text jp-heading mt-3 text-[27px] font-bold leading-[1.55] text-[#102943] md:text-[34px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">ご相談・実証パートナー・導入に関するお問い合わせ</h2>
+       <p data-template-id="contact-description" class="canva-text mt-4 text-[14px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">地域での実証、データ連携、現場業務の改善など、お気軽にご相談ください。内容を確認のうえ、ご連絡いたします。</p>
+      </div>
+      <div class="reveal mx-auto mt-9 max-w-[760px]" style="transition-delay:.1s">
+       <form id="contact-form" class="soft-card rounded-xl bg-white p-6 md:p-8" novalidate="">
+        <div class="grid gap-5 md:grid-cols-2">
+         <div><label data-template-id="label-name" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="name" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">お名前・企業名</label> <input id="name" name="name" class="form-control" type="text" required="">
+          <p id="name-error" class="error-message" aria-live="polite"></p>
+         </div>
+         <div><label data-template-id="label-type" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="inquiry_type" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">お問い合わせ種別</label> <select id="inquiry_type" name="inquiry_type" class="form-control" required=""> <option value="">選択してください</option> <option value="導入のご相談">導入のご相談</option> <option value="実証パートナーについて">実証パートナーについて</option> <option value="協業・取材について">協業・取材について</option> <option value="その他">その他</option> </select>
+          <p id="type-error" class="error-message" aria-live="polite"></p>
+         </div>
+         <div><label data-template-id="label-email" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="email" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">メールアドレス</label> <input id="email" name="email" class="form-control" type="email" required="">
+          <p id="email-error" class="error-message" aria-live="polite"></p>
+         </div>
+         <div><label data-template-id="label-phone" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="phone" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">電話番号（任意）</label> <input id="phone" name="phone" class="form-control" type="tel">
+         </div>
+        </div>
+        <div class="mt-5"><label data-template-id="label-message" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="message" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">お問い合わせ内容</label> <textarea id="message" name="message" class="form-control min-h-[132px] resize-y" required=""></textarea>
+         <p id="message-error" class="error-message" aria-live="polite"></p>
+        </div>
+        <div class="mt-6 text-center"><button id="submit-button" data-template-id="submit-button" type="submit" class="canva-button primary-button w-full sm:w-auto" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">メールで問い合わせる</button>
+         <div id="form-sending" class="mt-4 hidden items-center justify-center gap-2 text-sm text-[#586a78]" aria-live="polite">
+          <i data-lucide="loader-circle" class="h-4 w-4 animate-spin"></i><span data-template-id="sending-text" class="canva-text" style="color: rgb(88, 106, 120); font-weight: 400; font-style: normal; font-size: 14px;">送信しています…</span>
+         </div>
+         <div id="form-success" class="mt-4 hidden rounded-md border border-[#b8d9c3] bg-[#effaf2] px-4 py-3 text-center" role="status">
+          <p data-template-id="success-title" class="canva-text font-bold text-[#17663a]" style="color: rgb(23, 102, 58); font-weight: 700; font-style: normal; font-size: 15px;">お問い合わせを受け付けました。</p>
+          <p data-template-id="success-text" class="canva-text mt-1 text-[13px] text-[#3d6650]" style="color: rgb(61, 102, 80); font-weight: 400; font-style: normal; font-size: 13px;">内容を確認のうえ、担当者よりご連絡いたします。</p>
+         </div>
+         <p id="form-status" class="mt-3 text-center text-sm text-[#b42318]" aria-live="polite"></p>
+        </div>
+       </form>
+      </div>
+     </div>
+    </section>
+   </main>
+   <footer data-template-id="footer-section" class="canva-footer bg-[#102943] py-11 text-white" style="background: rgb(16, 41, 67);">
+    <div class="site-width grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+     <div>
+      <p data-template-id="footer-brand" class="canva-text text-[17px] font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">Marigold Co., Ltd.</p>
+      <p data-template-id="footer-description" class="canva-text mt-3 max-w-[430px] text-[12px] leading-6 text-[#b8cad5]" style="color: rgb(184, 202, 213); font-weight: 400; font-style: normal; font-size: 12px; line-height: 1.7;">医療・介護の現場を、データと実装で支える。誰もが誇り高く生きられる社会を目指します。</p>
+     </div>
+     <nav class="flex flex-wrap gap-x-5 gap-y-3 text-[12px]" aria-label="フッターナビゲーション"><a href="#company" data-template-id="footer-company" class="canva-link text-[#dce7ed] hover:text-white" style="color: rgb(220, 231, 237); font-weight: 500; font-style: normal; font-size: 12px;">会社情報</a> <a href="#business" data-template-id="footer-business" class="canva-link text-[#dce7ed] hover:text-white" style="color: rgb(220, 231, 237); font-weight: 500; font-style: normal; font-size: 12px;">事業内容</a> <a href="#contact" data-template-id="footer-privacy" class="canva-link text-[#dce7ed] hover:text-white" style="color: rgb(220, 231, 237); font-weight: 500; font-style: normal; font-size: 12px;">プライバシーポリシー</a>
+     </nav>
+    </div>
+    <div class="site-width mt-8 border-t border-[#38536b] pt-5">
+     <p data-template-id="footer-copy" class="canva-text text-[11px] text-[#91aabd]" style="color: rgb(145, 170, 189); font-weight: 400; font-style: normal; font-size: 11px;">© Marigold Co., Ltd. All rights reserved.</p>
+    </div>
+   </footer>
   </div>
-</header>
-
-<section class="hero-section">
-  <div class="container hero-inner">
-    <div class="hero-content">
-      <span class="badge">Healthcare & Life Support Innovation</span>
-      <h2 class="hero-title">
-        データ分断を解消し、<br>
-        誰もが誇り高く生きられる社会へ
-      </h2>
-      <p class="hero-description">
-        現場目線の実効性あるガバナンスと、FHIR準拠の後付け医療・介護データインフラ。<br>
-        そして地域に根ざした誠実な生活支援サービスで、持続可能な未来を構築します。
-      </p>
-      <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">事業内容を見る</a>
-        <a href="#contact" class="btn btn-outline">ご相談・お問い合わせ</a>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-/* ==========================================
-  PART 1: ヘッダー & ヒーロー スタイル
-========================================== */
-:root {
-  --primary-color: #d97706;   /* マリーゴールドゴールド */
-  --primary-hover: #b45309;
-  --text-dark: #1f2937;
-  --text-muted: #4b5563;
-  --bg-light: #fffbe6;
-  --white: #ffffff;
-}
-
-/* ヘッダー */
-.site-header {
-  background-color: var(--white);
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.brand {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-text {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--primary-color);
-  letter-spacing: -0.02em;
-}
-
-.logo-sub {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.main-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 24px;
-  align-items: center;
-}
-
-.main-nav a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-
-.main-nav a:hover {
-  color: var(--primary-color);
-}
-
-.main-nav .nav-btn {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 8px 18px;
-  border-radius: 6px;
-}
-
-.main-nav .nav-btn:hover {
-  background-color: var(--primary-hover);
-  color: var(--white);
-}
-
-/* ヒーローセクション */
-.hero-section {
-  background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);
-  padding: 80px 20px;
-  text-align: left;
-}
-
-.hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.badge {
-  display: inline-block;
-  background-color: #fde68a;
-  color: #92400e;
-  font-size: 0.85rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-}
-
-.hero-title {
-  font-size: 2.4rem;
-  line-height: 1.3;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-  font-weight: 800;
-}
-
-.hero-description {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  margin-bottom: 32px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--white);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-}
-
-.btn-outline {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-outline:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
-}
-</style>
-  <!-- ==========================================
-  PART 2: ミッション & ビジョン・組織理念
-  ファイル名: part2_about_mission.html
-========================================== -->
-<section id="about" class="section about-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-subtitle">PHILOSOPHY</span>
-      <h3 class="section-title">時代遅れの組織不全を乗り越え、実効性あるイノベーションを</h3>
-    </div>
-
-    <div class="about-grid">
-      <!-- ミッションカード -->
-      <div class="about-card">
-        <div class="card-icon">01</div>
-        <h4>現場主体のガバナンスと人本経営</h4>
-        <p>
-          形骸化した大企業病や硬直化した組織体質を徹底的に排除します。
-          現場で働く一人ひとりの声と人権を守り、不誠実な運用を許さない透明性の高いガバナンスを構築します。
-        </p>
-      </div>
-
-      <!-- ビジョンカード -->
-      <div class="about-card">
-        <div class="card-icon">02</div>
-        <h4>画面ではなく「人」に向き合う医療・介護DX</h4>
-        <p>
-          ディスプレイに向き合う作業時間をゼロへ。ハンズフリー音声解析とFHIR準拠のデータ基盤により、
-          医師や介護従事者が本来の「目の前の患者様・ご利用者様と心を通わせるケア」に集中できる環境を創出します。
-        </p>
-      </div>
-
-      <!-- ダイバーシティ＆ナレッジ活用 -->
-      <div class="about-card">
-        <div class="card-icon">03</div>
-        <h4>グローバルな才能と知識の正当な還元</h4>
-        <p>
-          海外の高度医療人材を含む多様なスタッフの専門性と志を正当に評価。
-          データの壁・言語の壁を取り払い、誰もが誇りを持って地域社会に貢献できる永続的企業を目指します。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-/* ==========================================
-  PART 2: ミッション & ビジョン スタイル
-========================================== */
-.about-section {
-  background-color: var(--white);
-  padding: 80px 20px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-subtitle {
-  color: var(--primary-color);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  color: var(--text-dark);
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.about-card {
-  background: #f9fafb;
-  border-left: 4px solid var(--primary-color);
-  padding: 30px 25px;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.about-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.card-icon {
-  font-size: 1.2rem;
-  font-weight: 900;
-  color: var(--primary-color);
-  margin-bottom: 12px;
-  opacity: 0.8;
-}
-
-.about-card h4 {
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-
-.about-card p {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-</style>
-<!-- ==========================================
-  PART 3: 主要事業サービスカード
-  ファイル名: part3_services_cards.html
-========================================== -->
-<section id="services" class="section services-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-subtitle">OUR SERVICES</span>
-      <h3 class="section-title">医療・介護のデータ基盤と、地域に寄り添う生活支援</h3>
-    </div>
-
-    <div class="services-grid">
-      <!-- サービス1: 後付け音声AIカルテ（新定義） -->
-      <div class="service-card highlight">
-        <div class="card-badge">CORE TECH</div>
-        <div class="card-icon-wrap">🎙️</div>
-        <h4>ハンズフリー音声AIカルテ・モジュール</h4>
-        <p class="service-tag">既存電カル対応 / FHIR準拠 / リアルタイム入力</p>
-        <p class="service-desc">
-          診察中の音声から問診・触診データをAIが自動抽出。既存の電子カルテを置き換えることなく、
-          インカム装着のみで「画面を見ない診察」と「診療報酬点数の自動加算ピックアップ」を実現します。
-        </p>
-      </div>
-
-      <!-- サービス2: 医療・介護連携ポータル -->
-      <div class="service-card">
-        <div class="card-icon-wrap">🌐</div>
-        <h4>医療・介護データ連携インフラ</h4>
-        <p class="service-tag">オープンAPI / 高度セキュリティ / 地域包括ケア</p>
-        <p class="service-desc">
-          次世代ヘルスケア標準規格（FHIR）に準拠。医療機関と介護施設・ケアマネジャー間の情報共有の壁を取り払い、
-          ご利用者様の切れ目のないケアプラン作成とデータ利活用を支えます。
-        </p>
-      </div>
-
-      <!-- サービス3: コンシェルジュ・生活支援 -->
-      <div class="service-card">
-        <div class="card-icon-wrap">🤝</div>
-        <h4>地域密着コンシェルジュ＆生活支援</h4>
-        <p class="service-tag">ワンストップ対応 / 高度専門人材 / 寄り添い型</p>
-        <p class="service-desc">
-          日常の些細な困りごとから介護・福祉の相談まで。特定技能等の専門知識を持つスタッフや地域人材が、
-          一人ひとりの尊厳と安心した暮らしに親身に寄り添います。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-/* ==========================================
-  PART 3: 主要事業サービスカード スタイル
-========================================== */
-.services-section {
-  background-color: #f9fafb;
-  padding: 80px 20px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.service-card {
-  background: var(--white);
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 32px 24px;
-  position: relative;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  transition: all 0.25s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary-color);
-}
-
-.service-card.highlight {
-  border: 2px solid var(--primary-color);
-  background: #fffdf5;
-}
-
-.card-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background-color: var(--primary-color);
-  color: var(--white);
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 12px;
-  letter-spacing: 0.05em;
-}
-
-.card-icon-wrap {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-}
-
-.service-card h4 {
-  font-size: 1.3rem;
-  color: var(--text-dark);
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.service-tag {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 16px;
-}
-
-.service-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  flex-grow: 1;
-}
-</style>
-  <!-- ==========================================
-  PART 4: 技術仕様 & プロトタイプ・ロードマップ
-  ファイル名: part4_tech_roadmap.html
-========================================== -->
-<section id="tech" class="section tech-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-subtitle">TECHNOLOGY & ROADMAP</span>
-      <h3 class="section-title">現場の構造化データとFHIR基盤を結ぶオープンアーキテクチャ</h3>
-    </div>
-
-    <!-- システム構成概要 -->
-    <div class="tech-architecture-box">
-      <h4 class="box-title">⚡ 後付け型・ハンズフリー音声AIパイプライン</h4>
-      <div class="arch-flow">
-        <div class="arch-step">
-          <div class="step-num">01</div>
-          <div class="step-content">
-            <h5>インカム音声入力</h5>
-            <p>診察室・介護現場での会話をハンズフリーでリアルタイム集音</p>
-          </div>
-        </div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-step">
-          <div class="step-num">02</div>
-          <div class="step-content">
-            <h5>AI解析・点数抽出</h5>
-            <p>問診・触診データを構造化し診療報酬加算点数を自動検出</p>
-          </div>
-        </div>
-        <div class="arch-arrow">➔</div>
-        <div class="arch-step">
-          <div class="step-num">03</div>
-          <div class="step-content">
-            <h5>FHIR標準変換</h5>
-            <p>既存の電子カルテ・介護DBへ買い替えなしで安全に後付け連携</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ロードマップ -->
-    <div class="roadmap-wrapper">
-      <h4 class="roadmap-title">🎯 実証・事業展開ロードマップ</h4>
-      <div class="timeline">
-        <!-- Phase 1 -->
-        <div class="timeline-item">
-          <div class="timeline-marker">2026.10</div>
-          <div class="timeline-content">
-            <h5>Phase 1: プロトタイプ開発＆パートナー連携</h5>
-            <p>
-              JOHNAN株式会社（京都府宇治市）との連携協議を通じ、ハードウェア（インカム・マイク）とAI音声入力モジュールのPoC（概念実証）試作を推進。
-            </p>
-          </div>
-        </div>
-
-        <!-- Phase 2 -->
-        <div class="timeline-item">
-          <div class="timeline-marker">2026.11 - 2027.01</div>
-          <div class="timeline-content">
-            <h5>Phase 2: 地域連携モデル実証（岡山市・倉敷市ハブ）</h5>
-            <p>
-              岡山駅前（リットシティビル周辺）および倉敷エリアの医療機関・介護施設においてフィールドテストを実施。診療報酬加算漏れ防止と業務時間削減の精度検証。
-            </p>
-          </div>
-        </div>
-
-        <!-- Phase 3 -->
-        <div class="timeline-item">
-          <div class="timeline-marker">2027.02〜</div>
-          <div class="timeline-content">
-            <h5>Phase 3: 全国展開・多言語対応・高度人材活用</h5>
-            <p>
-              FHIR準拠オープンAPIとして広域提供を開始。特定技能等の海外医療・介護人材に向けた入力補助・ナレッジ還元機能を実装し、次世代インフラを確立。
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<style>
-/* ==========================================
-  PART 4: 技術仕様 & ロードマップ スタイル
-========================================== */
-.tech-section {
-  background-color: var(--white);
-  padding: 80px 20px;
-}
-
-/* アーキテクチャボックス */
-.tech-architecture-box {
-  background: #fcfbf7;
-  border: 1px solid #fef3c7;
-  border-radius: 12px;
-  padding: 36px 28px;
-  max-width: 1100px;
-  margin: 0 auto 60px auto;
-  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.06);
-}
-
-.box-title {
-  font-size: 1.3rem;
-  color: var(--text-dark);
-  font-weight: 800;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.arch-flow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.arch-step {
-  flex: 1;
-  min-width: 220px;
-  background: var(--white);
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.step-num {
-  background: var(--primary-color);
-  color: var(--white);
-  font-weight: 900;
-  font-size: 0.9rem;
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-
-.step-content h5 {
-  font-size: 1.05rem;
-  color: var(--text-dark);
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.step-content p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.arch-arrow {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-/* ロードマップ・タイムライン */
-.roadmap-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.roadmap-title {
-  font-size: 1.4rem;
-  color: var(--text-dark);
-  font-weight: 800;
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.timeline {
-  position: relative;
-  border-left: 3px solid #fde68a;
-  padding-left: 28px;
-  margin-left: 20px;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -48px;
-  top: 0;
-  background: var(--primary-color);
-  color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 12px;
-  white-space: nowrap;
-}
-
-.timeline-content {
-  background: #f9fafb;
-  border-radius: 8px;
-  padding: 20px 24px;
-  border: 1px solid #e5e7eb;
-}
-
-.timeline-content h5 {
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.timeline-content p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* モバイルレスポンシブ調整 */
-@media (max-width: 768px) {
-  .arch-flow {
-    flex-direction: column;
-  }
-  .arch-arrow {
-    transform: rotate(90deg);
-  }
-  .timeline {
-    padding-left: 16px;
-    margin-left: 10px;
-  }
-  .timeline-marker {
-    position: static;
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-}
-</style>
-  <!-- ==========================================
-  PART 5: お問い合わせフォーム & 共通フッター
-  ファイル名: part5_contact_footer.html
-========================================== -->
-<section id="contact" class="section contact-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-subtitle">CONTACT</span>
-      <h3 class="section-title">ご相談・実証パートナー・導入に関するお問い合わせ</h3>
-      <p class="section-description">
-        ハンズフリー音声AIカルテの試作・実証実験（PoC）、医療・介護連携ポータルへの参画、
-        および地域生活支援サービスについてのお問い合わせはこちらから承ります。
-      </p>
-    </div>
-
-    <div class="contact-form-wrapper">
-      <form class="contact-form" action="#" method="POST">
-        <div class="form-group">
-          <label for="org_type">お立場・区分 <span class="required">*</span></label>
-          <select id="org_type" name="org_type" required>
-            <option value="">選択してください</option>
-            <option value="medical">医療機関（病院・クリニック）</option>
-            <option value="nursing">介護施設・事業所</option>
-            <option value="partner">開発・実証パートナー（企業・研究機関）</option>
-            <option value="individual">一般・個人（生活支援・その他）</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">お名前 <span class="required">*</span></label>
-            <input type="text" id="name" name="name" placeholder="例）山田 太郎" required>
-          </div>
-          <div class="form-group">
-            <label for="company">貴社名・組織名</label>
-            <input type="text" id="company" name="company" placeholder="例）〇〇クリニック / 〇〇法人">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">メールアドレス <span class="required">*</span></label>
-            <input type="email" id="email" name="email" placeholder="example@domain.com" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">電話番号</label>
-            <input type="tel" id="phone" name="phone" placeholder="090-0000-0000">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-          <textarea id="message" name="message" rows="5" placeholder="ご相談内容や実証実験に関するご質問をご記入ください。" required></textarea>
-        </div>
-
-        <div class="form-submit">
-          <a href="mailto:yz6onetouch9@gmail.com" class="submit-btn" style="text-decoration: none; display: inline-block; text-align: center;">
-  メールで問い合わせる
-</a>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- 共通フッター -->
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-brand">
-      <h4 class="footer-logo">Marigold Co., Ltd.</h4>
-      <p class="footer-address">
-        マリーゴールド株式会社<br>
-        拠点：岡山県岡山市・倉敷市 / 京都府宇治市連携
-      </p>
-    </div>
-    <div class="footer-links">
-      <ul>
-        <li><a href="#about">会社概要・理念</a></li>
-        <li><a href="#services">事業内容</a></li>
-        <li><a href="#tech">技術仕様・ロードマップ</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; Marigold Co., Ltd. All Rights Reserved.</p>
-  </div>
-</footer>
-<style>
-/* ==========================================
-  PART 5: お問い合わせ & フッター スタイル
-========================================== */
-.contact-section {
-  background-color: #f9fafb;
-  padding: 80px 20px;
-}
-
-.contact-form-wrapper {
-  max-width: 720px;
-  margin: 0 auto;
-  background: var(--white);
-  padding: 40px 32px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e5e7eb;
-}
-
-.contact-form .form-group {
-  margin-bottom: 20px;
-}
-
-.contact-form label {
-  display: block;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-
-.contact-form .required {
-  color: #dc2626;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  color: var(--text-dark);
-  box-sizing: border-box;
-  transition: border-color 0.2s;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
-}
-
-.form-row {
-  display: flex;
-  gap: 20px;
-}
-
-.form-row .form-group {
-  flex: 1;
-}
-
-.form-submit {
-  text-align: center;
-  margin-top: 28px;
-}
-
-.submit-btn {
-  width: 100%;
-  max-width: 280px;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-}
-
-/* フッター */
-.site-footer {
-  background-color: #1f2937;
-  color: #d1d5db;
-  padding: 60px 20px 24px 20px;
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #374151;
-}
-
-.footer-logo {
-  font-size: 1.3rem;
-  color: var(--white);
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.footer-address {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: #9ca3af;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-links a {
-  color: #d1d5db;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: var(--primary-color);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 24px;
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-@media (max-width: 640px) {
-  .form-row {
-    flex-direction: column;
-    gap: 0;
-  }
-}
-  /* ==========================================
-  PART 6: 共通スタイル基盤 & レスポンシブ最適化
-  ファイル名: style_base.css
-========================================== --> */
-
-/* カラーパレット・基本変数定義 */
-:root {
-  --primary-color: #d97706;       /* マリーゴールドゴールド */
-  --primary-hover: #b45309;       /* ホバー時ダークゴールド */
-  --secondary-color: #1f2937;     /* シックなダークグレー */
-  --text-dark: #111827;           /* メインテキスト */
-  --text-muted: #4b5563;          /* 補足テキスト */
-  --bg-light: #f9fafb;            /* 背景用ライトグレー */
-  --white: #ffffff;
-  --border-color: #e5e7eb;
-}
-
-/* 全体リセット & ベーススタイル */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-body {
-  color: var(--text-dark);
-  background-color: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.section {
-  padding: 80px 0;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.section-subtitle {
-  color: var(--primary-color);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  display: block;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.section-title {
-  font-size: 2rem;
-  color: var(--text-dark);
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-.section-description {
-  margin-top: 12px;
-  color: var(--text-muted);
-  font-size: 0.98rem;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 共通ボタン */
-.btn {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  text-align: center;
-}
-
-.btn-primary {
-  background-color: var(--primary-color);
-  color: var(--white);
-  border: 1px solid var(--primary-color);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-hover);
-  border-color: var(--primary-hover);
-}
-
-/* スマホ・タブレット表示の最適化（メディアクエリ） */
-@media (max-width: 768px) {
-  .section {
-    padding: 50px 0;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .section-header {
-    margin-bottom: 32px;
-  }
-
-  .contact-form-wrapper {
-    padding: 24px 16px;
-  }
-
-  .site-footer {
-    padding: 40px 16px 20px 16px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    gap: 24px;
-  }
-}
-</style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!expanded));
+        mobileMenu.classList.toggle('menu-open', !expanded);
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('menu-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      let records = [];
+      const handler = {
+        onDataChanged(data) {
+          records = data;
+        }
+      };
+
+      async function initializeData() {
+        const result = await window.dataSdk.init(handler);
+        if (!result.isOk) {
+          document.getElementById('form-status').textContent = '現在フォームを利用できません。しばらくしてからお試しください。';
+        }
+      }
+      initializeData();
+
+      const form = document.getElementById('contact-form');
+      const submitButton = document.getElementById('submit-button');
+      const sending = document.getElementById('form-sending');
+      const success = document.getElementById('form-success');
+      const status = document.getElementById('form-status');
+
+      function setError(id, message) {
+        const input = document.getElementById(id);
+        input.setAttribute('aria-invalid', message ? 'true' : 'false');
+        document.getElementById(id + '-error').textContent = message;
+      }
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        success.classList.add('hidden');
+        status.textContent = '';
+
+        const name = form.name.value.trim();
+        const inquiryType = form.inquiry_type.value;
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const message = form.message.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        setError('name', name ? '' : 'お名前・企業名を入力してください。');
+        setError('inquiry_type', inquiryType ? '' : 'お問い合わせ種別を選択してください。');
+        setError('email', emailPattern.test(email) ? '' : '有効なメールアドレスを入力してください。');
+        setError('message', message ? '' : 'お問い合わせ内容を入力してください。');
+
+        if (!name || !inquiryType || !emailPattern.test(email) || !message) return;
+        if (records.length >= 999) {
+          status.textContent = '受付件数の上限に達しています。時間をおいてお試しください。';
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.classList.add('opacity-60', 'cursor-not-allowed');
+        sending.classList.remove('hidden');
+        sending.classList.add('flex');
+
+        const result = await window.dataSdk.create({
+          name,
+          inquiry_type: inquiryType,
+          email,
+          phone,
+          message,
+          submitted_at: new Date().toISOString()
+        });
+
+        sending.classList.add('hidden');
+        sending.classList.remove('flex');
+        submitButton.disabled = false;
+        submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
+
+        if (result.isOk) {
+          form.reset();
+          success.classList.remove('hidden');
+        } else {
+          status.textContent = '送信できませんでした。入力内容をご確認のうえ、もう一度お試しください。';
+        }
+      });
+    });
+  </script>
+ 
+</body></html>
