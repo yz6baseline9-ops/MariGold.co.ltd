@@ -1,287 +1,263 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marigold Co., Ltd. | ケアが、もっと近くなる。</title>
-    <meta name="description" content="医療・介護・地域をやさしくつなぐデジタルソリューション">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Noto Sans JP', sans-serif; }
-        .lang-active { font-weight: 700; color: #fbbf24; border-bottom: 2px solid #fbbf24; }
-        .hero-bg {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marigold Co., Ltd. | 医療・救急DXソリューション</title>
+  <style>
+    :root {
+      --primary-color: #0f204b; /* 洗練されたネイビー */
+      --accent-color: #d4af37; /* マリーゴールドを意識したゴールド */
+      --text-main: #333333;
+      --bg-light: #f9f9f9;
+    }
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+    }
+    .lang-selector button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 10px;
+      color: #666;
+      transition: 0.3s;
+    }
+    .lang-selector button:hover, .lang-selector button.active {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    .hero {
+      background: linear-gradient(rgba(15, 32, 75, 0.8), rgba(15, 32, 75, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #fff;
+      padding: 120px 40px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+    .btn {
+      background: var(--accent-color);
+      color: #fff;
+      padding: 15px 40px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    section {
+      padding: 80px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .bg-gray {
+      background-color: var(--bg-light);
+      max-width: 100%;
+    }
+    .section-title {
+      font-size: 28px;
+      color: var(--primary-color);
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .founder-box {
+      background: #fff;
+      padding: 40px;
+      border-left: 5px solid var(--accent-color);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    footer {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
+  </style>
 </head>
-<body class="bg-white text-slate-900 antialiased">
+<body>
 
-    <!-- ヘッダー -->
-    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <div class="flex items-center gap-2 cursor-pointer">
-                <div class="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-white font-bold text-lg">M</div>
-                <span class="font-bold text-xl tracking-wide text-slate-800">Marigold</span>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700">
-                <a href="#services" class="hover:text-blue-600 transition" data-i18n="navServices">サービス</a>
-                <a href="#about" class="hover:text-blue-600 transition" data-i18n="navAbout">会社情報</a>
-                <a href="#founder" class="hover:text-blue-600 transition" data-i18n="navFounder">創業者挨拶</a>
-                <a href="#news" class="hover:text-blue-600 transition" data-i18n="navNews">ニュース</a>
-                
-                <!-- 言語切り替え -->
-                <div class="flex items-center space-x-3 text-xs border-l border-gray-300 pl-6">
-                    <button onclick="switchLang('ja')" id="lang-ja" class="lang-active hover:text-blue-600 transition pb-1">JP</button>
-                    <button onclick="switchLang('en')" id="lang-en" class="hover:text-blue-600 transition pb-1">EN</button>
-                    <button onclick="switchLang('fr')" id="lang-fr" class="hover:text-blue-600 transition pb-1">FR</button>
-                    <button onclick="switchLang('de')" id="lang-de" class="hover:text-blue-600 transition pb-1">DE</button>
-                    <button onclick="switchLang('it')" id="lang-it" class="hover:text-blue-600 transition pb-1">IT</button>
-                </div>
-            </div>
+  <header>
+    <div class="logo">Marigold Co., Ltd.</div>
+    <div class="lang-selector">
+      <button onclick="setLang('ja')" class="active" id="btn-ja">JP</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+      <button onclick="setLang('fr')" id="btn-fr">FR</button>
+      <button onclick="setLang('de')" id="btn-de">DE</button>
+      <button onclick="setLang('it')" id="btn-it">IT</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1 id="hero-title">ケアが、もっと近くなる。</h1>
+    <p id="hero-desc">医療・介護・地域をつなぐデジタルソリューションで、一人ひとりの健やかな毎日を支えます。2.4GHzエッジセンシングとAIトリアージによる次世代インフラ。</p>
+    <a href="mailto:info@marigold-ltd.com" class="btn" id="hero-btn">お問い合わせ</a>
+  </div>
+
+  <section>
+    <h2 class="section-title" id="services-title">人に寄り添う、つながる技術。</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 id="srv1-title">ヘルスケア連携</h3>
+        <p id="srv1-desc">日々の健康情報をわかりやすく共有し、早期の気づきを促します。</p>
+      </div>
+      <div class="card">
+        <h3 id="srv2-title">ケアワーク支援</h3>
+        <p id="srv2-desc">ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。</p>
+      </div>
+      <div class="card">
+        <h3 id="srv3-title">データプラットフォーム</h3>
+        <p id="srv3-desc">必要な情報を安全につなぎ、チームのより良い意思決定を支えます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <h2 class="section-title" id="founder-title">創業者挨拶</h2>
+      <div class="founder-box">
+        <p id="founder-desc" style="margin-bottom: 20px;">
+          医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。<br><br>
+          私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、高精度無線センシング技術とAIを活用した現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。
+        </p>
+        <div style="text-align: right;">
+          <strong id="founder-name">代表 三宅 由三</strong>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- ヒーローセクション -->
-    <section class="relative pt-24 pb-32 flex items-center min-h-[80vh] hero-bg text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="max-w-2xl">
-                <p class="text-sm font-bold tracking-widest text-amber-400 mb-4 uppercase" data-i18n="heroLabel">Digital Care Solutions</p>
-                <h1 class="text-5xl md:text-6xl font-black leading-tight mb-6" data-i18n="heroTitle">
-                    ケアが、もっと近<br>くなる。
-                </h1>
-                <p class="text-lg md:text-xl font-medium mb-10 text-gray-200 leading-relaxed" data-i18n="heroSub">
-                    医療・介護・地域をやさしくつなぐデジタルソリューションで、一人ひとりの健やかな毎日を支えます。
-                </p>
-                <a href="#contact" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition" data-i18n="heroBtn">
-                    お問い合わせ
-                </a>
-            </div>
-        </div>
-    </section>
+  <footer>
+    &copy; 2026 Marigold Co., Ltd. All Rights Reserved.
+  </footer>
 
-    <!-- サービスセクション -->
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12">
-                <p class="text-sm font-bold text-blue-600 tracking-wider mb-2" data-i18n="svcLabel">OUR SERVICES</p>
-                <h2 class="text-3xl font-black text-slate-900" data-i18n="svcTitle">人に寄り添う、つながる技術。</h2>
-                <p class="text-slate-500 mt-4" data-i18n="svcDesc">現場の声から生まれた、安心して使えるケアテクノロジーを届けます。</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
-                    <div class="h-40 bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="ヘルスケア連携">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="svc1Title">ヘルスケア連携</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="svc1Desc">日々の健康情報をわかりやすく共有し、早期の気づきにつなげます。</p>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
-                    <div class="h-40 bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="ケアワーク支援">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="svc2Title">ケアワーク支援</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="svc2Desc">ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。</p>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
-                    <div class="h-40 bg-gray-200 rounded-lg mb-6 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="データプラットフォーム">
-                    </div>
-                    <h3 class="text-xl font-bold mb-3" data-i18n="svc3Title">データプラットフォーム</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="svc3Desc">必要な情報を安全につなぎ、チームのより良い意思決定を支えます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script>
+    const i18n = {
+      ja: {
+        "hero-title": "ケアが、もっと近くなる。",
+        "hero-desc": "医療・介護・地域をつなぐデジタルソリューションで、一人ひとりの健やかな毎日を支えます。2.4GHzエッジセンシングとAIトリアージによる次世代インフラ。",
+        "hero-btn": "お問い合わせ",
+        "services-title": "人に寄り添う、つながる技術。",
+        "srv1-title": "ヘルスケア連携",
+        "srv1-desc": "日々の健康情報をわかりやすく共有し、早期の気づきを促します。",
+        "srv2-title": "ケアワーク支援",
+        "srv2-desc": "ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。",
+        "srv3-title": "データプラットフォーム",
+        "srv3-desc": "必要な情報を安全につなぎ、チームのより良い意思決定を支えます。",
+        "founder-title": "創業者挨拶",
+        "founder-desc": "医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。<br><br>私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、高精度無線センシング技術とAIを活用した現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。",
+        "founder-name": "代表 三宅 由三"
+      },
+      en: {
+        "hero-title": "Bringing Care Closer to You.",
+        "hero-desc": "Digital solutions connecting medicine, nursing care, and communities to support daily health. Next-generation infrastructure powered by 2.4GHz edge sensing and AI triage.",
+        "hero-btn": "Contact Us",
+        "services-title": "Technology that Connects and Cares.",
+        "srv1-title": "Healthcare Integration",
+        "srv1-desc": "Share daily health information easily and promote early awareness.",
+        "srv2-title": "Carework Support",
+        "srv2-desc": "Reduce the time and burden on care providers, creating richer dialogue.",
+        "srv3-title": "Data Platform",
+        "srv3-desc": "Securely connect necessary information to support better team decisions.",
+        "founder-title": "Message from the Founder",
+        "founder-desc": "In medical institutions and emergency scenes where limited resources and advanced judgment are required, 'real-time flow visualization' and 'rapid triage support' are urgent issues.<br><br>Marigold Co., Ltd. will lead the establishment of a 'medical DX infrastructure that stays close to life and living' rooted in solving on-site problems, and will provide solutions that directly lead to reducing the burden on the site and improving the lifesaving rate using high-precision wireless sensing technology and AI.",
+        "founder-name": "Yuzo Miyake, Representative Director"
+      },
+      fr: {
+        "hero-title": "Rapprocher les soins de vous.",
+        "hero-desc": "Des solutions numériques connectant la médecine, les soins infirmiers et les communautés. Infrastructure de nouvelle génération propulsée par la détection 2,4 GHz et le triage par IA.",
+        "hero-btn": "Contactez-nous",
+        "services-title": "Une technologie qui connecte et prend soin.",
+        "srv1-title": "Intégration des soins de santé",
+        "srv1-desc": "Partagez facilement les informations de santé quotidiennes pour une sensibilisation précoce.",
+        "srv2-title": "Soutien aux soignants",
+        "srv2-desc": "Réduisez la charge des prestataires de soins, favorisant un dialogue plus riche.",
+        "srv3-title": "Plateforme de données",
+        "srv3-desc": "Connectez les informations en toute sécurité pour de meilleures décisions d'équipe.",
+        "founder-title": "Mot du Fondateur",
+        "founder-desc": "Dans les urgences où les ressources sont limitées, la 'visualisation des flux en temps réel' et le 'soutien au triage rapide' sont essentiels.<br><br>Marigold Co., Ltd. dirigera l'établissement d'une infrastructure DX médicale qui reste proche de la vie, en fournissant des solutions qui réduisent la charge sur site et améliorent le taux de sauvetage grâce à la détection sans fil de haute précision et à l'IA.",
+        "founder-name": "Yuzo Miyake, Représentant"
+      },
+      de: {
+        "hero-title": "Pflege näher zu Ihnen bringen.",
+        "hero-desc": "Digitale Lösungen, die Medizin, Pflege und Gemeinschaften verbinden. Infrastruktur der nächsten Generation, angetrieben durch 2,4-GHz-Sensing und KI-Triage.",
+        "hero-btn": "Kontaktiere uns",
+        "services-title": "Technologie, die verbindet und pflegt.",
+        "srv1-title": "Gesundheitsintegration",
+        "srv1-desc": "Tauschen Sie Gesundheitsinformationen einfach aus und fördern Sie das Bewusstsein.",
+        "srv2-title": "Pflegeunterstützung",
+        "srv2-desc": "Reduzieren Sie die Belastung des Pflegepersonals und schaffen Sie reichhaltigere Dialoge.",
+        "srv3-title": "Datenplattform",
+        "srv3-desc": "Sichere Verbindung notwendiger Informationen für bessere Teamentscheidungen.",
+        "founder-title": "Wort des Gründers",
+        "founder-desc": "In Notfällen mit begrenzten Ressourcen sind 'Echtzeit-Ablaufvisualisierung' und 'schnelle Triage-Unterstützung' von dringender Bedeutung.<br><br>Marigold Co., Ltd. wird den Aufbau einer lebensnahen medizinischen DX-Infrastruktur leiten und Lösungen anbieten, die durch hochpräzise drahtlose Sensorik und KI die Belastung vor Ort verringern und die Rettungsrate verbessern.",
+        "founder-name": "Yuzo Miyake, Vertreter"
+      },
+      it: {
+        "hero-title": "Avvicinare le cure a te.",
+        "hero-desc": "Soluzioni digitali che collegano medicina, assistenza e comunità. Infrastruttura di nuova generazione alimentata da rilevamento a 2,4 GHz e triage IA.",
+        "hero-btn": "Contattaci",
+        "services-title": "Tecnologia che connette e cura.",
+        "srv1-title": "Integrazione Sanitaria",
+        "srv1-desc": "Condividi facilmente le informazioni sulla salute per una consapevolezza precoce.",
+        "srv2-title": "Supporto all'assistenza",
+        "srv2-desc": "Riduci il carico sui fornitori di cure, creando un dialogo più ricco.",
+        "srv3-title": "Piattaforma Dati",
+        "srv3-desc": "Connetti le informazioni in modo sicuro per decisioni di squadra migliori.",
+        "founder-title": "Messaggio del Fondatore",
+        "founder-desc": "Nelle emergenze con risorse limitate, la 'visualizzazione del flusso in tempo reale' e il 'supporto rapido al triage' sono essenziali.<br><br>Marigold Co., Ltd. guiderà la creazione di un'infrastruttura DX medica vicina alla vita, fornendo soluzioni che riducono il carico sul campo e migliorano il tasso di salvataggio utilizzando il rilevamento wireless ad alta precisione e l'IA.",
+        "founder-name": "Yuzo Miyake, Rappresentante"
+      }
+    };
 
-    <!-- アバウトセクション -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12">
-            <div class="md:w-1/2">
-                <p class="text-sm font-bold text-blue-600 tracking-wider mb-2" data-i18n="abtLabel">ABOUT MARIGOLD</p>
-                <h2 class="text-3xl font-black text-slate-900 mb-6 leading-tight" data-i18n="abtTitle">誰もが自分らしく<br>年齢を重ねられる社会へ。</h2>
-                <p class="text-slate-600 leading-relaxed mb-6" data-i18n="abtDesc">
-                    Marigoldは、医療・介護の現場とテクノロジーをつなぐパートナーです。使う人の安心を第一に、あたたかく持続可能なケアの未来を設計します。
-                </p>
-            </div>
-            <div class="md:w-1/2 grid grid-cols-2 gap-6">
-                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
-                    <span class="text-2xl font-black text-blue-900 block mb-1">01</span>
-                    <span class="font-bold text-slate-800" data-i18n="abtP1">人を中心に</span>
-                </div>
-                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
-                    <span class="text-2xl font-black text-blue-900 block mb-1">02</span>
-                    <span class="font-bold text-slate-800" data-i18n="abtP2">確かな安心</span>
-                </div>
-                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
-                    <span class="text-2xl font-black text-blue-900 block mb-1">03</span>
-                    <span class="font-bold text-slate-800" data-i18n="abtP3">ひらかれた連携</span>
-                </div>
-                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
-                    <span class="text-2xl font-black text-blue-900 block mb-1">04</span>
-                    <span class="font-bold text-slate-800" data-i18n="abtP4">明日への設計</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ★追加：創業者挨拶セクション -->
-    <section id="founder" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-sm font-bold text-amber-400 tracking-wider mb-2" data-i18n="fndLabel">FOUNDER'S MESSAGE</p>
-                <h2 class="text-3xl font-black mb-8" data-i18n="fndTitle">創業者挨拶</h2>
-                
-                <div class="text-left bg-slate-800 p-8 rounded-2xl shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
-                    
-                    <p class="text-gray-300 leading-relaxed mb-6 font-medium" data-i18n="fndP1">
-                        医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。
-                    </p>
-                    <p class="text-gray-300 leading-relaxed mb-8 font-medium" data-i18n="fndP2">
-                        私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、2.4GHz高精度無線センシング技術とAIを活用して、現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。
-                    </p>
-                    
-                    <div class="flex items-center justify-end gap-4 border-t border-slate-700 pt-6">
-                        <div class="text-right">
-                            <p class="text-sm text-amber-400 font-bold mb-1" data-i18n="fndRole">マリーゴールド株式会社 代表</p>
-                            <p class="text-xl font-bold" data-i18n="fndName">三宅 由三 <span class="text-sm font-normal text-gray-400 ml-2">Yuzo Miyake</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- コンタクトセクション -->
-    <section id="contact" class="py-24 bg-blue-700 text-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <p class="text-sm font-bold tracking-widest mb-4 opacity-80" data-i18n="ctaLabel">LET'S TALK</p>
-            <h2 class="text-4xl font-black mb-6" data-i18n="ctaTitle">ケアの未来を、一緒につくりませんか。</h2>
-            <p class="mb-10 text-blue-100" data-i18n="ctaDesc">導入のご相談、パートナーシップ、採用に関するお問い合わせをお待ちしています。</p>
-            <button class="bg-white text-blue-800 font-bold py-3 px-10 rounded-full shadow-lg hover:bg-gray-100 transition" data-i18n="ctaBtn">
-                お問い合わせはこちら
-            </button>
-        </div>
-    </section>
-
-    <!-- フッター -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800">
-        <p>&copy; 2026 Marigold Corporation. All rights reserved.</p>
-    </footer>
-
-    <!-- 翻訳スクリプト -->
-    <script>
-        const i18n = {
-            ja: {
-                navServices: "サービス", navAbout: "会社情報", navFounder: "創業者挨拶", navNews: "ニュース",
-                heroLabel: "Digital Care Solutions",
-                heroTitle: "ケアが、もっと近<br>くなる。",
-                heroSub: "医療・介護・地域をやさしくつなぐデジタルソリューションで、一人ひとりの健やかな毎日を支えます。",
-                heroBtn: "お問い合わせ",
-                svcLabel: "OUR SERVICES", svcTitle: "人に寄り添う、つながる技術。", svcDesc: "現場の声から生まれた、安心して使えるケアテクノロジーを届けます。",
-                svc1Title: "ヘルスケア連携", svc1Desc: "日々の健康情報をわかりやすく共有し、早期の気づきにつなげます。",
-                svc2Title: "ケアワーク支援", svc2Desc: "ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。",
-                svc3Title: "データプラットフォーム", svc3Desc: "必要な情報を安全につなぎ、チームのより良い意思決定を支えます。",
-                abtLabel: "ABOUT MARIGOLD", abtTitle: "誰もが自分らしく<br>年齢を重ねられる社会へ。", abtDesc: "Marigoldは、医療・介護の現場とテクノロジーをつなぐパートナーです。使う人の安心を第一に、あたたかく持続可能なケアの未来を設計します。",
-                abtP1: "人を中心に", abtP2: "確かな安心", abtP3: "ひらかれた連携", abtP4: "明日への設計",
-                fndLabel: "FOUNDER'S MESSAGE", fndTitle: "創業者挨拶",
-                fndP1: "医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。",
-                fndP2: "私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、2.4GHz高精度無線センシング技術とAIを活用して、現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。",
-                fndRole: "マリーゴールド株式会社 代表", fndName: "三宅 由三",
-                ctaLabel: "LET'S TALK", ctaTitle: "ケアの未来を、一緒につくりませんか。", ctaDesc: "導入のご相談、パートナーシップ、採用に関するお問い合わせをお待ちしています。", ctaBtn: "お問い合わせはこちら"
-            },
-            en: {
-                navServices: "Services", navAbout: "About Us", navFounder: "Founder", navNews: "News",
-                heroLabel: "Digital Care Solutions", heroTitle: "Care gets<br>closer.", heroSub: "Supporting healthy daily lives through digital solutions that gently connect medical care, nursing, and the community.", heroBtn: "Contact Us",
-                svcLabel: "OUR SERVICES", svcTitle: "Technology that connects and cares.", svcDesc: "Delivering reliable care technology born from frontline voices.",
-                svc1Title: "Healthcare Integration", svc1Desc: "Sharing daily health information clearly to enable early awareness.",
-                svc2Title: "Care Work Support", svc2Desc: "Reducing the time and burden on care providers to foster richer interactions.",
-                svc3Title: "Data Platform", svc3Desc: "Connecting vital information securely to support better team decisions.",
-                abtLabel: "ABOUT MARIGOLD", abtTitle: "A society where everyone<br>can age with dignity.", abtDesc: "Marigold is a partner connecting the medical frontlines with technology. We design a warm, sustainable future of care, putting peace of mind first.",
-                abtP1: "People First", abtP2: "Reliable Safety", abtP3: "Open Collaboration", abtP4: "Designing Tomorrow",
-                fndLabel: "FOUNDER'S MESSAGE", fndTitle: "Founder's Greeting",
-                fndP1: "In emergency medical scenarios where limited resources and high-level decision-making are required, real-time spatial visualization and rapid triage support are urgent challenges.",
-                fndP2: "Marigold Co., Ltd. leads the establishment of a healthcare DX infrastructure rooted in solving frontline issues. Leveraging 2.4GHz high-precision sensing and AI, we provide solutions that directly reduce frontline burdens and improve survival rates.",
-                fndRole: "Founder & Representative", fndName: "Yuzo Miyake",
-                ctaLabel: "LET'S TALK", ctaTitle: "Let's build the future of care together.", ctaDesc: "We welcome inquiries regarding implementation, partnerships, and recruitment.", ctaBtn: "Contact Us"
-            },
-            fr: {
-                navServices: "Services", navAbout: "À Propos", navFounder: "Fondateur", navNews: "Actualités",
-                heroLabel: "Solutions de Soins Numériques", heroTitle: "Les soins se<br>rapprochent.", heroSub: "Soutenir une vie quotidienne saine grâce à des solutions numériques qui relient les soins médicaux et la communauté.", heroBtn: "Contactez-nous",
-                svcLabel: "NOS SERVICES", svcTitle: "Une technologie qui connecte.", svcDesc: "Offrir une technologie de soins fiable née des voix du terrain.",
-                svc1Title: "Intégration Santé", svc1Desc: "Partager clairement les informations de santé pour une prise conscience précoce.",
-                svc2Title: "Soutien aux Soins", svc2Desc: "Réduire la charge des soignants pour favoriser des interactions plus riches.",
-                svc3Title: "Plateforme de Données", svc3Desc: "Connecter les informations vitales en toute sécurité pour de meilleures décisions.",
-                abtLabel: "À PROPOS DE MARIGOLD", abtTitle: "Une société où chacun<br>vieillit avec dignité.", abtDesc: "Marigold relie le terrain médical à la technologie pour concevoir un avenir de soins durable et chaleureux.",
-                abtP1: "L'humain avant tout", abtP2: "Sécurité fiable", abtP3: "Collaboration ouverte", abtP4: "Concevoir demain",
-                fndLabel: "MESSAGE DU FONDATEUR", fndTitle: "Mot du Fondateur",
-                fndP1: "Face aux ressources limitées et aux décisions critiques des urgences médicales, la visualisation spatiale et le triage rapide sont des défis urgents.",
-                fndP2: "Marigold Co., Ltd. développe une infrastructure DX de santé. Grâce à la détection 2.4GHz et l'IA, nous offrons des solutions qui réduisent la charge du personnel et améliorent les taux de survie.",
-                fndRole: "Fondateur et Représentant", fndName: "Yuzo Miyake",
-                ctaLabel: "PARLONS-EN", ctaTitle: "Construisons ensemble l'avenir des soins.", ctaDesc: "Nous sommes à votre disposition pour toute demande de mise en œuvre ou de partenariat.", ctaBtn: "Contactez-nous"
-            },
-            de: {
-                navServices: "Dienstleistungen", navAbout: "Über Uns", navFounder: "Gründer", navNews: "Neuigkeiten",
-                heroLabel: "Digitale Pflegelösungen", heroTitle: "Pflege rückt<br>näher.", heroSub: "Unterstützung eines gesunden Alltags durch digitale Lösungen, die medizinische Versorgung und Gemeinschaft verbinden.", heroBtn: "Kontakt",
-                svcLabel: "UNSERE DIENSTLEISTUNGEN", svcTitle: "Technologie, die verbindet.", svcDesc: "Zuverlässige Pflegetechnologie, entstanden aus den Stimmen der Praxis.",
-                svc1Title: "Gesundheitsintegration", svc1Desc: "Tägliche Gesundheitsdaten klar teilen, um frühzeitige Erkennung zu ermöglichen.",
-                svc2Title: "Pflegeunterstützung", svc2Desc: "Entlastung des Pflegepersonals zur Förderung bereichernder Interaktionen.",
-                svc3Title: "Datenplattform", svc3Desc: "Sichere Verbindung wichtiger Informationen für bessere Teamentscheidungen.",
-                abtLabel: "ÜBER MARIGOLD", abtTitle: "Eine Gesellschaft, in der<br>jeder in Würde altert.", abtDesc: "Marigold verbindet die medizinische Praxis mit Technologie, um eine nachhaltige Zukunft der Pflege zu gestalten.",
-                abtP1: "Mensch im Mittelpunkt", abtP2: "Zuverlässige Sicherheit", abtP3: "Offene Zusammenarbeit", abtP4: "Morgen gestalten",
-                fndLabel: "NACHRICHT DES GRÜNDERS", fndTitle: "Grußwort des Gründers",
-                fndP1: "Angesichts begrenzter Ressourcen und kritischer Entscheidungen in der Notfallmedizin sind räumliche Visualisierung und schnelle Triage dringende Herausforderungen.",
-                fndP2: "Marigold Co., Ltd. entwickelt eine Gesundheits-DX-Infrastruktur. Mit 2.4GHz-Sensoren und KI bieten wir Lösungen, die das Personal entlasten und Überlebensraten verbessern.",
-                fndRole: "Gründer & Repräsentant", fndName: "Yuzo Miyake",
-                ctaLabel: "LASSEN SIE UNS REDEN", ctaTitle: "Lassen Sie uns die Zukunft der Pflege gemeinsam gestalten.", ctaDesc: "Wir freuen uns auf Ihre Anfragen zu Implementierung, Partnerschaften und Rekrutierung.", ctaBtn: "Kontaktieren Sie uns"
-            },
-            it: {
-                navServices: "Servizi", navAbout: "Chi Siamo", navFounder: "Fondatore", navNews: "Notizie",
-                heroLabel: "Soluzioni di Cura Digitali", heroTitle: "La cura si<br>avvicina.", heroSub: "Sostenere una vita quotidiana sana attraverso soluzioni digitali che collegano cure mediche e comunità.", heroBtn: "Contattaci",
-                svcLabel: "I NOSTRI SERVIZI", svcTitle: "Tecnologia che connette.", svcDesc: "Tecnologia di cura affidabile nata dalle voci in prima linea.",
-                svc1Title: "Integrazione Sanitaria", svc1Desc: "Condividere chiaramente i dati sanitari per consentire una diagnosi precoce.",
-                svc2Title: "Supporto al Lavoro di Cura", svc2Desc: "Ridurre il carico sui fornitori di cure per promuovere interazioni più ricche.",
-                svc3Title: "Piattaforma Dati", svc3Desc: "Collegare informazioni vitali in modo sicuro per supportare decisioni migliori.",
-                abtLabel: "INFORMAZIONI SU MARIGOLD", abtTitle: "Una società in cui tutti<br>invecchiano con dignità.", abtDesc: "Marigold collega la prima linea medica con la tecnologia per progettare un futuro di cura sostenibile.",
-                abtP1: "Le Persone Prima di Tutto", abtP2: "Sicurezza Affidabile", abtP3: "Collaborazione Aperta", abtP4: "Progettare il Domani",
-                fndLabel: "MESSAGGIO DEL FONDATORE", fndTitle: "Saluto del Fondatore",
-                fndP1: "A fronte di risorse limitate e decisioni critiche nelle emergenze mediche, la visualizzazione spaziale e il triage rapido sono sfide urgenti.",
-                fndP2: "Marigold Co., Ltd. sviluppa un'infrastruttura DX sanitaria. Con sensori a 2.4GHz e IA, offriamo soluzioni che riducono il carico sul personale e migliorano i tassi di sopravvivenza.",
-                fndRole: "Fondatore e Rappresentante", fndName: "Yuzo Miyake",
-                ctaLabel: "PARLIAMONE", ctaTitle: "Costruiamo insieme il futuro della cura.", ctaDesc: "Siamo a disposizione per richieste di implementazione e partnership.", ctaBtn: "Contattaci"
-            }
-        };
-
-        function switchLang(lang) {
-            document.documentElement.lang = lang;
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[lang] && i18n[lang][key]) {
-                    el.innerHTML = i18n[lang][key];
-                }
-            });
-            const langs = ['ja', 'en', 'fr', 'de', 'it'];
-            langs.forEach(l => {
-                const btn = document.getElementById('lang-' + l);
-                if(l === lang) {
-                    btn.classList.add('lang-active');
-                } else {
-                    btn.classList.remove('lang-active');
-                }
-            });
+    function setLang(lang) {
+      document.querySelectorAll('.lang-selector button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      
+      for (let key in i18n[lang]) {
+        let el = document.getElementById(key);
+        if (el) {
+          el.innerHTML = i18n[lang][key];
         }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            switchLang('ja');
-        });
-    </script>
+      }
+    }
+  </script>
 </body>
 </html>
