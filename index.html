@@ -1,418 +1,287 @@
-<!doctype html>
-<html lang="ja"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260922-03-6416566","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/83d6dfdadcd4750a.telemetry_sdk.js" integrity="sha512-XS4Dvzp6vbagZS9vFErihvr8aO3S0tH78KWUefn06fmL4WYqryBtZj/IOLITYj7dFA4gPVvPg1W/JB1DK3uLNQ=="></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marigold Co., Ltd.</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #102943;
-      --ink: #182533;
-      --orange: #ec7918;
-      --cream: #fff6e6;
-      --mist: #eef4f7;
-      --line: #dce5ea;
-      --muted: #586a78;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: "DM Sans", "Noto Sans JP", sans-serif; color: var(--ink); }
-    .jp-heading { font-family: "Noto Sans JP", sans-serif; letter-spacing: -.04em; }
-    .site-shell { width: 100%; overflow: hidden; }
-    .site-width { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
-    .section-space { padding: 104px 0; }
-    .eyebrow { font-size: 11px; letter-spacing: .14em; font-weight: 700; color: var(--orange); text-transform: uppercase; }
-    .nav-link { color: #3c4a55; font-size: 13px; font-weight: 600; transition: color .2s ease; }
-    .nav-link:hover { color: var(--orange); }
-    .outline-button, .primary-button {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      min-height: 48px; padding: 0 20px; border-radius: 7px; font-size: 14px;
-      font-weight: 700; transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .primary-button { background: var(--orange); color: white; box-shadow: 0 8px 18px rgba(236,121,24,.18); }
-    .primary-button:hover { background: #d8660b; transform: translateY(-2px); }
-    .outline-button { color: var(--navy); border: 1px solid #cdd9df; background: white; }
-    .outline-button:hover { border-color: var(--navy); transform: translateY(-2px); }
-    .abstract-grid {
-      background-image: linear-gradient(rgba(41, 91, 121, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(41, 91, 121, .08) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-    .hero-orb { position: absolute; border-radius: 999px; filter: blur(.2px); }
-    .data-node { position: absolute; width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; background: white; box-shadow: 0 12px 32px rgba(21,50,70,.12); border: 1px solid rgba(212,225,231,.9); color: var(--navy); }
-    .data-line { position: absolute; height: 1px; background: linear-gradient(90deg, rgba(28,83,115,.14), rgba(236,121,24,.85), rgba(28,83,115,.14)); transform-origin: left center; }
-    .soft-card { border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(18, 54, 75, .055); }
-    .value-card { position: relative; overflow: hidden; min-height: 320px; }
-    .value-card:after { content:""; position:absolute; width:240px; height:240px; border-radius:50%; right:-80px; bottom:-120px; background: radial-gradient(circle, rgba(240,179,85,.20), rgba(240,179,85,0)); }
-    .mini-diagram { height: 82px; position: relative; }
-    .mini-diagram span { position: absolute; width: 24px; height: 24px; border-radius: 8px; border: 1px solid #afc4d0; background: #fff; }
-    .mini-diagram i { position: absolute; height: 1px; background: #a8bfca; transform-origin:left; }
-    .step-line { height: 1px; flex: 1; margin: 42px 18px 0; background: linear-gradient(90deg, #c6d8e1, var(--orange), #c6d8e1); }
-    .timeline { position: relative; }
-    .timeline:before { content:""; position:absolute; top: 28px; bottom: 30px; left: 18px; width: 1px; background: #b9ceda; }
-    .timeline-item { position: relative; padding-left: 58px; }
-    .timeline-number { position:absolute; left:0; top:0; width:37px; height:37px; border-radius: 50%; background: var(--orange); color:white; display:grid; place-items:center; font-size:12px; font-weight:700; box-shadow:0 0 0 6px #fff6e6; }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .menu-open { display: block !important; }
-    .form-control { width:100%; border:1px solid #d5e0e5; border-radius:6px; padding:12px 13px; color:var(--ink); font-size:14px; background:white; outline:none; transition:border .2s ease, box-shadow .2s ease; }
-    .form-control:focus { border-color:var(--orange); box-shadow:0 0 0 3px rgba(236,121,24,.13); }
-    .form-control[aria-invalid="true"] { border-color:#c74444; }
-    .error-message { color:#b42318; font-size:12px; min-height:18px; margin-top:5px; }
-    @media (max-width: 767px) {
-      .site-width { width: min(100% - 32px, 1120px); }
-      .section-space { padding: 72px 0; }
-      .hero-section { padding-top: 54px; }
-      .step-line { width: 1px; height: 32px; margin: 12px 0 12px 28px; flex: none; background: #c6d8e1; }
-      .step-flow { flex-direction: column; align-items: stretch; }
-      .step-card { display:grid; grid-template-columns:56px 1fr; gap:12px; align-items:start; }
-      .step-card .step-copy { padding-top:5px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior:auto; }
-      *, *:before, *:after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
-      .reveal { opacity:1; transform:none; }
-    }
-  </style>
-  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
-  <script src="/_sdk/8de366929c5f3b48.data_sdk.js" type="text/javascript" integrity="sha512-TyQ8k8cZj66xe/aENmn6RyZpdOFZXbAo5+KBG3PeFM+Q4qMTHU8xAqmq4ADClNfPrstgQYV6OzZHwLTnElzB2g=="></script>
-  <script src="/_sdk/d80647b37084f0c6.editing_sdk.js" type="text/javascript" integrity="sha512-jCz+DtquKRDjnSrSxfhBCzqv2CNRnUAa0936TKD2DSOtf6OZkZ6z2RJ9PZqOhkoYVUsdKS+mJI9DS8ttXywBzw=="></script>
-  <script src="/_sdk/765e1fea0cec97ce.resizing_sdk.js" type="text/javascript" integrity="sha512-IRTJnqww0+HQ5V/LlWEQrlD5SrYHaVvaeVoNe8HYQXoaguzUGheSd9+n9s6WOgaTcEH0g37DuINHZ9aqfzWjlw=="></script>
- </head>
- <body data-template-id="__page-root" class="bg-white" style="background: rgb(255, 255, 255);">
-  <div class="site-shell">
-   <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-    <div class="site-width flex h-[72px] items-center justify-between"><a href="#top" data-template-id="brand-name" class="canva-link text-[15px] font-bold tracking-[-.03em] text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">Marigold Co., Ltd.</a>
-     <nav class="hidden items-center gap-7 md:flex" aria-label="メインナビゲーション"><a href="#company" data-template-id="nav-company" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">会社情報</a> <a href="#business" data-template-id="nav-business" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">事業内容</a> <a href="#news" data-template-id="nav-news" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">お知らせ</a> <a href="#contact" data-template-id="nav-contact" class="canva-link nav-link" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">お問い合わせ</a> <a href="#contact" data-template-id="nav-cta" class="canva-button rounded-md px-4 py-2 text-[12px] font-bold text-white" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">お問い合わせ</a>
-     </nav><button id="menu-toggle" type="button" class="rounded-md p-2 text-[#102943] md:hidden focus:outline-none focus:ring-2 focus:ring-orange-400" aria-label="メニューを開く" aria-expanded="false"> <i data-lucide="menu" class="h-5 w-5"></i> </button>
-    </div>
-    <nav id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden" aria-label="モバイルナビゲーション">
-     <div class="mx-auto flex max-w-[1120px] flex-col gap-1"><a href="#company" data-template-id="mobile-company" class="canva-link rounded px-3 py-3 text-sm font-semibold text-slate-700" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">会社情報</a> <a href="#business" data-template-id="mobile-business" class="canva-link rounded px-3 py-3 text-sm font-semibold text-slate-700" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">事業内容</a> <a href="#news" data-template-id="mobile-news" class="canva-link rounded px-3 py-3 text-sm font-semibold text-slate-700" style="color: rgb(60, 74, 85); font-weight: 600; font-style: normal; font-size: 16px;">お知らせ</a> <a href="#contact" data-template-id="mobile-contact" class="canva-button mt-2 rounded-md px-3 py-3 text-center text-sm font-bold text-white" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">お問い合わせ</a>
-     </div>
-    </nav>
-   </header>
-   <main id="top">
-    <section class="hero-section relative overflow-hidden bg-[#fff8e9] py-[88px] md:py-[112px]">
-     <div class="abstract-grid absolute inset-0 opacity-40"></div>
-     <div class="hero-orb left-[-70px] top-[35%] h-[210px] w-[210px] bg-[#f6c27a]/30"></div>
-     <div class="hero-orb right-[8%] top-[-80px] h-[240px] w-[240px] bg-[#b6d9e8]/30"></div>
-     <div class="site-width relative grid items-center gap-12 lg:grid-cols-[1.06fr_.94fr]">
-      <div class="reveal">
-       <p data-template-id="hero-eyebrow" class="canva-text eyebrow mb-5" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Healthcare × Life Support Innovation</p>
-       <h1 data-template-id="hero-title" class="canva-text jp-heading max-w-[680px] text-[36px] font-extrabold leading-[1.38] text-[#102943] md:text-[48px]" style="color: rgb(16, 41, 67); font-weight: 800; font-style: normal; font-size: 32px;">データ分析を解決し、誰もが誇り高く生きられる社会へ</h1>
-       <p data-template-id="hero-description" class="canva-text mt-6 max-w-[620px] text-[15px] leading-8 text-[#4e606d] md:text-[16px]" style="color: rgb(78, 96, 109); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.8;">医療・介護の現場にあるデータを、現場で使える知恵へ。構造化・可視化・実装まで伴走します。</p>
-       <div class="mt-8 flex flex-col gap-3 sm:flex-row"><a href="#business" data-template-id="hero-business-cta" class="canva-button primary-button" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">事業内容を見る</a> <a href="#contact" data-template-id="hero-contact-cta" class="canva-button outline-button" style="background: rgb(255, 255, 255); color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">ご相談・お問い合わせ</a>
-       </div>
-      </div>
-      <div class="reveal relative mx-auto h-[330px] w-full max-w-[470px] md:h-[390px]" style="transition-delay:.12s">
-       <div class="absolute inset-4 rounded-[28px] border border-white/90 bg-white/60 shadow-[0_20px_50px_rgba(26,65,89,.10)] backdrop-blur-sm"></div>
-       <div class="absolute left-[22%] top-[22%] h-[190px] w-[190px] rounded-full border border-[#9fc0d0]/70 bg-[radial-gradient(circle_at_40%_35%,#ffffff_0%,#e8f3f7_45%,#cde1e8_100%)]"></div>
-       <div class="hero-orb left-[29%] top-[29%] h-[110px] w-[110px] bg-[#fff0cf]"></div>
-       <div class="data-line left-[22%] top-[35%] w-[140px] rotate-[21deg]"></div>
-       <div class="data-line left-[33%] top-[49%] w-[150px] -rotate-[28deg]"></div>
-       <div class="data-line left-[43%] top-[42%] w-[116px] rotate-[74deg]"></div>
-       <div class="data-node left-[11%] top-[27%]">
-        <i data-lucide="heart-pulse" class="h-5 w-5"></i>
-       </div>
-       <div class="data-node right-[10%] top-[20%]">
-        <i data-lucide="users" class="h-5 w-5"></i>
-       </div>
-       <div class="data-node bottom-[13%] left-[17%]">
-        <i data-lucide="database" class="h-5 w-5"></i>
-       </div>
-       <div class="data-node bottom-[12%] right-[16%]">
-        <i data-lucide="network" class="h-5 w-5"></i>
-       </div>
-       <div class="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl bg-[#102943] text-white shadow-xl">
-        <i data-lucide="sparkles" class="h-6 w-6"></i>
-       </div>
-      </div>
-     </div>
-    </section>
-    <section class="border-y border-[#dfe9ec] bg-white">
-     <div class="site-width grid divide-y divide-[#dfe9ec] md:grid-cols-3 md:divide-x md:divide-y-0">
-      <div class="flex items-center gap-4 py-5 md:justify-center">
-       <span class="grid h-8 w-8 place-items-center rounded-full bg-[#fff1dc] text-xs font-bold text-[#ec7918]">01</span><span data-template-id="trust-one" class="canva-text text-sm font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">現場起点</span>
-      </div>
-      <div class="flex items-center gap-4 py-5 md:justify-center">
-       <span class="grid h-8 w-8 place-items-center rounded-full bg-[#fff1dc] text-xs font-bold text-[#ec7918]">02</span><span data-template-id="trust-two" class="canva-text text-sm font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">データを構造化</span>
-      </div>
-      <div class="flex items-center gap-4 py-5 md:justify-center">
-       <span class="grid h-8 w-8 place-items-center rounded-full bg-[#fff1dc] text-xs font-bold text-[#ec7918]">03</span><span data-template-id="trust-three" class="canva-text text-sm font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 16px;">実装まで伴走</span>
-      </div>
-     </div>
-    </section>
-    <section id="company" class="section-space bg-[#f6f9fa]">
-     <div class="site-width">
-      <div class="reveal max-w-[760px]">
-       <p data-template-id="intro-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Introduction</p>
-       <h2 data-template-id="intro-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-[#102943] md:text-[35px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">時代遅れの組織不全を乗り越え、実効性あるイノベーションを</h2>
-      </div>
-      <div class="mt-10 grid gap-4 md:grid-cols-3">
-       <article data-template-id="intro-card-one" class="canva-card soft-card reveal rounded-lg bg-white p-6" style="background: rgb(255, 255, 255);"><span class="mb-5 grid h-10 w-10 place-items-center rounded-md bg-[#fff1dc] text-[#ec7918]"><i data-lucide="users-round" class="h-5 w-5"></i></span>
-        <h3 data-template-id="intro-card-one-title" class="canva-text jp-heading text-[18px] font-bold leading-7 text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">現場主導のイノベーションと人材不足</h3>
-        <p data-template-id="intro-card-one-text" class="canva-text mt-3 text-[13px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">担い手の経験や判断を尊重しながら、負担の偏りを見える化。現場から改善を続けられる仕組みをつくります。</p>
-       </article>
-       <article data-template-id="intro-card-two" class="canva-card soft-card reveal rounded-lg bg-white p-6" style="transition-delay: 0.1s; background: rgb(255, 255, 255);"><span class="mb-5 grid h-10 w-10 place-items-center rounded-md bg-[#e9f4f8] text-[#28617f]"><i data-lucide="brain-circuit" class="h-5 w-5"></i></span>
-        <h3 data-template-id="intro-card-two-title" class="canva-text jp-heading text-[18px] font-bold leading-7 text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">データで拓く「人」に向き合う介護・AI</h3>
-        <p data-template-id="intro-card-two-text" class="canva-text mt-3 text-[13px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">記録のための記録ではなく、一人ひとりの生活と変化を捉えるデータへ。AI活用の土台を丁寧に整えます。</p>
-       </article>
-       <article data-template-id="intro-card-three" class="canva-card soft-card reveal rounded-lg bg-white p-6" style="transition-delay: 0.2s; background: rgb(255, 255, 255);"><span class="mb-5 grid h-10 w-10 place-items-center rounded-md bg-[#eef1fb] text-[#40598d]"><i data-lucide="globe-2" class="h-5 w-5"></i></span>
-        <h3 data-template-id="intro-card-three-title" class="canva-text jp-heading text-[18px] font-bold leading-7 text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">グローバルなデータ知の蓄積を活用</h3>
-        <p data-template-id="intro-card-three-text" class="canva-text mt-3 text-[13px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">地域に根ざした実践と、国内外に蓄積される知見を接続。次の現場に活かせる学びの循環を支えます。</p>
-       </article>
-      </div>
-     </div>
-    </section>
-    <section id="business" class="section-space bg-white">
-     <div class="site-width">
-      <div class="reveal max-w-[760px]">
-       <p data-template-id="value-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Value</p>
-       <h2 data-template-id="value-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-[#102943] md:text-[35px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">医療・介護のデータ基盤を、地域に寄り添う生活支援へ</h2>
-      </div>
-      <div class="mt-10 grid gap-5 lg:grid-cols-2">
-       <article data-template-id="value-card-one" class="canva-card value-card soft-card reveal rounded-xl bg-[#fffaf0] p-7 md:p-8" style="background: rgb(255, 250, 240);">
-        <div class="mini-diagram"><span style="left:3%;top:24%;background:#fff4df"></span><span style="left:40%;top:5%;background:#ffffff"></span><span style="right:5%;bottom:12%;background:#eaf5f8"></span> <i style="left:8%;top:42%;width:128px;transform:rotate(-13deg)"></i><i style="left:45%;top:27%;width:132px;transform:rotate(23deg)"></i>
-        </div>
-        <p data-template-id="value-card-one-tag" class="canva-tag text-[11px] font-bold tracking-[.12em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PERSONALIZED SUPPORT</p>
-        <h3 data-template-id="value-card-one-title" class="canva-text jp-heading mt-2 text-[23px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">パーソナライズ型ヘルスケア・モビール</h3>
-        <p data-template-id="value-card-one-text" class="canva-text mt-4 max-w-[460px] text-[14px] leading-7 text-[#50616d]" style="color: rgb(80, 97, 109); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">本人・家族・支援者の情報をつなぎ、日々の生活に寄り添う支援へ。必要な気づきを、必要な人へ無理なく届けます。</p>
-       </article>
-       <article data-template-id="value-card-two" class="canva-card value-card soft-card reveal rounded-xl bg-[#f4f9fb] p-7 md:p-8" style="transition-delay: 0.12s; background: rgb(244, 249, 251);">
-        <div class="mini-diagram"><span style="left:7%;bottom:13%;background:#ffffff"></span><span style="left:44%;top:10%;background:#fff4df"></span><span style="right:7%;bottom:17%;background:#ffffff"></span> <i style="left:12%;top:62%;width:141px;transform:rotate(-27deg)"></i><i style="left:50%;top:32%;width:128px;transform:rotate(28deg)"></i>
-        </div>
-        <p data-template-id="value-card-two-tag" class="canva-tag text-[11px] font-bold tracking-[.12em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">OPEN INFRASTRUCTURE</p>
-        <h3 data-template-id="value-card-two-title" class="canva-text jp-heading mt-2 text-[23px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">医療・介護データ連携インフラ</h3>
-        <p data-template-id="value-card-two-text" class="canva-text mt-4 max-w-[460px] text-[14px] leading-7 text-[#50616d]" style="color: rgb(80, 97, 109); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">現場ごとに散在する情報を構造化し、組織や地域を越えて活用可能に。二重入力や確認作業を減らし、連携の質を高めます。</p>
-       </article>
-      </div>
-     </div>
-    </section>
-    <section class="section-space bg-[#102943]">
-     <div class="site-width">
-      <div class="reveal max-w-[800px]">
-       <p data-template-id="tech-eyebrow" class="canva-text eyebrow text-[#f3a453]" style="color: rgb(243, 164, 83); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Core Technology</p>
-       <h2 data-template-id="tech-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-white md:text-[35px]" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">現場の構造化データとFHIR基盤を結ぶオープンアーキテクチャ</h2>
-      </div>
-      <div class="step-flow mt-10 flex">
-       <article class="step-card flex-1 reveal">
-        <div class="grid h-14 w-14 place-items-center rounded-lg border border-[#5d7790] bg-[#173853] text-[13px] font-bold text-[#f3a453]">
-         01
-        </div>
-        <div class="step-copy mt-4">
-         <h3 data-template-id="step-one-title" class="canva-text text-[17px] font-bold text-white" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">インテイク・課題入力</h3>
-         <p data-template-id="step-one-text" class="canva-text mt-2 text-[13px] leading-6 text-[#c6d5df]" style="color: rgb(198, 213, 223); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.7;">日々の記録や相談、業務上の困りごとを、現場の言葉のまま受け止めます。</p>
-        </div>
-       </article>
-       <div class="step-line"></div>
-       <article class="step-card flex-1 reveal" style="transition-delay:.1s">
-        <div class="grid h-14 w-14 place-items-center rounded-lg border border-[#5d7790] bg-[#173853] text-[13px] font-bold text-[#f3a453]">
-         02
-        </div>
-        <div class="step-copy mt-4">
-         <h3 data-template-id="step-two-title" class="canva-text text-[17px] font-bold text-white" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">AI分析・構造化</h3>
-         <p data-template-id="step-two-text" class="canva-text mt-2 text-[13px] leading-6 text-[#c6d5df]" style="color: rgb(198, 213, 223); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.7;">情報の粒度をそろえ、傾向と課題を可視化。判断につながる形へ整理します。</p>
-        </div>
-       </article>
-       <div class="step-line"></div>
-       <article class="step-card flex-1 reveal" style="transition-delay:.2s">
-        <div class="grid h-14 w-14 place-items-center rounded-lg border border-[#5d7790] bg-[#173853] text-[13px] font-bold text-[#f3a453]">
-         03
-        </div>
-        <div class="step-copy mt-4">
-         <h3 data-template-id="step-three-title" class="canva-text text-[17px] font-bold text-white" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">FHIRへ接続</h3>
-         <p data-template-id="step-three-text" class="canva-text mt-2 text-[13px] leading-6 text-[#c6d5df]" style="color: rgb(198, 213, 223); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.7;">本人を中心とした記録基盤へ接続し、地域で継続的に活かせるデータ循環を実現します。</p>
-        </div>
-       </article>
-      </div>
-     </div>
-    </section>
-    <section id="news" class="section-space bg-[#fff8e9]">
-     <div class="site-width grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
-      <div class="reveal">
-       <p data-template-id="roadmap-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Roadmap</p>
-       <h2 data-template-id="roadmap-title" class="canva-text jp-heading mt-3 text-[28px] font-bold leading-[1.55] text-[#102943] md:text-[35px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">実証・事業展開ロードマップ</h2>
-       <p data-template-id="roadmap-text" class="canva-text mt-5 text-[14px] leading-7 text-[#586a78]" style="color: rgb(88, 106, 120); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">現場との対話を起点に、検証・地域連携・展開を段階的に進めます。実証をご一緒いただけるパートナーを募集しています。</p>
-      </div>
-      <div class="timeline space-y-7 reveal" style="transition-delay:.12s">
-       <article class="timeline-item"><span class="timeline-number">01</span>
-        <p data-template-id="roadmap-phase-one-tag" class="canva-tag text-[11px] font-bold tracking-[.1em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PHASE 1</p>
-        <h3 data-template-id="roadmap-phase-one-title" class="canva-text jp-heading mt-1 text-[18px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">パイロット導入＆データ一式</h3>
-        <p data-template-id="roadmap-phase-one-text" class="canva-text mt-2 text-[13px] leading-7 text-[#53636e]" style="color: rgb(83, 99, 110); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">現場課題の整理から記録の構造化、基本的なデータ連携までを小さく検証。導入後の運用像を共に描きます。</p>
-       </article>
-       <article class="timeline-item"><span class="timeline-number">02</span>
-        <p data-template-id="roadmap-phase-two-tag" class="canva-tag text-[11px] font-bold tracking-[.1em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PHASE 2</p>
-        <h3 data-template-id="roadmap-phase-two-title" class="canva-text jp-heading mt-1 text-[18px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">地域連携モデル実証（自治体・患者会・介護事業所）</h3>
-        <p data-template-id="roadmap-phase-two-text" class="canva-text mt-2 text-[13px] leading-7 text-[#53636e]" style="color: rgb(83, 99, 110); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">地域の多様な関係者と連携し、生活支援につながる情報の流れと運営モデルを検証します。</p>
-       </article>
-       <article class="timeline-item"><span class="timeline-number">03</span>
-        <p data-template-id="roadmap-phase-three-tag" class="canva-tag text-[11px] font-bold tracking-[.1em] text-[#ec7918]" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.1rem;">PHASE 3</p>
-        <h3 data-template-id="roadmap-phase-three-title" class="canva-text jp-heading mt-1 text-[18px] font-bold text-[#102943]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 19px;">全国展開・多言語化・医療人材活用</h3>
-        <p data-template-id="roadmap-phase-three-text" class="canva-text mt-2 text-[13px] leading-7 text-[#53636e]" style="color: rgb(83, 99, 110); font-weight: 400; font-style: normal; font-size: 13px; line-height: 1.8;">各地域で得られた学びを標準化し、多言語対応や人材活用も見据えた持続可能な仕組みへ発展させます。</p>
-       </article>
-      </div>
-     </div>
-    </section>
-    <section id="contact" class="section-space bg-[#f6f9fa]">
-     <div class="site-width">
-      <div class="reveal mx-auto max-w-[720px] text-center">
-       <p data-template-id="contact-eyebrow" class="canva-text eyebrow" style="color: rgb(236, 121, 24); font-weight: 700; font-style: normal; font-size: 11px; letter-spacing: 0.12rem;">Contact</p>
-       <h2 data-template-id="contact-title" class="canva-text jp-heading mt-3 text-[27px] font-bold leading-[1.55] text-[#102943] md:text-[34px]" style="color: rgb(16, 41, 67); font-weight: 700; font-style: normal; font-size: 24px;">ご相談・実証パートナー・導入に関するお問い合わせ</h2>
-       <p data-template-id="contact-description" class="canva-text mt-4 text-[14px] leading-7 text-[#5b6b76]" style="color: rgb(91, 107, 118); font-weight: 400; font-style: normal; font-size: 14px; line-height: 1.8;">地域での実証、データ連携、現場業務の改善など、お気軽にご相談ください。内容を確認のうえ、ご連絡いたします。</p>
-      </div>
-      <div class="reveal mx-auto mt-9 max-w-[760px]" style="transition-delay:.1s">
-       <form id="contact-form" class="soft-card rounded-xl bg-white p-6 md:p-8" novalidate="">
-        <div class="grid gap-5 md:grid-cols-2">
-         <div><label data-template-id="label-name" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="name" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">お名前・企業名</label> <input id="name" name="name" class="form-control" type="text" required="">
-          <p id="name-error" class="error-message" aria-live="polite"></p>
-         </div>
-         <div><label data-template-id="label-type" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="inquiry_type" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">お問い合わせ種別</label> <select id="inquiry_type" name="inquiry_type" class="form-control" required=""> <option value="">選択してください</option> <option value="導入のご相談">導入のご相談</option> <option value="実証パートナーについて">実証パートナーについて</option> <option value="協業・取材について">協業・取材について</option> <option value="その他">その他</option> </select>
-          <p id="type-error" class="error-message" aria-live="polite"></p>
-         </div>
-         <div><label data-template-id="label-email" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="email" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">メールアドレス</label> <input id="email" name="email" class="form-control" type="email" required="">
-          <p id="email-error" class="error-message" aria-live="polite"></p>
-         </div>
-         <div><label data-template-id="label-phone" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="phone" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">電話番号（任意）</label> <input id="phone" name="phone" class="form-control" type="tel">
-         </div>
-        </div>
-        <div class="mt-5"><label data-template-id="label-message" class="canva-text mb-2 block text-[13px] font-bold text-[#263d50]" for="message" style="color: rgb(38, 61, 80); font-weight: 700; font-style: normal; font-size: 13px;">お問い合わせ内容</label> <textarea id="message" name="message" class="form-control min-h-[132px] resize-y" required=""></textarea>
-         <p id="message-error" class="error-message" aria-live="polite"></p>
-        </div>
-        <div class="mt-6 text-center"><button id="submit-button" data-template-id="submit-button" type="submit" class="canva-button primary-button w-full sm:w-auto" style="background: rgb(236, 121, 24); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">メールで問い合わせる</button>
-         <div id="form-sending" class="mt-4 hidden items-center justify-center gap-2 text-sm text-[#586a78]" aria-live="polite">
-          <i data-lucide="loader-circle" class="h-4 w-4 animate-spin"></i><span data-template-id="sending-text" class="canva-text" style="color: rgb(88, 106, 120); font-weight: 400; font-style: normal; font-size: 14px;">送信しています…</span>
-         </div>
-         <div id="form-success" class="mt-4 hidden rounded-md border border-[#b8d9c3] bg-[#effaf2] px-4 py-3 text-center" role="status">
-          <p data-template-id="success-title" class="canva-text font-bold text-[#17663a]" style="color: rgb(23, 102, 58); font-weight: 700; font-style: normal; font-size: 15px;">お問い合わせを受け付けました。</p>
-          <p data-template-id="success-text" class="canva-text mt-1 text-[13px] text-[#3d6650]" style="color: rgb(61, 102, 80); font-weight: 400; font-style: normal; font-size: 13px;">内容を確認のうえ、担当者よりご連絡いたします。</p>
-         </div>
-         <p id="form-status" class="mt-3 text-center text-sm text-[#b42318]" aria-live="polite"></p>
-        </div>
-       </form>
-      </div>
-     </div>
-    </section>
-   </main>
-   <footer data-template-id="footer-section" class="canva-footer bg-[#102943] py-11 text-white" style="background: rgb(16, 41, 67);">
-    <div class="site-width grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-     <div>
-      <p data-template-id="footer-brand" class="canva-text text-[17px] font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 17px;">Marigold Co., Ltd.</p>
-      <p data-template-id="footer-description" class="canva-text mt-3 max-w-[430px] text-[12px] leading-6 text-[#b8cad5]" style="color: rgb(184, 202, 213); font-weight: 400; font-style: normal; font-size: 12px; line-height: 1.7;">医療・介護の現場を、データと実装で支える。誰もが誇り高く生きられる社会を目指します。</p>
-     </div>
-     <nav class="flex flex-wrap gap-x-5 gap-y-3 text-[12px]" aria-label="フッターナビゲーション"><a href="#company" data-template-id="footer-company" class="canva-link text-[#dce7ed] hover:text-white" style="color: rgb(220, 231, 237); font-weight: 500; font-style: normal; font-size: 12px;">会社情報</a> <a href="#business" data-template-id="footer-business" class="canva-link text-[#dce7ed] hover:text-white" style="color: rgb(220, 231, 237); font-weight: 500; font-style: normal; font-size: 12px;">事業内容</a> <a href="#contact" data-template-id="footer-privacy" class="canva-link text-[#dce7ed] hover:text-white" style="color: rgb(220, 231, 237); font-weight: 500; font-style: normal; font-size: 12px;">プライバシーポリシー</a>
-     </nav>
-    </div>
-    <div class="site-width mt-8 border-t border-[#38536b] pt-5">
-     <p data-template-id="footer-copy" class="canva-text text-[11px] text-[#91aabd]" style="color: rgb(145, 170, 189); font-weight: 400; font-style: normal; font-size: 11px;">© Marigold Co., Ltd. All rights reserved.</p>
-    </div>
-   </footer>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marigold Co., Ltd. | ケアが、もっと近くなる。</title>
+    <meta name="description" content="医療・介護・地域をやさしくつなぐデジタルソリューション">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .lang-active { font-weight: 700; color: #fbbf24; border-bottom: 2px solid #fbbf24; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
 
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuToggle.addEventListener('click', () => {
-        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', String(!expanded));
-        mobileMenu.classList.toggle('menu-open', !expanded);
-      });
+    <!-- ヘッダー -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center gap-2 cursor-pointer">
+                <div class="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-white font-bold text-lg">M</div>
+                <span class="font-bold text-xl tracking-wide text-slate-800">Marigold</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700">
+                <a href="#services" class="hover:text-blue-600 transition" data-i18n="navServices">サービス</a>
+                <a href="#about" class="hover:text-blue-600 transition" data-i18n="navAbout">会社情報</a>
+                <a href="#founder" class="hover:text-blue-600 transition" data-i18n="navFounder">創業者挨拶</a>
+                <a href="#news" class="hover:text-blue-600 transition" data-i18n="navNews">ニュース</a>
+                
+                <!-- 言語切り替え -->
+                <div class="flex items-center space-x-3 text-xs border-l border-gray-300 pl-6">
+                    <button onclick="switchLang('ja')" id="lang-ja" class="lang-active hover:text-blue-600 transition pb-1">JP</button>
+                    <button onclick="switchLang('en')" id="lang-en" class="hover:text-blue-600 transition pb-1">EN</button>
+                    <button onclick="switchLang('fr')" id="lang-fr" class="hover:text-blue-600 transition pb-1">FR</button>
+                    <button onclick="switchLang('de')" id="lang-de" class="hover:text-blue-600 transition pb-1">DE</button>
+                    <button onclick="switchLang('it')" id="lang-it" class="hover:text-blue-600 transition pb-1">IT</button>
+                </div>
+            </div>
+        </div>
+    </header>
 
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('menu-open');
-          menuToggle.setAttribute('aria-expanded', 'false');
+    <!-- ヒーローセクション -->
+    <section class="relative pt-24 pb-32 flex items-center min-h-[80vh] hero-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <p class="text-sm font-bold tracking-widest text-amber-400 mb-4 uppercase" data-i18n="heroLabel">Digital Care Solutions</p>
+                <h1 class="text-5xl md:text-6xl font-black leading-tight mb-6" data-i18n="heroTitle">
+                    ケアが、もっと近<br>くなる。
+                </h1>
+                <p class="text-lg md:text-xl font-medium mb-10 text-gray-200 leading-relaxed" data-i18n="heroSub">
+                    医療・介護・地域をやさしくつなぐデジタルソリューションで、一人ひとりの健やかな毎日を支えます。
+                </p>
+                <a href="#contact" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition" data-i18n="heroBtn">
+                    お問い合わせ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- サービスセクション -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <p class="text-sm font-bold text-blue-600 tracking-wider mb-2" data-i18n="svcLabel">OUR SERVICES</p>
+                <h2 class="text-3xl font-black text-slate-900" data-i18n="svcTitle">人に寄り添う、つながる技術。</h2>
+                <p class="text-slate-500 mt-4" data-i18n="svcDesc">現場の声から生まれた、安心して使えるケアテクノロジーを届けます。</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
+                    <div class="h-40 bg-gray-200 rounded-lg mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="ヘルスケア連携">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="svc1Title">ヘルスケア連携</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="svc1Desc">日々の健康情報をわかりやすく共有し、早期の気づきにつなげます。</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
+                    <div class="h-40 bg-gray-200 rounded-lg mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="ケアワーク支援">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="svc2Title">ケアワーク支援</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="svc2Desc">ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-gray-100">
+                    <div class="h-40 bg-gray-200 rounded-lg mb-6 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="データプラットフォーム">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="svc3Title">データプラットフォーム</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed" data-i18n="svc3Desc">必要な情報を安全につなぎ、チームのより良い意思決定を支えます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アバウトセクション -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+                <p class="text-sm font-bold text-blue-600 tracking-wider mb-2" data-i18n="abtLabel">ABOUT MARIGOLD</p>
+                <h2 class="text-3xl font-black text-slate-900 mb-6 leading-tight" data-i18n="abtTitle">誰もが自分らしく<br>年齢を重ねられる社会へ。</h2>
+                <p class="text-slate-600 leading-relaxed mb-6" data-i18n="abtDesc">
+                    Marigoldは、医療・介護の現場とテクノロジーをつなぐパートナーです。使う人の安心を第一に、あたたかく持続可能なケアの未来を設計します。
+                </p>
+            </div>
+            <div class="md:w-1/2 grid grid-cols-2 gap-6">
+                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
+                    <span class="text-2xl font-black text-blue-900 block mb-1">01</span>
+                    <span class="font-bold text-slate-800" data-i18n="abtP1">人を中心に</span>
+                </div>
+                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
+                    <span class="text-2xl font-black text-blue-900 block mb-1">02</span>
+                    <span class="font-bold text-slate-800" data-i18n="abtP2">確かな安心</span>
+                </div>
+                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
+                    <span class="text-2xl font-black text-blue-900 block mb-1">03</span>
+                    <span class="font-bold text-slate-800" data-i18n="abtP3">ひらかれた連携</span>
+                </div>
+                <div class="p-4 border-l-4 border-amber-400 bg-gray-50 rounded-r-lg">
+                    <span class="text-2xl font-black text-blue-900 block mb-1">04</span>
+                    <span class="font-bold text-slate-800" data-i18n="abtP4">明日への設計</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ★追加：創業者挨拶セクション -->
+    <section id="founder" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-sm font-bold text-amber-400 tracking-wider mb-2" data-i18n="fndLabel">FOUNDER'S MESSAGE</p>
+                <h2 class="text-3xl font-black mb-8" data-i18n="fndTitle">創業者挨拶</h2>
+                
+                <div class="text-left bg-slate-800 p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-6 font-medium" data-i18n="fndP1">
+                        医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-8 font-medium" data-i18n="fndP2">
+                        私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、2.4GHz高精度無線センシング技術とAIを活用して、現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。
+                    </p>
+                    
+                    <div class="flex items-center justify-end gap-4 border-t border-slate-700 pt-6">
+                        <div class="text-right">
+                            <p class="text-sm text-amber-400 font-bold mb-1" data-i18n="fndRole">マリーゴールド株式会社 代表</p>
+                            <p class="text-xl font-bold" data-i18n="fndName">三宅 由三 <span class="text-sm font-normal text-gray-400 ml-2">Yuzo Miyake</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- コンタクトセクション -->
+    <section id="contact" class="py-24 bg-blue-700 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="text-sm font-bold tracking-widest mb-4 opacity-80" data-i18n="ctaLabel">LET'S TALK</p>
+            <h2 class="text-4xl font-black mb-6" data-i18n="ctaTitle">ケアの未来を、一緒につくりませんか。</h2>
+            <p class="mb-10 text-blue-100" data-i18n="ctaDesc">導入のご相談、パートナーシップ、採用に関するお問い合わせをお待ちしています。</p>
+            <button class="bg-white text-blue-800 font-bold py-3 px-10 rounded-full shadow-lg hover:bg-gray-100 transition" data-i18n="ctaBtn">
+                お問い合わせはこちら
+            </button>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800">
+        <p>&copy; 2026 Marigold Corporation. All rights reserved.</p>
+    </footer>
+
+    <!-- 翻訳スクリプト -->
+    <script>
+        const i18n = {
+            ja: {
+                navServices: "サービス", navAbout: "会社情報", navFounder: "創業者挨拶", navNews: "ニュース",
+                heroLabel: "Digital Care Solutions",
+                heroTitle: "ケアが、もっと近<br>くなる。",
+                heroSub: "医療・介護・地域をやさしくつなぐデジタルソリューションで、一人ひとりの健やかな毎日を支えます。",
+                heroBtn: "お問い合わせ",
+                svcLabel: "OUR SERVICES", svcTitle: "人に寄り添う、つながる技術。", svcDesc: "現場の声から生まれた、安心して使えるケアテクノロジーを届けます。",
+                svc1Title: "ヘルスケア連携", svc1Desc: "日々の健康情報をわかりやすく共有し、早期の気づきにつなげます。",
+                svc2Title: "ケアワーク支援", svc2Desc: "ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。",
+                svc3Title: "データプラットフォーム", svc3Desc: "必要な情報を安全につなぎ、チームのより良い意思決定を支えます。",
+                abtLabel: "ABOUT MARIGOLD", abtTitle: "誰もが自分らしく<br>年齢を重ねられる社会へ。", abtDesc: "Marigoldは、医療・介護の現場とテクノロジーをつなぐパートナーです。使う人の安心を第一に、あたたかく持続可能なケアの未来を設計します。",
+                abtP1: "人を中心に", abtP2: "確かな安心", abtP3: "ひらかれた連携", abtP4: "明日への設計",
+                fndLabel: "FOUNDER'S MESSAGE", fndTitle: "創業者挨拶",
+                fndP1: "医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。",
+                fndP2: "私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、2.4GHz高精度無線センシング技術とAIを活用して、現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。",
+                fndRole: "マリーゴールド株式会社 代表", fndName: "三宅 由三",
+                ctaLabel: "LET'S TALK", ctaTitle: "ケアの未来を、一緒につくりませんか。", ctaDesc: "導入のご相談、パートナーシップ、採用に関するお問い合わせをお待ちしています。", ctaBtn: "お問い合わせはこちら"
+            },
+            en: {
+                navServices: "Services", navAbout: "About Us", navFounder: "Founder", navNews: "News",
+                heroLabel: "Digital Care Solutions", heroTitle: "Care gets<br>closer.", heroSub: "Supporting healthy daily lives through digital solutions that gently connect medical care, nursing, and the community.", heroBtn: "Contact Us",
+                svcLabel: "OUR SERVICES", svcTitle: "Technology that connects and cares.", svcDesc: "Delivering reliable care technology born from frontline voices.",
+                svc1Title: "Healthcare Integration", svc1Desc: "Sharing daily health information clearly to enable early awareness.",
+                svc2Title: "Care Work Support", svc2Desc: "Reducing the time and burden on care providers to foster richer interactions.",
+                svc3Title: "Data Platform", svc3Desc: "Connecting vital information securely to support better team decisions.",
+                abtLabel: "ABOUT MARIGOLD", abtTitle: "A society where everyone<br>can age with dignity.", abtDesc: "Marigold is a partner connecting the medical frontlines with technology. We design a warm, sustainable future of care, putting peace of mind first.",
+                abtP1: "People First", abtP2: "Reliable Safety", abtP3: "Open Collaboration", abtP4: "Designing Tomorrow",
+                fndLabel: "FOUNDER'S MESSAGE", fndTitle: "Founder's Greeting",
+                fndP1: "In emergency medical scenarios where limited resources and high-level decision-making are required, real-time spatial visualization and rapid triage support are urgent challenges.",
+                fndP2: "Marigold Co., Ltd. leads the establishment of a healthcare DX infrastructure rooted in solving frontline issues. Leveraging 2.4GHz high-precision sensing and AI, we provide solutions that directly reduce frontline burdens and improve survival rates.",
+                fndRole: "Founder & Representative", fndName: "Yuzo Miyake",
+                ctaLabel: "LET'S TALK", ctaTitle: "Let's build the future of care together.", ctaDesc: "We welcome inquiries regarding implementation, partnerships, and recruitment.", ctaBtn: "Contact Us"
+            },
+            fr: {
+                navServices: "Services", navAbout: "À Propos", navFounder: "Fondateur", navNews: "Actualités",
+                heroLabel: "Solutions de Soins Numériques", heroTitle: "Les soins se<br>rapprochent.", heroSub: "Soutenir une vie quotidienne saine grâce à des solutions numériques qui relient les soins médicaux et la communauté.", heroBtn: "Contactez-nous",
+                svcLabel: "NOS SERVICES", svcTitle: "Une technologie qui connecte.", svcDesc: "Offrir une technologie de soins fiable née des voix du terrain.",
+                svc1Title: "Intégration Santé", svc1Desc: "Partager clairement les informations de santé pour une prise conscience précoce.",
+                svc2Title: "Soutien aux Soins", svc2Desc: "Réduire la charge des soignants pour favoriser des interactions plus riches.",
+                svc3Title: "Plateforme de Données", svc3Desc: "Connecter les informations vitales en toute sécurité pour de meilleures décisions.",
+                abtLabel: "À PROPOS DE MARIGOLD", abtTitle: "Une société où chacun<br>vieillit avec dignité.", abtDesc: "Marigold relie le terrain médical à la technologie pour concevoir un avenir de soins durable et chaleureux.",
+                abtP1: "L'humain avant tout", abtP2: "Sécurité fiable", abtP3: "Collaboration ouverte", abtP4: "Concevoir demain",
+                fndLabel: "MESSAGE DU FONDATEUR", fndTitle: "Mot du Fondateur",
+                fndP1: "Face aux ressources limitées et aux décisions critiques des urgences médicales, la visualisation spatiale et le triage rapide sont des défis urgents.",
+                fndP2: "Marigold Co., Ltd. développe une infrastructure DX de santé. Grâce à la détection 2.4GHz et l'IA, nous offrons des solutions qui réduisent la charge du personnel et améliorent les taux de survie.",
+                fndRole: "Fondateur et Représentant", fndName: "Yuzo Miyake",
+                ctaLabel: "PARLONS-EN", ctaTitle: "Construisons ensemble l'avenir des soins.", ctaDesc: "Nous sommes à votre disposition pour toute demande de mise en œuvre ou de partenariat.", ctaBtn: "Contactez-nous"
+            },
+            de: {
+                navServices: "Dienstleistungen", navAbout: "Über Uns", navFounder: "Gründer", navNews: "Neuigkeiten",
+                heroLabel: "Digitale Pflegelösungen", heroTitle: "Pflege rückt<br>näher.", heroSub: "Unterstützung eines gesunden Alltags durch digitale Lösungen, die medizinische Versorgung und Gemeinschaft verbinden.", heroBtn: "Kontakt",
+                svcLabel: "UNSERE DIENSTLEISTUNGEN", svcTitle: "Technologie, die verbindet.", svcDesc: "Zuverlässige Pflegetechnologie, entstanden aus den Stimmen der Praxis.",
+                svc1Title: "Gesundheitsintegration", svc1Desc: "Tägliche Gesundheitsdaten klar teilen, um frühzeitige Erkennung zu ermöglichen.",
+                svc2Title: "Pflegeunterstützung", svc2Desc: "Entlastung des Pflegepersonals zur Förderung bereichernder Interaktionen.",
+                svc3Title: "Datenplattform", svc3Desc: "Sichere Verbindung wichtiger Informationen für bessere Teamentscheidungen.",
+                abtLabel: "ÜBER MARIGOLD", abtTitle: "Eine Gesellschaft, in der<br>jeder in Würde altert.", abtDesc: "Marigold verbindet die medizinische Praxis mit Technologie, um eine nachhaltige Zukunft der Pflege zu gestalten.",
+                abtP1: "Mensch im Mittelpunkt", abtP2: "Zuverlässige Sicherheit", abtP3: "Offene Zusammenarbeit", abtP4: "Morgen gestalten",
+                fndLabel: "NACHRICHT DES GRÜNDERS", fndTitle: "Grußwort des Gründers",
+                fndP1: "Angesichts begrenzter Ressourcen und kritischer Entscheidungen in der Notfallmedizin sind räumliche Visualisierung und schnelle Triage dringende Herausforderungen.",
+                fndP2: "Marigold Co., Ltd. entwickelt eine Gesundheits-DX-Infrastruktur. Mit 2.4GHz-Sensoren und KI bieten wir Lösungen, die das Personal entlasten und Überlebensraten verbessern.",
+                fndRole: "Gründer & Repräsentant", fndName: "Yuzo Miyake",
+                ctaLabel: "LASSEN SIE UNS REDEN", ctaTitle: "Lassen Sie uns die Zukunft der Pflege gemeinsam gestalten.", ctaDesc: "Wir freuen uns auf Ihre Anfragen zu Implementierung, Partnerschaften und Rekrutierung.", ctaBtn: "Kontaktieren Sie uns"
+            },
+            it: {
+                navServices: "Servizi", navAbout: "Chi Siamo", navFounder: "Fondatore", navNews: "Notizie",
+                heroLabel: "Soluzioni di Cura Digitali", heroTitle: "La cura si<br>avvicina.", heroSub: "Sostenere una vita quotidiana sana attraverso soluzioni digitali che collegano cure mediche e comunità.", heroBtn: "Contattaci",
+                svcLabel: "I NOSTRI SERVIZI", svcTitle: "Tecnologia che connette.", svcDesc: "Tecnologia di cura affidabile nata dalle voci in prima linea.",
+                svc1Title: "Integrazione Sanitaria", svc1Desc: "Condividere chiaramente i dati sanitari per consentire una diagnosi precoce.",
+                svc2Title: "Supporto al Lavoro di Cura", svc2Desc: "Ridurre il carico sui fornitori di cure per promuovere interazioni più ricche.",
+                svc3Title: "Piattaforma Dati", svc3Desc: "Collegare informazioni vitali in modo sicuro per supportare decisioni migliori.",
+                abtLabel: "INFORMAZIONI SU MARIGOLD", abtTitle: "Una società in cui tutti<br>invecchiano con dignità.", abtDesc: "Marigold collega la prima linea medica con la tecnologia per progettare un futuro di cura sostenibile.",
+                abtP1: "Le Persone Prima di Tutto", abtP2: "Sicurezza Affidabile", abtP3: "Collaborazione Aperta", abtP4: "Progettare il Domani",
+                fndLabel: "MESSAGGIO DEL FONDATORE", fndTitle: "Saluto del Fondatore",
+                fndP1: "A fronte di risorse limitate e decisioni critiche nelle emergenze mediche, la visualizzazione spaziale e il triage rapido sono sfide urgenti.",
+                fndP2: "Marigold Co., Ltd. sviluppa un'infrastruttura DX sanitaria. Con sensori a 2.4GHz e IA, offriamo soluzioni che riducono il carico sul personale e migliorano i tassi di sopravvivenza.",
+                fndRole: "Fondatore e Rappresentante", fndName: "Yuzo Miyake",
+                ctaLabel: "PARLIAMONE", ctaTitle: "Costruiamo insieme il futuro della cura.", ctaDesc: "Siamo a disposizione per richieste di implementazione e partnership.", ctaBtn: "Contattaci"
+            }
+        };
+
+        function switchLang(lang) {
+            document.documentElement.lang = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang] && i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+            const langs = ['ja', 'en', 'fr', 'de', 'it'];
+            langs.forEach(l => {
+                const btn = document.getElementById('lang-' + l);
+                if(l === lang) {
+                    btn.classList.add('lang-active');
+                } else {
+                    btn.classList.remove('lang-active');
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLang('ja');
         });
-      });
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-      let records = [];
-      const handler = {
-        onDataChanged(data) {
-          records = data;
-        }
-      };
-
-      async function initializeData() {
-        const result = await window.dataSdk.init(handler);
-        if (!result.isOk) {
-          document.getElementById('form-status').textContent = '現在フォームを利用できません。しばらくしてからお試しください。';
-        }
-      }
-      initializeData();
-
-      const form = document.getElementById('contact-form');
-      const submitButton = document.getElementById('submit-button');
-      const sending = document.getElementById('form-sending');
-      const success = document.getElementById('form-success');
-      const status = document.getElementById('form-status');
-
-      function setError(id, message) {
-        const input = document.getElementById(id);
-        input.setAttribute('aria-invalid', message ? 'true' : 'false');
-        document.getElementById(id + '-error').textContent = message;
-      }
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        success.classList.add('hidden');
-        status.textContent = '';
-
-        const name = form.name.value.trim();
-        const inquiryType = form.inquiry_type.value;
-        const email = form.email.value.trim();
-        const phone = form.phone.value.trim();
-        const message = form.message.value.trim();
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        setError('name', name ? '' : 'お名前・企業名を入力してください。');
-        setError('inquiry_type', inquiryType ? '' : 'お問い合わせ種別を選択してください。');
-        setError('email', emailPattern.test(email) ? '' : '有効なメールアドレスを入力してください。');
-        setError('message', message ? '' : 'お問い合わせ内容を入力してください。');
-
-        if (!name || !inquiryType || !emailPattern.test(email) || !message) return;
-        if (records.length >= 999) {
-          status.textContent = '受付件数の上限に達しています。時間をおいてお試しください。';
-          return;
-        }
-
-        submitButton.disabled = true;
-        submitButton.classList.add('opacity-60', 'cursor-not-allowed');
-        sending.classList.remove('hidden');
-        sending.classList.add('flex');
-
-        const result = await window.dataSdk.create({
-          name,
-          inquiry_type: inquiryType,
-          email,
-          phone,
-          message,
-          submitted_at: new Date().toISOString()
-        });
-
-        sending.classList.add('hidden');
-        sending.classList.remove('flex');
-        submitButton.disabled = false;
-        submitButton.classList.remove('opacity-60', 'cursor-not-allowed');
-
-        if (result.isOk) {
-          form.reset();
-          success.classList.remove('hidden');
-        } else {
-          status.textContent = '送信できませんでした。入力内容をご確認のうえ、もう一度お試しください。';
-        }
-      });
-    });
-  </script>
- 
-</body></html>
+    </script>
+</body>
+</html>
