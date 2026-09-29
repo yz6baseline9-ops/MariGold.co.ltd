@@ -15,7 +15,7 @@
       margin: 0;
       font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.8;
     }
     header {
       background: #fff;
@@ -99,9 +99,23 @@
     }
     .founder-box {
       background: #fff;
-      padding: 40px;
+      padding: 50px;
       border-left: 5px solid var(--accent-color);
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .manga-container {
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .manga-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid #eee;
     }
     footer {
       background: var(--primary-color);
@@ -119,9 +133,6 @@
     <div class="lang-selector">
       <button onclick="setLang('ja')" class="active" id="btn-ja">JP</button>
       <button onclick="setLang('en')" id="btn-en">EN</button>
-      <button onclick="setLang('fr')" id="btn-fr">FR</button>
-      <button onclick="setLang('de')" id="btn-de">DE</button>
-      <button onclick="setLang('it')" id="btn-it">IT</button>
     </div>
   </header>
 
@@ -149,16 +160,46 @@
     </div>
   </section>
 
-  <section class="bg-gray">
+  <!-- マンガセクション -->
+  <section class="bg-gray" style="padding-top: 60px; padding-bottom: 60px;">
+    <h2 class="section-title" id="comic-title">Story: 見えない動線、つながる命</h2>
+    <div class="manga-container">
+      <!-- 
+        ※ 先ほどアップロードしたマンガの画像ファイル名に合わせて変更してください。
+        例: page1.jpg, page2.jpg, page3.jpg, page4.jpg の場合 
+      -->
+      <img src="page1.jpg" alt="マンガ1ページ目" onerror="this.style.display='none'">
+      <img src="page2.jpg" alt="マンガ2ページ目" onerror="this.style.display='none'">
+      <img src="page3.jpg" alt="マンガ3ページ目" onerror="this.style.display='none'">
+      <img src="page4.jpg" alt="マンガ4ページ目" onerror="this.style.display='none'">
+      <img src="comic-full.jpg" alt="マンガ一枚絵" onerror="this.style.display='none'">
+    </div>
+  </section>
+
+  <!-- 創業者メッセージセクション（最新版） -->
+  <section>
     <div style="max-width: 1000px; margin: 0 auto;">
-      <h2 class="section-title" id="founder-title">創業者挨拶</h2>
+      <h2 class="section-title" id="founder-title">創業者メッセージ（代表挨拶）</h2>
       <div class="founder-box">
-        <p id="founder-desc" style="margin-bottom: 20px;">
-          医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。<br><br>
-          私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、高精度無線センシング技術とAIを活用した現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。
+        <h3 style="color: var(--primary-color); font-size: 22px; margin-top: 0;">「あきらめない人生」を支える、新しい地域社会のインフラへ</h3>
+        <p id="founder-desc" style="margin-bottom: 30px;">
+          誰もがこれまで、自らの足で歩み、キャリアを築き、それぞれの価値観で人生を紡いできました。<br><br>
+          しかし、いざ支援や介護が必要なフェーズを迎えた途端、画一的で選択肢の限られたサービスに甘んじることを余儀なくされてしまう――。私たちは、この現状に強い違和感を抱いてきました。<br>
+          本来、提供されるべきは「制度の枠に人を当てはめるサービス」ではなく、「一人ひとりの尊厳とライフスタイルに寄り添う真のパートナーシップ」であるはずです。<br><br>
+          
+          <strong style="color: var(--accent-color); font-size: 18px; display: inline-block; margin-bottom: 10px;">現場の「不安」と「分断」を、テクノロジーで透明化する</strong><br>
+          在宅支援や訪問の現場において、利用者様やご家族が抱く「防犯上の不安」や「サービスへの不信感」、あるいは現場スタッフが直面するトラブルのリスクは、決して個人の責任ではありません。情報が分断され、可視化されていない構造そのものに原因があります。<br><br>
+          私たちマリーゴールドは、2.4GHz動線センシングや音声AIといった先進のDXソリューションを実装し、現場の安全性・透明性を飛躍的に高めます。<br>
+          これにより、ご家族には揺るぎない安心を、現場の従事者には正当な評価と働きやすい環境を提供いたします。<br><br>
+
+          <strong style="color: var(--accent-color); font-size: 18px; display: inline-block; margin-bottom: 10px;">BtoB共創から、地域インフラの未来へ</strong><br>
+          私たちの目指す世界は、単なる個別サポートにとどまりません。<br>
+          医療機関（ER・救急トリアージ）とのシームレスなデータ連携、さらにはタクシー・移動インフラとの結合により、発症から搬送、受診、そして日常の生活支援に至るまで、地域全体を一つの「安心のネットワーク」で包み込む構想を進めています。<br><br>
+          「あきらめない、我慢しない」当たり前を、技術と情熱で現実のものへ。<br>
+          マリーゴールドは、事業者・医療機関・地域の皆様と共に、令和の時代にふさわしい新しい社会インフラを築いてまいります。
         </p>
-        <div style="text-align: right;">
-          <strong id="founder-name">代表 三宅 由三</strong>
+        <div style="text-align: right; border-top: 1px solid #eee; padding-top: 20px;">
+          <strong id="founder-name" style="font-size: 18px;">マリーゴールド株式会社<br>設立準備委員会 代表 三宅 由三</strong>
         </div>
       </div>
     </div>
@@ -181,13 +222,11 @@
         "srv2-desc": "ケアに携わる人の時間と負担を減らし、より豊かな対話を生み出します。",
         "srv3-title": "データプラットフォーム",
         "srv3-desc": "必要な情報を安全につなぎ、チームのより良い意思決定を支えます。",
-        "founder-title": "創業者挨拶",
-        "founder-desc": "医療機関や救急現場における限られたリソースと高度な判断が求められる局面において、「リアルタイムの動線可視化」と「迅速なトリアージ支援」は喫緊の課題です。<br><br>私どもマリーゴールド株式会社は、現場の課題解決に根ざした「生命と生活に寄り添う医療DXインフラ」の確立を牽引し、高精度無線センシング技術とAIを活用した現場の負担軽減と救命率向上に直結するソリューションを提供してまいります。",
-        "founder-name": "代表 三宅 由三"
+        "comic-title": "Story: 見えない動線、つながる命"
       },
       en: {
         "hero-title": "Bringing Care Closer to You.",
-        "hero-desc": "Digital solutions connecting medicine, nursing care, and communities to support daily health. Next-generation infrastructure powered by 2.4GHz edge sensing and AI triage.",
+        "hero-desc": "Digital solutions connecting medicine, nursing care, and communities. Next-generation infrastructure powered by 2.4GHz edge sensing and AI triage.",
         "hero-btn": "Contact Us",
         "services-title": "Technology that Connects and Cares.",
         "srv1-title": "Healthcare Integration",
@@ -196,54 +235,7 @@
         "srv2-desc": "Reduce the time and burden on care providers, creating richer dialogue.",
         "srv3-title": "Data Platform",
         "srv3-desc": "Securely connect necessary information to support better team decisions.",
-        "founder-title": "Message from the Founder",
-        "founder-desc": "In medical institutions and emergency scenes where limited resources and advanced judgment are required, 'real-time flow visualization' and 'rapid triage support' are urgent issues.<br><br>Marigold Co., Ltd. will lead the establishment of a 'medical DX infrastructure that stays close to life and living' rooted in solving on-site problems, and will provide solutions that directly lead to reducing the burden on the site and improving the lifesaving rate using high-precision wireless sensing technology and AI.",
-        "founder-name": "Yuzo Miyake, Representative Director"
-      },
-      fr: {
-        "hero-title": "Rapprocher les soins de vous.",
-        "hero-desc": "Des solutions numériques connectant la médecine, les soins infirmiers et les communautés. Infrastructure de nouvelle génération propulsée par la détection 2,4 GHz et le triage par IA.",
-        "hero-btn": "Contactez-nous",
-        "services-title": "Une technologie qui connecte et prend soin.",
-        "srv1-title": "Intégration des soins de santé",
-        "srv1-desc": "Partagez facilement les informations de santé quotidiennes pour une sensibilisation précoce.",
-        "srv2-title": "Soutien aux soignants",
-        "srv2-desc": "Réduisez la charge des prestataires de soins, favorisant un dialogue plus riche.",
-        "srv3-title": "Plateforme de données",
-        "srv3-desc": "Connectez les informations en toute sécurité pour de meilleures décisions d'équipe.",
-        "founder-title": "Mot du Fondateur",
-        "founder-desc": "Dans les urgences où les ressources sont limitées, la 'visualisation des flux en temps réel' et le 'soutien au triage rapide' sont essentiels.<br><br>Marigold Co., Ltd. dirigera l'établissement d'une infrastructure DX médicale qui reste proche de la vie, en fournissant des solutions qui réduisent la charge sur site et améliorent le taux de sauvetage grâce à la détection sans fil de haute précision et à l'IA.",
-        "founder-name": "Yuzo Miyake, Représentant"
-      },
-      de: {
-        "hero-title": "Pflege näher zu Ihnen bringen.",
-        "hero-desc": "Digitale Lösungen, die Medizin, Pflege und Gemeinschaften verbinden. Infrastruktur der nächsten Generation, angetrieben durch 2,4-GHz-Sensing und KI-Triage.",
-        "hero-btn": "Kontaktiere uns",
-        "services-title": "Technologie, die verbindet und pflegt.",
-        "srv1-title": "Gesundheitsintegration",
-        "srv1-desc": "Tauschen Sie Gesundheitsinformationen einfach aus und fördern Sie das Bewusstsein.",
-        "srv2-title": "Pflegeunterstützung",
-        "srv2-desc": "Reduzieren Sie die Belastung des Pflegepersonals und schaffen Sie reichhaltigere Dialoge.",
-        "srv3-title": "Datenplattform",
-        "srv3-desc": "Sichere Verbindung notwendiger Informationen für bessere Teamentscheidungen.",
-        "founder-title": "Wort des Gründers",
-        "founder-desc": "In Notfällen mit begrenzten Ressourcen sind 'Echtzeit-Ablaufvisualisierung' und 'schnelle Triage-Unterstützung' von dringender Bedeutung.<br><br>Marigold Co., Ltd. wird den Aufbau einer lebensnahen medizinischen DX-Infrastruktur leiten und Lösungen anbieten, die durch hochpräzise drahtlose Sensorik und KI die Belastung vor Ort verringern und die Rettungsrate verbessern.",
-        "founder-name": "Yuzo Miyake, Vertreter"
-      },
-      it: {
-        "hero-title": "Avvicinare le cure a te.",
-        "hero-desc": "Soluzioni digitali che collegano medicina, assistenza e comunità. Infrastruttura di nuova generazione alimentata da rilevamento a 2,4 GHz e triage IA.",
-        "hero-btn": "Contattaci",
-        "services-title": "Tecnologia che connette e cura.",
-        "srv1-title": "Integrazione Sanitaria",
-        "srv1-desc": "Condividi facilmente le informazioni sulla salute per una consapevolezza precoce.",
-        "srv2-title": "Supporto all'assistenza",
-        "srv2-desc": "Riduci il carico sui fornitori di cure, creando un dialogo più ricco.",
-        "srv3-title": "Piattaforma Dati",
-        "srv3-desc": "Connetti le informazioni in modo sicuro per decisioni di squadra migliori.",
-        "founder-title": "Messaggio del Fondatore",
-        "founder-desc": "Nelle emergenze con risorse limitate, la 'visualizzazione del flusso in tempo reale' e il 'supporto rapido al triage' sono essenziali.<br><br>Marigold Co., Ltd. guiderà la creazione di un'infrastruttura DX medica vicina alla vita, fornendo soluzioni che riducono il carico sul campo e migliorano il tasso di salvataggio utilizzando il rilevamento wireless ad alta precisione e l'IA.",
-        "founder-name": "Yuzo Miyake, Rappresentante"
+        "comic-title": "Story: Invisible Flow, Connected Lives"
       }
     };
 
