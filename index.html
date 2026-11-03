@@ -225,6 +225,27 @@
     <div class="site-inner flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center py-8">
      <p data-template-id="footer-name" class="canva-text font-semibold" style="color: rgb(255, 255, 255); font-weight: 600; font-size: 14px;">マリーゴールド株式会社</p>
      <p data-template-id="footer-line" class="canva-text" style="color: rgb(180, 198, 185); font-size: 12px;">医療と介護のあいだに、よりよい接点を。</p>
+<nav class="site-nav">
+  <a href="./index.html">ホーム</a>
+  <a href="./jinsei_shiori.html">人生の栞</a>
+  <a href="./portal_index.html">ポータル</a>
+</nav>
+
+トップページのボタンから遷移させる場合は、次のようにします。
+
+<a class="button" href="./jinsei_shiori.html">
+  人生の栞を読む
+</a>
+
+<a class="button" href="./portal_index.html">
+  ポータルを見る
+</a>
+
+JavaScriptで遷移させるなら、次の形です。
+
+<button onclick="location.href='./jinsei_shiori.html'">
+  第一月を開く
+</button>
     </div>
    </footer>
   </div>
